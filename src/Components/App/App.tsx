@@ -1,16 +1,20 @@
-import React, { useEffect } from 'react';
-import { getWeather } from '../Api/ApiCall'
+import React, { useEffect, useState } from 'react';
+import { getCurrentWeather } from '../Api/ApiCall'
 import './App.css';
 
 export default function App() {
+  const [currentWeather, setCurrentWeather] = useState({});
+  const [ error, setError ] = useState('');
   
   useEffect(() => {
     const callWeather = async () => {
+      setError('')
       try{
-        const weatherReport = await getWeather('Orlando');
+        const weatherReport = await getCurrentWeather('orlando');
         console.log(weatherReport)
+        setCurrentWeather(weatherReport)
       } catch(e) {
-        console.log(e.message)
+        setError(e.message)
       }
     }
     callWeather()
