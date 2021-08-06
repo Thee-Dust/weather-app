@@ -12,7 +12,7 @@ export async function getWeather(location: string) {
   }
 };
 
-const fetchWeather = async(cords: Cords) => {
+const fetchWeather = async(cords: Cords[]) => {
   try{
     const response = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${cords[0].lat}&lon=${cords[0].lon}&appid=${apiKey}`);
     const data = response.json();

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { getCurrentWeather } from '../Api/ApiCall'
+import Navbar from '../Navbar/Navbar';
 import './App.css';
 
 export default function App() {
@@ -22,7 +23,7 @@ export default function App() {
 
   return (
     <main> 
-
+      <Navbar/>
     </main>
   );
 }

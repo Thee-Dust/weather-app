@@ -1,4 +1,4 @@
-export type Cords = [
+export interface Cords 
   {
     country: string,
     lat: number,
@@ -7,5 +7,15 @@ export type Cords = [
     name: string,
     state: string
   }
-]
+
+export interface CurrentWeather 
+  {
+
+  }
+
+export interface Event 
+  {
+
+  }
+
 
