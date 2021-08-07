@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { getCurrentWeather } from '../Api/ApiCall'
 import Navbar from '../Navbar/Navbar';
+import CurrentForcast from '../CurrentForcast/CurrentForcast'
+import { CurrentWeather } from '../../Utilities/Utilitiles';
 import './App.css';
 
 export default function App() {
-  const [currentWeather, setCurrentWeather] = useState({});
+  const [currentWeather, setCurrentWeather] = useState<Partial<CurrentWeather>>({});
   const [ error, setError ] = useState('');
   
   useEffect(() => {
@@ -24,6 +26,7 @@ export default function App() {
   return (
     <main> 
       <Navbar/>
+      <CurrentForcast currentWeather={currentWeather}/>
     </main>
   );
 }
