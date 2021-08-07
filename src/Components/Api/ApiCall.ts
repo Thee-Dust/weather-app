@@ -24,7 +24,7 @@ const fetchWeather = async(cords: Cords[]) => {
 
 export async function getCurrentWeather(city: string) {
   try {
-    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`);
+    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`);
     return response.json()
   } catch(e) {
     throw Error(e.message);
