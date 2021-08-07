@@ -4,11 +4,10 @@ import { CurrentWeather } from '../../Utilities/Utilitiles'
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 
 export default function CurrentForcast({ currentWeather }: { currentWeather: CurrentWeather }) {
+		const today = new Date(currentWeather.dt * 1000);
+		const currentDate = dayjs(today).format('ddd, MMMM D, h:mm A');
+		const location = `${currentWeather.name}, ${currentWeather.sys?.country}`;
 
-		console.log(currentWeather)
-		const today = new Date(currentWeather.dt * 1000)
-		const currentDate = dayjs(today).format('ddd, MMMM D, h:mm A')
-		const location = `${currentWeather.name}, ${currentWeather.sys?.country}`
 		return (
 			<div>
 				<div>
