@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { getCurrentWeather } from '../Api/ApiCall'
 import Navbar from '../Navbar/Navbar';
+import CurrentForcast from '../CurrentForcast/CurrentForcast'
+import { CurrentWeather } from '../../Utilities/Utilitiles';
 import './App.css';
 
 export default function App() {
-  const [currentWeather, setCurrentWeather] = useState({});
+  const [ currentWeather, setCurrentWeather ] = useState<CurrentWeather>();
   const [ error, setError ] = useState('');
   
   useEffect(() => {
@@ -20,12 +22,16 @@ export default function App() {
     }
     callWeather()
   },[])
-
-  return (
-    <main> 
-      <Navbar/>
-    </main>
-  );
+	
+	if(!!currentWeather?.id) {
+		return (
+			<main> 
+				<Navbar/>
+				<CurrentForcast currentWeather={currentWeather}/>
+			</main>
+		);
+	}
+	return null
 }
 
 
