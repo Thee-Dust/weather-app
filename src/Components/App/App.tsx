@@ -6,7 +6,7 @@ import { CurrentWeather } from '../../Utilities/Utilitiles';
 import './App.css';
 
 export default function App() {
-  const [currentWeather, setCurrentWeather] = useState<Partial<CurrentWeather>>({});
+  const [ currentWeather, setCurrentWeather ] = useState<CurrentWeather>();
   const [ error, setError ] = useState('');
   
   useEffect(() => {
@@ -22,13 +22,16 @@ export default function App() {
     }
     callWeather()
   },[])
-
-  return (
-    <main> 
-      <Navbar/>
-      <CurrentForcast currentWeather={currentWeather}/>
-    </main>
-  );
+	
+	if(!!currentWeather?.id) {
+		return (
+			<main> 
+				<Navbar/>
+				<CurrentForcast currentWeather={currentWeather}/>
+			</main>
+		);
+	}
+	return null
 }
 
 
