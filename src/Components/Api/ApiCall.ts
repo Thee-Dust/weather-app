@@ -1,7 +1,7 @@
 import { Cords } from '../../Utilities/Utilitiles'
 const apiKey = process.env.REACT_APP_WEATHER_API_KEY
 
-export default async function getWeather(location: string) {
+export async function getWeather(location: string) {
   try {
     const response = await fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${location}&limit=1&appid=${apiKey}`);
     const data = await response.json();
@@ -15,21 +15,21 @@ export default async function getWeather(location: string) {
 const fetchWeather = async(cords: Cords[]) => {
   try{
 		const response = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${cords[0].lat}&lon=${cords[0].lon}&appid=${apiKey}&units=imperial`);
-    const data = response.json();
+    const data = await response.json();
     return data
   } catch(e) {
     throw Error(e.message);
   }
 };
 
-// export async function getCurrentWeather(city: string) {
-//   try {
-//     const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`);
-//     return response.json()
-//   } catch(e) {
-//     throw Error(e.message);
-//   }
-// } 
+export async function getCurrentWeather(city: string) {
+  try {
+    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`);
+    return response.json()
+  } catch(e) {
+    throw Error(e.message);
+  }
+} 
 
 // export async function getHourlyForcast(city: string) {
 // 	try {
