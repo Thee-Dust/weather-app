@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import getWeather from '../Api/ApiCall'
+import { getCurrentWeather, getWeather } from '../Api/ApiCall'
 import Navbar from '../Navbar/Navbar';
 import CurrentForcast from '../CurrentForcast/CurrentForcast'
 import { CurrentWeather } from '../../Utilities/Utilitiles';
 import './App.css';
 
 export default function App() {
-  const [ currentWeather, setCurrentWeather ] = useState({});
+  const [ currentWeather, setCurrentWeather ] = useState<CurrentWeather>();
 	const [ hourlyWeather, setHourlyWeather ] = useState({})
   const [ error, setError ] = useState('');
   
@@ -14,9 +14,11 @@ export default function App() {
     const callWeather = async () => {
       setError('')
       try{
-        const weatherReport = await getWeather('orlando');
-				console.log(weatherReport)
+        const weatherReport = await getCurrentWeather('orlando');
+				const hourlyReport = await getWeather('orlando')
         setCurrentWeather(weatherReport)
+				setHourlyWeather(hourlyReport.hourly)
+				console.log(hourlyReport)
       } catch(e) {
         setError(e.message)
       }
@@ -24,12 +26,15 @@ export default function App() {
     callWeather()
   },[])
 	
+	if(!!currentWeather?.id) {
 		return (
 			<main> 
 				<Navbar/>
-				{/* <CurrentForcast currentWeather={currentWeather}/> */}
+				<CurrentForcast currentWeather={currentWeather}/>
 			</main>
 		);
+	}
+	return null
 }
 
 

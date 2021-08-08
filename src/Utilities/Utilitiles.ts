@@ -11,17 +11,6 @@ export interface Cords
 }
 
 
-export interface forecast
-{
-	current: CurrentWeather,
-	daily: Daily[],
-	hourly: Hourly[],
-	lat: number,
-	lon: number,
-	minutely: Minutely[],
-	timezone: string,
-	timezone_offset: number
-}
 export interface CurrentWeather 
 {
 	base: string,
@@ -59,7 +48,36 @@ export interface CurrentWeather
 		deg: number
 	}
 }
+export interface Forecast
+{
+	current: CurrentWeatherAllInOne,
+	daily: Daily[],
+	hourly: Hourly[],
+	lat: number,
+	lon: number,
+	minutely: Minutely[],
+	timezone: string,
+	timezone_offset: number
+}
 
+export interface CurrentWeatherAllInOne {
+	clouds: number,
+	dew_point: number,
+	dt: number,
+	feels_like: number,
+	humidity: number,
+	pressure: number,
+	sunrise: number,
+	sunset: number,
+	id: number,
+	temp: number,
+	uvi: number,
+	visability: number,
+	weather: Weather[],
+	wind_deg: number,
+	wind_gust: number,
+	wind_speed: number
+}
   interface Weather 
 {
 	description: string,
