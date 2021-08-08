@@ -2,12 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { getCurrentWeather, getWeather } from '../Api/ApiCall'
 import Navbar from '../Navbar/Navbar';
 import CurrentForcast from '../CurrentForcast/CurrentForcast'
-import { CurrentWeather } from '../../Utilities/Utilitiles';
+import HourlyForcast from '../HourlyForecast/HourlyForcast';
+import { CurrentWeather, Hourly } from '../../Utilities/Utilitiles';
 import './App.css';
+
 
 export default function App() {
   const [ currentWeather, setCurrentWeather ] = useState<CurrentWeather>();
-	const [ hourlyWeather, setHourlyWeather ] = useState({})
+	const [ hourlyWeather, setHourlyWeather ] = useState<Hourly[]>([])
   const [ error, setError ] = useState('');
   
   useEffect(() => {
@@ -18,7 +20,6 @@ export default function App() {
 				const hourlyReport = await getWeather('orlando')
         setCurrentWeather(weatherReport)
 				setHourlyWeather(hourlyReport.hourly)
-				console.log(hourlyReport)
       } catch(e) {
         setError(e.message)
       }
@@ -26,11 +27,12 @@ export default function App() {
     callWeather()
   },[])
 	
-	if(!!currentWeather?.id) {
+	if(!!currentWeather?.id && !!hourlyWeather.length) {
 		return (
 			<main> 
 				<Navbar/>
 				<CurrentForcast currentWeather={currentWeather}/>
+				<HourlyForcast hourlyReport={hourlyWeather}/>
 			</main>
 		);
 	}
