@@ -8,7 +8,7 @@ import './App.css';
 
 
 export default function App() {
-  const [ currentWeather, setCurrentWeather ] = useState<CurrentWeather>();
+  const [ currentWeather, setCurrentWeather ] = useState<CurrentWeather | null>(null);
 	const [ hourlyWeather, setHourlyWeather ] = useState<Hourly[]>([])
   const [ error, setError ] = useState('');
   
