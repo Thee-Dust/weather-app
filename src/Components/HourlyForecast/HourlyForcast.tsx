@@ -3,6 +3,7 @@ import dayjs from 'dayjs'
 import { Hourly } from '../../Utilities/Utilitiles'
 
 export default function HourlyForcast({ hourlyReport }: { hourlyReport: Hourly[] }) {
+	console.log(hourlyReport)
 
 	const hourCards = hourlyReport.map((hour, index) => {
 
@@ -12,6 +13,7 @@ export default function HourlyForcast({ hourlyReport }: { hourlyReport: Hourly[]
 			<div key={index}>
 				<span>{futureHour}</span>
 				<img src={`http://openweathermap.org/img/wn/${hour.weather[0].icon}@2x.png`}/>
+				<span>{hour.temp}°</span>
 			</div>
 			)
 	})
