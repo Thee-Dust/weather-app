@@ -1,11 +1,13 @@
 import React, { useState, useEffect, MouseEvent } from 'react'
-import { Hourly } from '../../Utilities/Utilitiles';
+import { Daily, Hourly } from '../../Utilities/Utilitiles';
 import { getWeather } from '../Api/ApiCall'
+import DailyForcast from '../DailyForcast/DailyForcast';
 import HourlyForcast from '../HourlyForecast/HourlyForcast';
 
 export default function FutureForcast() {
-	const [hourlyForcast, setHourlyForcast ] = useState<boolean>(true)
-	const [futureForcast, setFurtureForast ] = useState<Hourly[]>([]);
+	const [ hourly, setHourly ] = useState<boolean>(true)
+	const [ hourlyForcast, setHourlyForcast ] = useState<Hourly[]>([]);
+	const [ dailyForcast, setDailyForcast ] = useState<Daily[]>([])
 	const [ error, setError ] = useState<string>('');
 
 	useEffect(() => {
@@ -13,7 +15,8 @@ export default function FutureForcast() {
 			setError('')
 			try {
 				const forcast = await getWeather('orlando');
-				setFurtureForast(forcast.hourly)
+				setHourlyForcast(forcast.hourly)
+				setDailyForcast(forcast.daily)
 			} catch(e) {
 				setError(e.message)
 			}
@@ -23,18 +26,20 @@ export default function FutureForcast() {
 
 	const switchForcast = (e: MouseEvent) => {
 		e.preventDefault();
-		setHourlyForcast(prevState => !prevState);
+		setHourly(prevState => !prevState);
 	}
 
-	if(!!futureForcast.length) {
+	if(!!hourlyForcast.length) {
 		return (
 			<div>
 				<div>
-					<button onClick={switchForcast} disabled={!hourlyForcast}>Hourly</button>
-					<button onClick={switchForcast} disabled={hourlyForcast}>Daily</button>
+					<button onClick={switchForcast} disabled={hourly}>Hourly</button>
+					<button onClick={switchForcast} disabled={!hourly}>Daily</button>
 				</div>
 				<div>
-					<HourlyForcast hourlyReport={futureForcast}/>
+					{hourly ? 
+					<HourlyForcast hourlyReport={hourlyForcast}/> :
+					<DailyForcast dailyForcast={dailyForcast}/> }
 				</div>
 			</div>
 		);
