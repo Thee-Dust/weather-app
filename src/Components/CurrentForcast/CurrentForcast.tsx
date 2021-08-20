@@ -1,15 +1,35 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import dayjs from 'dayjs'
 import { CurrentWeather } from '../../Utilities/Utilitiles'
 import StarBorderIcon from '@material-ui/icons/StarBorder';
+import { getCurrentWeather } from '../Api/ApiCall';
 
-export default function CurrentForcast({ currentWeather }: { currentWeather: CurrentWeather }) {
-		const today = new Date(currentWeather.dt * 1000);
-		const currentDate = dayjs(today).format('ddd, MMMM D, h:mm A');
-		const location = `${currentWeather.name}, ${currentWeather.sys?.country}`;
+export default function CurrentForcast() {
+	const [currentWeather, setCurrentWeather] = useState<CurrentWeather | null>(null);
+	const [error, setError] = useState('');
 
-		return (
-			<div>
+	useEffect(() => {
+		const callWeather = async () => {
+			setError('')
+			try {
+				const weatherReport = await getCurrentWeather('orlando');
+				setCurrentWeather(weatherReport)
+			} catch (e) {
+				setError(e.message)
+			}
+		}
+		callWeather()
+	}, [])
+
+
+		if(currentWeather?.id){
+
+			const today = new Date(currentWeather.dt * 1000);
+			const currentDate = dayjs(today).format('ddd, MMMM D, h:mm A');
+			const location = `${currentWeather.name}, ${currentWeather.sys?.country}`;
+			
+			return (
+				<div>
 				<div>
 					<p>{currentDate} in {location}</p>
 					<h3>{currentWeather.main.temp.toFixed(0)}°</h3>
@@ -21,4 +41,7 @@ export default function CurrentForcast({ currentWeather }: { currentWeather: Cur
 				</div>
 			</div>
 		)
-}
+	}
+	return null
+	}
+	

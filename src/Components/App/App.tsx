@@ -8,32 +8,30 @@ import './App.css';
 
 
 export default function App() {
-  const [ currentWeather, setCurrentWeather ] = useState<CurrentWeather | null>(null);
-  const [ error, setError ] = useState('');
   
-  useEffect(() => {
-    const callWeather = async () => {
-      setError('')
-      try{
-        const weatherReport = await getCurrentWeather('orlando');
-        setCurrentWeather(weatherReport)
-      } catch(e) {
-        setError(e.message)
-      }
-    }
-    callWeather()
-  },[])
+  
+  
+  // useEffect(() => {
+  //   const callWeather = async () => {
+  //     setError('')
+  //     try{
+  //       const weatherReport = await getCurrentWeather('orlando');
+  //       setCurrentWeather(weatherReport)
+  //     } catch(e) {
+  //       setError(e.message)
+  //     }
+  //   }
+  //   callWeather()
+  // },[])
 	
-	if(!!currentWeather?.id) {
-		return (
-			<main> 
-				<Navbar/>
-				<CurrentForcast currentWeather={currentWeather}/>
-				<FutureForcast />
-			</main>
-		);
-	}
-	return null
+
+	return (
+		<main> 
+			<Navbar/>
+			<CurrentForcast />
+			<FutureForcast />
+		</main>
+	);
 }
 
 
