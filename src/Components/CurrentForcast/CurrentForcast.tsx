@@ -12,7 +12,7 @@ export default function CurrentForcast({ currentWeather }: { currentWeather: Cur
 			<div>
 				<div>
 					<p>{currentDate} in {location}</p>
-					<h3>{currentWeather.main.temp}°</h3>
+					<h3>{currentWeather.main.temp.toFixed(0)}°</h3>
 					<p>{currentWeather.weather[0].main}</p>
 				</div>
 				<div>

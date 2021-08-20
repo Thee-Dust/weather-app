@@ -13,8 +13,8 @@ export default function DailyForcast({ dailyForcast }: { dailyForcast: Daily[] }
 			<div key={index}>
 				<span>{futureDate}</span>
 				<img src={`http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png`} />
-				<span>Low of {day.temp.min}°</span>
-				<span>High of {day.temp.max}°</span>
+				<span>Low of {day.temp.min.toFixed(0)}°</span>
+				<span>High of {day.temp.max.toFixed(0)}°</span>
 			</div>
 		)
 	})
