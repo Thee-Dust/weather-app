@@ -4,25 +4,25 @@ import { getWeather } from '../Api/ApiCall'
 import DailyForcast from '../DailyForcast/DailyForcast';
 import HourlyForcast from '../HourlyForecast/HourlyForcast';
 
-export default function FutureForcast() {
+export default function FutureForcast({ searchedCity }: { searchedCity: string }) {
 	const [ hourly, setHourly ] = useState<boolean>(true)
 	const [ hourlyForcast, setHourlyForcast ] = useState<Hourly[]>([]);
 	const [ dailyForcast, setDailyForcast ] = useState<Daily[]>([])
 	const [ error, setError ] = useState<string>('');
 
 	useEffect(() => {
-		const callForcast = async () => {
+		const callForcast = async (searchedCity: string) => {
 			setError('')
 			try {
-				const forcast = await getWeather('orlando');
+				const forcast = await getWeather(searchedCity);
 				setHourlyForcast(forcast.hourly)
 				setDailyForcast(forcast.daily)
-			} catch(e) {
+			} catch (e) {
 				setError(e.message)
 			}
 		}
-		callForcast()
-	},[])
+		callForcast(searchedCity)
+		}, [searchedCity]);
 
 	const switchForcast = (e: MouseEvent) => {
 		e.preventDefault();

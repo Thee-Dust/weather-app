@@ -1,16 +1,20 @@
 import React, { useEffect, useState } from 'react';
-import { getCurrentWeather } from '../Api/ApiCall'
+// import { getCurrentWeather } from '../Api/ApiCall'
 import Navbar from '../Navbar/Navbar';
 import CurrentForcast from '../CurrentForcast/CurrentForcast'
 import FutureForcast from '../FutureForcast/FutureForcast'
-import { CurrentWeather } from '../../Utilities/Utilitiles';
+// import { CurrentWeather } from '../../Utilities/Utilitiles';
 import './App.css';
 
 
 export default function App() {
   
+  const [ searchedCity, setSearchedCity ] = useState<string>('orlando')
   
-  
+
+	const findCity = (city: string) => {
+		setSearchedCity(city);
+	}
   // useEffect(() => {
   //   const callWeather = async () => {
   //     setError('')
@@ -27,9 +31,9 @@ export default function App() {
 
 	return (
 		<main> 
-			<Navbar/>
-			<CurrentForcast />
-			<FutureForcast />
+			<Navbar findCity={findCity}/>
+			<CurrentForcast searchedCity={searchedCity}/>
+			<FutureForcast searchedCity={searchedCity}/>
 		</main>
 	);
 }

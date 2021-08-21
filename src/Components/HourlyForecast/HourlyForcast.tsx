@@ -11,7 +11,7 @@ export default function HourlyForcast({ hourlyReport }: { hourlyReport: Hourly[]
 		return (
 			<div key={index}>
 				<span>{futureHour}</span>
-				<img src={`http://openweathermap.org/img/wn/${hour.weather[0].icon}@2x.png`}/>
+				<img src={`http://openweathermap.org/img/wn/${hour.weather[0].icon}@2x.png`} alt={hour.weather[0].description}/>
 				<span>{hour.temp.toFixed(0)}°</span>
 			</div>
 			)

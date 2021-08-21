@@ -1,11 +1,15 @@
 import React, { FormEvent, useRef } from 'react'
 import SearchIcon from '@material-ui/icons/Search';
 
-export default function Navbar() {
-	const cityRef = useRef(null);
+export default function Navbar({findCity}: {findCity: (city: string) => void}) {
+	const cityRef = useRef<HTMLInputElement>(null);
 
 	const searchCity = (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault()
+		if(cityRef.current) {
+			console.log(cityRef.current.value)
+			findCity(cityRef.current.value)
+		}
 	}
 
 	return (
