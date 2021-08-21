@@ -4,7 +4,7 @@ import { getWeather } from '../Api/ApiCall'
 import DailyForcast from '../DailyForcast/DailyForcast';
 import HourlyForcast from '../HourlyForecast/HourlyForcast';
 
-export default function FutureForcast() {
+export default function FutureForcast({ searchedCity }: { searchedCity: string }) {
 	const [ hourly, setHourly ] = useState<boolean>(true)
 	const [ hourlyForcast, setHourlyForcast ] = useState<Hourly[]>([]);
 	const [ dailyForcast, setDailyForcast ] = useState<Daily[]>([])
