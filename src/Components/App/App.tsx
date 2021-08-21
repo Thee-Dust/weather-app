@@ -9,8 +9,12 @@ import './App.css';
 
 export default function App() {
   
+  const [ searchedCity, setSearchedCity ] = useState<string>('')
   
-  
+
+	const findCity = (city: string) => {
+		setSearchedCity(city);
+	}
   // useEffect(() => {
   //   const callWeather = async () => {
   //     setError('')
@@ -27,7 +31,7 @@ export default function App() {
 
 	return (
 		<main> 
-			<Navbar/>
+			<Navbar findCity={findCity}/>
 			<CurrentForcast />
 			<FutureForcast />
 		</main>
