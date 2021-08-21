@@ -9,7 +9,7 @@ import './App.css';
 
 export default function App() {
   
-  const [ searchedCity, setSearchedCity ] = useState<string>('')
+  const [ searchedCity, setSearchedCity ] = useState<string>('orlando')
   
 
 	const findCity = (city: string) => {

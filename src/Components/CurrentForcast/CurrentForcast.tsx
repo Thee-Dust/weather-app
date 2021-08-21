@@ -11,20 +11,11 @@ export default function CurrentForcast({searchedCity}: {searchedCity: string}) {
 	useEffect(() => {
 		const callWeather = async (searchedCity: string) => {
 			setError('')
-			if(!!searchedCity) {
-				try {
-					const weatherReport = await getCurrentWeather(searchedCity);
-					setCurrentWeather(weatherReport)
-				} catch (e) {
-					setError(e.message)
-				}
-			} else {
-				try {
-					const weatherReport = await getCurrentWeather('orlando');
-					setCurrentWeather(weatherReport)
-				} catch (e) {
-					setError(e.message)
-				}
+			try {
+				const weatherReport = await getCurrentWeather(searchedCity);
+				setCurrentWeather(weatherReport)
+			} catch (e) {
+				setError(e.message)
 			}
 		}
 		callWeather(searchedCity)

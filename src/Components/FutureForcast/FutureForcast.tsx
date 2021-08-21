@@ -13,26 +13,16 @@ export default function FutureForcast({ searchedCity }: { searchedCity: string }
 	useEffect(() => {
 		const callForcast = async (searchedCity: string) => {
 			setError('')
-			if (!!searchedCity) {
-				try {
-					const forcast = await getWeather(searchedCity);
-					setHourlyForcast(forcast.hourly)
-					setDailyForcast(forcast.daily)
-				} catch (e) {
-					setError(e.message)
-				}
-			} else {
-				try {
-					const forcast = await getWeather('orlando');
-					setHourlyForcast(forcast.hourly)
-					setDailyForcast(forcast.daily)
-				} catch(e) {
-					setError(e.message)
-				}
+			try {
+				const forcast = await getWeather(searchedCity);
+				setHourlyForcast(forcast.hourly)
+				setDailyForcast(forcast.daily)
+			} catch (e) {
+				setError(e.message)
 			}
 		}
 		callForcast(searchedCity)
-		}, [searchedCity])
+		}, [searchedCity]);
 
 	const switchForcast = (e: MouseEvent) => {
 		e.preventDefault();
