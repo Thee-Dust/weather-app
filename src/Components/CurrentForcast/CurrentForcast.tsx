@@ -4,7 +4,7 @@ import { CurrentWeather } from '../../Utilities/Utilitiles'
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 import { getCurrentWeather } from '../Api/ApiCall';
 
-export default function CurrentForcast() {
+export default function CurrentForcast({searchedCity}: {searchedCity: string}) {
 	const [currentWeather, setCurrentWeather] = useState<CurrentWeather | null>(null);
 	const [error, setError] = useState('');
 
@@ -37,7 +37,7 @@ export default function CurrentForcast() {
 				</div>
 				<div>
 					<StarBorderIcon/>
-					<img src={`http://openweathermap.org/img/wn/${currentWeather.weather[0].icon}@2x.png`}/>
+						<img src={`http://openweathermap.org/img/wn/${currentWeather.weather[0].icon}@2x.png`} alt={currentWeather.weather[0].description}/>
 				</div>
 			</div>
 		)
