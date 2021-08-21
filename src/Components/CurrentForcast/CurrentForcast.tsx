@@ -4,22 +4,22 @@ import { CurrentWeather } from '../../Utilities/Utilitiles'
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 import { getCurrentWeather } from '../Api/ApiCall';
 
-export default function CurrentForcast() {
+export default function CurrentForcast({searchedCity}: {searchedCity: string}) {
 	const [currentWeather, setCurrentWeather] = useState<CurrentWeather | null>(null);
 	const [error, setError] = useState('');
 
 	useEffect(() => {
-		const callWeather = async () => {
+		const callWeather = async (searchedCity: string) => {
 			setError('')
 			try {
-				const weatherReport = await getCurrentWeather('orlando');
+				const weatherReport = await getCurrentWeather(searchedCity);
 				setCurrentWeather(weatherReport)
 			} catch (e) {
 				setError(e.message)
 			}
 		}
-		callWeather()
-	}, [])
+		callWeather(searchedCity)
+	}, [searchedCity])
 
 
 		if(currentWeather?.id){
@@ -37,7 +37,7 @@ export default function CurrentForcast() {
 				</div>
 				<div>
 					<StarBorderIcon/>
-					<img src={`http://openweathermap.org/img/wn/${currentWeather.weather[0].icon}@2x.png`}/>
+						<img src={`http://openweathermap.org/img/wn/${currentWeather.weather[0].icon}@2x.png`} alt={currentWeather.weather[0].description}/>
 				</div>
 			</div>
 		)
