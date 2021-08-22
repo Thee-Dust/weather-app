@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react'
-import dayjs from 'dayjs'
-import { CurrentWeather } from '../../Utilities/Utilitiles'
+import React, { useEffect, useState } from 'react';
+import dayjs from 'dayjs';
+import { CurrentWeather } from '../../Utilities/Utilitiles';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
+import StarIcon from '@material-ui/icons/Star';
 import { getCurrentWeather } from '../Api/ApiCall';
 
-export default function CurrentForcast({searchedCity, favoriteCity}: {searchedCity: string, favoriteCity: (city: string) => void}) {
+export default function CurrentForcast({searchedCity, favoriteCity, favoriteCities}: {searchedCity: string, favoriteCity: (city: string) => void, favoriteCities: string[] }) {
 	const [currentWeather, setCurrentWeather] = useState<CurrentWeather | null>(null);
 	const [error, setError] = useState('');
 
@@ -36,8 +37,11 @@ export default function CurrentForcast({searchedCity, favoriteCity}: {searchedCi
 					<p>{currentWeather.weather[0].main}</p>
 				</div>
 				<div>
-					<StarBorderIcon onClick={() => favoriteCity(currentWeather.name)}/>
-						<img src={`http://openweathermap.org/img/wn/${currentWeather.weather[0].icon}@2x.png`} alt={currentWeather.weather[0].description}/>
+					{ !favoriteCities.includes(currentWeather.name) ?
+						<StarBorderIcon onClick={() => favoriteCity(currentWeather.name)} /> :
+						<StarIcon onClick={() => favoriteCity(currentWeather.name)} />
+					}
+					<img src={`http://openweathermap.org/img/wn/${currentWeather.weather[0].icon}@2x.png`} alt={currentWeather.weather[0].description}/>
 				</div>
 			</div>
 		)
