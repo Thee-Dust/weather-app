@@ -18,7 +18,7 @@ export default function App() {
 	}
 
 	const favoriteCity = (city: string) => {
-		if(searchedCity.includes(city)){
+		if(favoriteCities.includes(city)){
 			setFavoriteCities(prevState => prevState.filter(favCity => city !== favCity))
 		} else {
 			setFavoriteCities(prevState => [...prevState, city])
@@ -40,8 +40,8 @@ export default function App() {
 
 	return (
 		<main> 
-			<Navbar findCity={findCity}/>
-			<CurrentForcast searchedCity={searchedCity} favoriteCity={favoriteCity}/>
+			<Navbar findCity={findCity} favoriteCities={favoriteCities}/>
+			<CurrentForcast searchedCity={searchedCity} favoriteCity={favoriteCity} favoriteCities={favoriteCities}/>
 			<FutureForcast searchedCity={searchedCity}/>
 		</main>
 	);
