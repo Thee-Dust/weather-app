@@ -5,7 +5,6 @@ import advanceFormat from 'dayjs/plugin/advancedFormat'
 
 export default function DailyForcast({ dailyForcast }: { dailyForcast: Daily[] }) {
 	dayjs.extend(advanceFormat);
-	console.log(dailyForcast)
 	const dailyCards = dailyForcast.map((day, index) => {
 		const date = new Date(day.dt * 1000);
 		const futureDate = dayjs(date).format('ddd Do');
