@@ -8,11 +8,9 @@ import './App.css';
 
 
 export default function App() {
-  
   const [ searchedCity, setSearchedCity ] = useState<string>('orlando');
 	const [ favoriteCities, setFavoriteCities ] = useState<string[]>([]);
   
-
 	const findCity = (city: string) => {
 		setSearchedCity(city);
 	}
@@ -37,7 +35,6 @@ export default function App() {
   //   callWeather()
   // },[])
 	
-
 	return (
 		<main> 
 			<Navbar findCity={findCity} favoriteCities={favoriteCities}/>
