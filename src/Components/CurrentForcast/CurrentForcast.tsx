@@ -22,9 +22,7 @@ export default function CurrentForcast({searchedCity, favoriteCity, favoriteCiti
 		callWeather(searchedCity)
 	}, [searchedCity])
 
-
 		if(currentWeather?.id){
-
 			const today = new Date(currentWeather.dt * 1000);
 			const currentDate = dayjs(today).format('ddd, MMMM D, h:mm A');
 			const location = `${currentWeather.name}, ${currentWeather.sys?.country}`;
@@ -48,4 +46,3 @@ export default function CurrentForcast({searchedCity, favoriteCity, favoriteCiti
 	}
 	return null
 	}
-	
