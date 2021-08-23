@@ -8,12 +8,19 @@ import './App.css';
 
 
 export default function App() {
+  const [ searchedCity, setSearchedCity ] = useState<string>('orlando');
+	const [ favoriteCities, setFavoriteCities ] = useState<string[]>([]);
   
-  const [ searchedCity, setSearchedCity ] = useState<string>('orlando')
-  
-
 	const findCity = (city: string) => {
 		setSearchedCity(city);
+	}
+
+	const favoriteCity = (city: string) => {
+		if(favoriteCities.includes(city)){
+			setFavoriteCities(prevState => prevState.filter(favCity => city !== favCity))
+		} else {
+			setFavoriteCities(prevState => [...prevState, city])
+		}
 	}
   // useEffect(() => {
   //   const callWeather = async () => {
@@ -28,11 +35,10 @@ export default function App() {
   //   callWeather()
   // },[])
 	
-
 	return (
 		<main> 
-			<Navbar findCity={findCity}/>
-			<CurrentForcast searchedCity={searchedCity}/>
+			<Navbar findCity={findCity} favoriteCities={favoriteCities}/>
+			<CurrentForcast searchedCity={searchedCity} favoriteCity={favoriteCity} favoriteCities={favoriteCities}/>
 			<FutureForcast searchedCity={searchedCity}/>
 		</main>
 	);
