@@ -1,8 +1,8 @@
 import React, { useState, useEffect, MouseEvent } from 'react'
 import { Daily, Hourly } from '../../Utilities/Utilitiles';
 import { getWeather } from '../Api/ApiCall'
-import DailyForcast from '../DailyForcast/DailyForcast';
-import HourlyForcast from '../HourlyForecast/HourlyForcast';
+import DailyForcast from '../DailyForecast/DailyForecast';
+import HourlyForcast from '../HourlyForecast/HourlyForecast';
 
 export default function FutureForcast({ searchedCity }: { searchedCity: string }) {
 	const [ hourly, setHourly ] = useState<boolean>(true)

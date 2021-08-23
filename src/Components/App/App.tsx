@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 // import { getCurrentWeather } from '../Api/ApiCall'
 import Navbar from '../Navbar/Navbar';
-import CurrentForcast from '../CurrentForcast/CurrentForcast'
-import FutureForcast from '../FutureForcast/FutureForcast'
+import CurrentForcast from '../CurrentForecast/CurrentForecast'
+import FutureForcast from '../FutureForecast/FutureForecast'
 // import { CurrentWeather } from '../../Utilities/Utilitiles';
 import './App.css';
 
