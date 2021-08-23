@@ -7,11 +7,17 @@ export default function Navbar({ findCity, favoriteCities }: { findCity: (city: 
 	const searchCity = (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault()
 		if(cityRef.current) {
-			console.log(cityRef.current.value)
-			findCity(cityRef.current.value)
+			findCity(cityRef.current.value);
+			cityRef.current.value = '';
 		}
 	}
 
+	const cityCards = favoriteCities.map((city, index) => {
+		return (
+			<button key={index} onClick={() => findCity(city)}>{city}</button>
+		)
+	});
+	
 	return (
 		<header>
 			<div>
@@ -22,7 +28,7 @@ export default function Navbar({ findCity, favoriteCities }: { findCity: (city: 
 				</form>
 			</div>
 			<div>
-				{favoriteCities}
+				{cityCards}
 			</div>
 		</header>
 	)
