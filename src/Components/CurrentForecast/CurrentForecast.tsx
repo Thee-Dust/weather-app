@@ -1,8 +1,8 @@
 import React, { useEffect, useState, ReactElement } from 'react';
 import dayjs from 'dayjs';
 import { CurrentWeather } from '../../Utilities/Utilitiles';
-import StarBorderIcon from '@material-ui/icons/StarBorder';
-import StarIcon from '@material-ui/icons/Star';
+// import StarBorderIcon from '@material-ui/icons/StarBorder';
+// import StarIcon from '@material-ui/icons/Star';
 import { getCurrentWeather } from '../Api/ApiCall';
 
 export default function CurrentForecast({ searchedCity }: { searchedCity: string }): ReactElement | null {
