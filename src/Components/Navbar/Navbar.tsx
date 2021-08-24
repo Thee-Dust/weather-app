@@ -15,7 +15,10 @@ export default function Navbar({ findCity, favoriteCities, favoriteCity }: { fin
 
 	const cityCards = favoriteCities.map((city, index) => {
 		return (
-			<button key={index} onClick={() => findCity(city)}>{city}</button>
+			<div key={index}>
+				<button onClick={() => findCity(city)}>{city}</button>
+				<button onClick={() => favoriteCity(city)}>Remove</button>
+			</div>
 		)
 	});
 	
