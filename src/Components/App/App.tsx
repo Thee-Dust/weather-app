@@ -37,8 +37,8 @@ export default function App(): ReactElement {
 	
 	return (
 		<main> 
-			<Navbar findCity={findCity} favoriteCities={favoriteCities}/>
-			<CurrentForecast searchedCity={searchedCity} favoriteCity={favoriteCity} favoriteCities={favoriteCities}/>
+			<Navbar findCity={findCity} favoriteCities={favoriteCities} favoriteCity={favoriteCity}/>
+			<CurrentForecast searchedCity={searchedCity}/>
 			<FutureForecast searchedCity={searchedCity}/>
 		</main>
 	);
