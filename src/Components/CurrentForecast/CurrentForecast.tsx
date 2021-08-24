@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, ReactElement } from 'react';
 import dayjs from 'dayjs';
 import { CurrentWeather } from '../../Utilities/Utilitiles';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 import StarIcon from '@material-ui/icons/Star';
 import { getCurrentWeather } from '../Api/ApiCall';
 
-export default function CurrentForecast({searchedCity, favoriteCity, favoriteCities}: {searchedCity: string, favoriteCity: (city: string) => void, favoriteCities: string[] }) {
+export default function CurrentForecast({ searchedCity, favoriteCity, favoriteCities }: { searchedCity: string, favoriteCity: (city: string) => void, favoriteCities: string[] }): ReactElement | null {
 	const [currentWeather, setCurrentWeather] = useState<CurrentWeather | null>(null);
-	const [error, setError] = useState('');
+	const [error, setError] = useState<string>('');
 
 	useEffect(() => {
 		const callWeather = async (searchedCity: string) => {
@@ -45,4 +45,4 @@ export default function CurrentForecast({searchedCity, favoriteCity, favoriteCit
 		)
 	}
 	return null
-	}
+}
