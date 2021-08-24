@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import dayjs from 'dayjs'
 import { Hourly } from '../../Utilities/Utilitiles'
 
-export default function HourlyForcast({ hourlyReport }: { hourlyReport: Hourly[] }) {
+export default function HourlyForcast({ hourlyReport }: { hourlyReport: Hourly[] }): ReactElement {
 	const hourCards = hourlyReport.map((hour, index) => {
 		const date = new Date(hour.dt * 1000);
 		const futureHour = dayjs(date).format('h A');

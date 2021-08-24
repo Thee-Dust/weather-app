@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, ReactElement } from 'react';
 // import { getCurrentWeather } from '../Api/ApiCall'
 import Navbar from '../Navbar/Navbar';
 import CurrentForecast from '../CurrentForecast/CurrentForecast'
@@ -7,7 +7,7 @@ import FutureForecast from '../FutureForecast/FutureForecast'
 import './App.css';
 
 
-export default function App() {
+export default function App(): ReactElement {
   const [ searchedCity, setSearchedCity ] = useState<string>('orlando');
 	const [ favoriteCities, setFavoriteCities ] = useState<string[]>([]);
   
