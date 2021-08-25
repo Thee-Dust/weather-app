@@ -1,17 +1,8 @@
 import React, { FormEvent, useRef, ReactElement } from 'react'
 import SearchIcon from '@material-ui/icons/Search';
 
-export default function Navbar({ findCity, favoriteCities, favoriteCity }: { findCity: (city: string) => void, favoriteCities: string[], favoriteCity: (city: string) => void }): ReactElement {
+export default function Navbar({ findCity, favoriteCities, favoriteCity, tempScale, changeTemp }: { findCity: (city: string) => void, favoriteCities: string[], favoriteCity: (city: string) => void, tempScale: string, changeTemp: ((scale: string) => void) }): ReactElement {
 	const cityRef = useRef<HTMLInputElement>(null);
-
-	const searchCity = (e: FormEvent<HTMLFormElement>) => {
-		e.preventDefault()
-		if(cityRef.current) {
-			findCity(cityRef.current.value);
-			favoriteCity(cityRef.current.value)
-			cityRef.current.value = '';
-		}
-	}
 
 	const cityCards = favoriteCities.map((city, index) => {
 		return (
@@ -21,7 +12,19 @@ export default function Navbar({ findCity, favoriteCities, favoriteCity }: { fin
 			</div>
 		)
 	});
+
+	const searchCity = (e: FormEvent<HTMLFormElement>) => {
+		e.preventDefault()
+		if(cityRef.current) {
+			findCity(cityRef.current.value);
+			favoriteCity(cityRef.current.value)
+			cityRef.current.value = '';
+		}
+	}
 	
+	const changeTempScale = (scale: string) => {
+		changeTemp(scale);
+	}
 	return (
 		<header>
 			<div>
@@ -30,7 +33,11 @@ export default function Navbar({ findCity, favoriteCities, favoriteCity }: { fin
 					<input type='text' ref={cityRef} placeholder='Search by City' />
 					<button type='submit'><SearchIcon/></button>
 				</form>
-			
+				<div>
+					{tempScale === 'imperial' ? '°F' : '°C'}
+					<button onClick={() => changeTempScale('imperial')}>°F</button>
+					<button onClick={() => changeTempScale('metric')}>°C</button>
+				</div>
 			</div>
 			<div>
 				{cityCards}
