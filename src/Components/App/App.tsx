@@ -8,7 +8,7 @@ import './App.css';
 
 
 export default function App(): ReactElement {
-  const [ searchedCity, setSearchedCity ] = useState<string>(() => {
+	const [ searchedCity, setSearchedCity ] = useState<string>(() => {
 		const searchCity = localStorage.getItem('searchedCity');
 		return searchCity !== null
 			? JSON.parse(searchCity)
@@ -18,16 +18,21 @@ export default function App(): ReactElement {
 	const [ favoriteCities, setFavoriteCities ] = useState<string[]>(() => {
 		const favCities = localStorage.getItem('favoriteCities');
 		return favCities !== null 
-			? JSON.parse(favCities)
-			: []
+		? JSON.parse(favCities)
+		: []
 	});
-
-	const [ tempScale, setTempScale ] = useState<string>('imperial')
+	
+	const [ tempScale, setTempScale ] = useState<string>(() => {
+		const savedTempScale = localStorage.getItem('tempScale');
+		return savedTempScale !== null
+			? JSON.parse(savedTempScale)
+			: 'imperial'
+	})
   
 	const findCity = (city: string) => {
 		setSearchedCity(city);
 	};
-
+	
 	useEffect(() => {
 		const saveSearchedCity = () => {
 			localStorage.setItem('searchedCity', JSON.stringify(searchedCity));
@@ -50,10 +55,21 @@ export default function App(): ReactElement {
 		saveCitiesToStorage()
   },[favoriteCities]);
 
+	const changeTemp = (scale: string) => {
+		setTempScale(scale)
+	}
 	
+	useEffect(() => {
+		const saveTempToStorage = () => {
+			localStorage.setItem('tempScale', JSON.stringify(tempScale))
+		};
+		saveTempToStorage()
+	},[tempScale])
+
+
 	return (
 		<main> 
-			<Navbar findCity={findCity} favoriteCities={favoriteCities} favoriteCity={favoriteCity}/>
+			<Navbar findCity={findCity} favoriteCities={favoriteCities} favoriteCity={favoriteCity} tempScale={tempScale} changeTemp={changeTemp}/>
 			<CurrentForecast searchedCity={searchedCity} tempScale={tempScale}/>
 			<FutureForecast searchedCity={searchedCity} tempScale={tempScale}/>
 		</main>

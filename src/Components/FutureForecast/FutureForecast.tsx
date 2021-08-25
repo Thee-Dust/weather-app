@@ -11,7 +11,7 @@ export default function FutureForecast({ searchedCity, tempScale }: { searchedCi
 	const [ error, setError ] = useState<string>('');
 
 	useEffect(() => {
-		const callForcast = async (searchedCity: string) => {
+		const callForcast = async (searchedCity: string, tempScale: string) => {
 			setError('')
 			try {
 				const forecast = await getWeather(searchedCity, tempScale);
@@ -21,8 +21,8 @@ export default function FutureForecast({ searchedCity, tempScale }: { searchedCi
 				setError(e.message)
 			}
 		}
-		callForcast(searchedCity)
-		}, [searchedCity]);
+		callForcast(searchedCity, tempScale)
+		}, [searchedCity, tempScale]);
 
 	const switchForecast = (e: MouseEvent) => {
 		e.preventDefault();
