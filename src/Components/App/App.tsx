@@ -9,11 +9,16 @@ import './App.css';
 
 export default function App(): ReactElement {
   const [ searchedCity, setSearchedCity ] = useState<string>('orlando');
-	const [ favoriteCities, setFavoriteCities ] = useState<string[]>([]);
+	const [favoriteCities, setFavoriteCities] = useState<string[]>(() => {
+		const favCities = localStorage.getItem('favoriteCities');
+		return favCities !== null 
+			? JSON.parse(favCities)
+			: []
+	});
   
 	const findCity = (city: string) => {
 		setSearchedCity(city);
-	}
+	};
 
 	const favoriteCity = (city: string) => {
 		if(favoriteCities.includes(city)){
@@ -21,7 +26,12 @@ export default function App(): ReactElement {
 		} else {
 			setFavoriteCities(prevState => [...prevState, city])
 		}
-	}
+		saveCitiesToStorage()
+	};
+
+	const saveCitiesToStorage = () => {
+		localStorage.setItem('favoriteCities', JSON.stringify(favoriteCities));
+	};
   // useEffect(() => {
   //   const callWeather = async () => {
   //     setError('')
