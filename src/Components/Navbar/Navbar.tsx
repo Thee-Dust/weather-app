@@ -30,7 +30,7 @@ export default function Navbar({ findCity, favoriteCities, favoriteCity }: { fin
 					<input type='text' ref={cityRef} placeholder='Search by City' />
 					<button type='submit'><SearchIcon/></button>
 				</form>
-
+			
 			</div>
 			<div>
 				{cityCards}

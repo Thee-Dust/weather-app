@@ -5,7 +5,7 @@ import { CurrentWeather } from '../../Utilities/Utilitiles';
 // import StarIcon from '@material-ui/icons/Star';
 import { getCurrentWeather } from '../Api/ApiCall';
 
-export default function CurrentForecast({ searchedCity }: { searchedCity: string }): ReactElement | null {
+export default function CurrentForecast({ searchedCity, tempScale }: { searchedCity: string, tempScale: string }): ReactElement | null {
 	const [currentWeather, setCurrentWeather] = useState<CurrentWeather | null>(null);
 	const [error, setError] = useState<string>('');
 
@@ -13,7 +13,7 @@ export default function CurrentForecast({ searchedCity }: { searchedCity: string
 		const callWeather = async (searchedCity: string) => {
 			setError('')
 			try {
-				const weatherReport = await getCurrentWeather(searchedCity);
+				const weatherReport = await getCurrentWeather(searchedCity, tempScale);
 				setCurrentWeather(weatherReport)
 			} catch (e) {
 				setError(e.message)
