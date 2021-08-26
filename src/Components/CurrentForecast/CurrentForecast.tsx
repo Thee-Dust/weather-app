@@ -10,7 +10,7 @@ export default function CurrentForecast({ searchedCity, tempScale }: { searchedC
 	const [error, setError] = useState<string>('');
 
 	useEffect(() => {
-		const callWeather = async (searchedCity: string, tempScale: string) => {
+		const callWeather = async (searchedCity: string) => {
 			setError('')
 			try {
 				const weatherReport = await getCurrentWeather(searchedCity, tempScale);
@@ -19,7 +19,7 @@ export default function CurrentForecast({ searchedCity, tempScale }: { searchedC
 				setError(e.message)
 			}
 		}
-		callWeather(searchedCity, tempScale)
+		callWeather(searchedCity)
 	}, [searchedCity, tempScale])
 
 		if(currentWeather?.id){
