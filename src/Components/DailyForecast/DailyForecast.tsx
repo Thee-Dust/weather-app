@@ -5,7 +5,6 @@ import advanceFormat from 'dayjs/plugin/advancedFormat'
 
 
 export default function DailyForecast({ dailyForcast }: { dailyForcast: Daily[] }): ReactElement {
-	console.log(dailyForcast)
 	dayjs.extend(advanceFormat);
 	const dailyCards = dailyForcast.map((day, index) => {
 		const date = new Date(day.dt * 1000);
