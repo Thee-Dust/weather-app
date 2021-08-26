@@ -1,9 +1,10 @@
+import React, { ReactElement } from 'react'
 import dayjs from 'dayjs';
-import React from 'react'
 import { Daily } from '../../Utilities/Utilitiles'
 import advanceFormat from 'dayjs/plugin/advancedFormat'
 
-export default function DailyForcast({ dailyForcast }: { dailyForcast: Daily[] }) {
+
+export default function DailyForecast({ dailyForcast }: { dailyForcast: Daily[] }): ReactElement {
 	dayjs.extend(advanceFormat);
 	const dailyCards = dailyForcast.map((day, index) => {
 		const date = new Date(day.dt * 1000);
