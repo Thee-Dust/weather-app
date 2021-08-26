@@ -9,6 +9,7 @@ export default function FutureForecast({ searchedCity, tempScale }: { searchedCi
 	const [ hourlyForecast, setHourlyForecast ] = useState<Hourly[]>([]);
 	const [ dailyForecast, setDailyForecast ] = useState<Daily[]>([])
 	const [ error, setError ] = useState<string>('');
+	
 
 	useEffect(() => {
 		const callForcast = async (searchedCity: string, tempScale: string) => {
