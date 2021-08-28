@@ -5,29 +5,29 @@ import { CurrentWeather } from '../../Utilities/Utilitiles';
 // import StarIcon from '@material-ui/icons/Star';
 import { getCurrentWeather } from '../Api/ApiCall';
 
-export default function CurrentForecast({ searchedCity, tempScale }: { searchedCity: string, tempScale: boolean }): ReactElement | null {
+export default function CurrentForecast({ searchedCity, tempScale }: { searchedCity: string, tempScale: string }): ReactElement | null {
 	const [currentWeather, setCurrentWeather] = useState<CurrentWeather | null>(null);
 	const [error, setError] = useState<string>('');
 
 	useEffect(() => {
-		const callWeather = async (searchedCity: string) => {
+		const callWeather = async (searchedCity: string, tempScale: string) => {
 			setError('')
 			try {
-				const weatherReport = await getCurrentWeather(searchedCity, getTemp());
+				const weatherReport = await getCurrentWeather(searchedCity, tempScale);
 				setCurrentWeather(weatherReport)
 			} catch (e) {
 				setError(e.message)
 			}
 		}
-		callWeather(searchedCity)
+		callWeather(searchedCity, tempScale)
 	}, [searchedCity, tempScale])
 
-	const getTemp = () => {
-		const savedTempScale = localStorage.getItem('tempScale');
-		return savedTempScale !== null
-			? JSON.parse(savedTempScale)
-			: "imperial";
-	}
+	// const getTemp = () => {
+	// 	const savedTempScale = localStorage.getItem('tempScale');
+	// 	return savedTempScale !== null
+	// 		? JSON.parse(savedTempScale)
+	// 		: "imperial";
+	// }
 
 		if(currentWeather?.id) {
 			const today = new Date(currentWeather.dt * 1000);

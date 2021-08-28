@@ -3,8 +3,15 @@ import SearchIcon from '@material-ui/icons/Search';
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Switch from "@material-ui/core/Switch";
 
-export default function Navbar({ findCity, tempScale, changeTemp }: { findCity: (city: string) => void, tempScale: boolean, changeTemp: (() => void) }): ReactElement {
+export default function Navbar({ findCity, tempScale, changeTemp }: { findCity: (city: string) => void, tempScale: string, changeTemp: ((scale: string) => void) }): ReactElement {
 	const cityRef = useRef<HTMLInputElement>(null);
+	// const [ switchChecked, setSwitchChecked ] = useState<boolean>(() => {
+	// 	const isChecked = localStorage.getItem('isChecked');
+	// 	return isChecked !== null
+	// 		? JSON.parse(isChecked)
+	// 		: true
+	// })
+
 	const [favoriteCities, setFavoriteCities] = useState<string[]>(() => {
 		const favCities = localStorage.getItem('favoriteCities');
 		return favCities !== null
@@ -43,8 +50,20 @@ export default function Navbar({ findCity, tempScale, changeTemp }: { findCity: 
 	}
 	
 	const changeTempScale = () => {
-		changeTemp();
+		if(tempScale === 'metric') {
+			changeTemp('imperial')
+		} else {
+			changeTemp('metric')
+		}
+		// setSwitchChecked(prevState => !prevState)
 	}
+
+	// useEffect(() => {
+	// 	const saveCheckedToStorage = () => {
+	// 		localStorage.setItem('isChecked', JSON.stringify(switchChecked))
+	// 	}
+	// 	saveCheckedToStorage()
+	// }, [switchChecked])
 	// useEffect(() => {
 	// 	getSavedTemp()
 	// 	console.log(getSavedTemp())
@@ -73,10 +92,11 @@ export default function Navbar({ findCity, tempScale, changeTemp }: { findCity: 
 						control={
 							<Switch
 								onChange={changeTempScale}
+								checked={tempScale === 'imperial' ? true : false}
 								/>
 						}
 						labelPlacement="start"
-						label={tempScale ? "°F" : "°C"}
+						label={tempScale === 'imperial' ? "°F" : "°C"}
 						/>
 						{/* change to material UI switch */}
 						{/* {tempScale === 'imperial' ? '°F' : '°C'} */}
