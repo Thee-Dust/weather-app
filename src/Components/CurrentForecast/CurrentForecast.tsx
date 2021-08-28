@@ -5,7 +5,7 @@ import { CurrentWeather } from '../../Utilities/Utilitiles';
 // import StarIcon from '@material-ui/icons/Star';
 import { getCurrentWeather } from '../Api/ApiCall';
 
-export default function CurrentForecast({ searchedCity, tempScale }: { searchedCity: string, tempScale: string }): ReactElement | null {
+export default function CurrentForecast({ searchedCity, tempScale }: { searchedCity: string, tempScale: boolean }): ReactElement | null {
 	const [currentWeather, setCurrentWeather] = useState<CurrentWeather | null>(null);
 	const [error, setError] = useState<string>('');
 
@@ -13,7 +13,7 @@ export default function CurrentForecast({ searchedCity, tempScale }: { searchedC
 		const callWeather = async (searchedCity: string) => {
 			setError('')
 			try {
-				const weatherReport = await getCurrentWeather(searchedCity, tempScale);
+				const weatherReport = await getCurrentWeather(searchedCity, getTemp());
 				setCurrentWeather(weatherReport)
 			} catch (e) {
 				setError(e.message)
@@ -22,7 +22,14 @@ export default function CurrentForecast({ searchedCity, tempScale }: { searchedC
 		callWeather(searchedCity)
 	}, [searchedCity, tempScale])
 
-		if(currentWeather?.id){
+	const getTemp = () => {
+		const savedTempScale = localStorage.getItem('tempScale');
+		return savedTempScale !== null
+			? JSON.parse(savedTempScale)
+			: "imperial";
+	}
+
+		if(currentWeather?.id) {
 			const today = new Date(currentWeather.dt * 1000);
 			const currentDate = dayjs(today).format('h:mm A');
 			const location = `${currentWeather.name}, ${currentWeather.sys?.country}`;

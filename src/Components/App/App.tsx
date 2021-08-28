@@ -4,7 +4,7 @@ import Navbar from '../Navbar/Navbar';
 import CurrentForecast from '../CurrentForecast/CurrentForecast'
 import FutureForecast from '../FutureForecast/FutureForecast'
 // import { CurrentWeather } from '../../Utilities/Utilitiles';
-import './App.css';
+import './App.scss';
 
 
 export default function App(): ReactElement {
@@ -15,18 +15,14 @@ export default function App(): ReactElement {
 			: 'Orlando'
 	});
 	
-	const [ favoriteCities, setFavoriteCities ] = useState<string[]>(() => {
-		const favCities = localStorage.getItem('favoriteCities');
-		return favCities !== null 
-		? JSON.parse(favCities)
-		: []
-	});
+
 	
-	const [ tempScale, setTempScale ] = useState<string>(() => {
+	const [ isFahrenheit, setIsFahrenheit ] = useState<boolean>(() => {
 		const savedTempScale = localStorage.getItem('tempScale');
-		return savedTempScale !== null
+		const parsedTemp = savedTempScale !== null
 			? JSON.parse(savedTempScale)
-			: 'imperial'
+			: "imperial";
+		return parsedTemp ? true : false
 	})
   
 	const findCity = (city: string) => {
@@ -40,38 +36,30 @@ export default function App(): ReactElement {
 		saveSearchedCity()
 	},[searchedCity])
 
-	const favoriteCity =  (city: string) => {
-		if(favoriteCities.includes(city)){
-			setFavoriteCities(prevState => prevState.filter(favCity => city !== favCity))
-		} else {
-			setFavoriteCities(prevState => [...prevState, city])
-		}
-	};
-
-  useEffect(() => {
-		const saveCitiesToStorage = () => {
-			localStorage.setItem('favoriteCities', JSON.stringify(favoriteCities));
-		};
-		saveCitiesToStorage()
-  },[favoriteCities]);
-
-	const changeTemp = (scale: string) => {
-		setTempScale(scale)
+	const changeTemp = () => {
+		setIsFahrenheit(prevState => !prevState)
 	}
 	
 	useEffect(() => {
 		const saveTempToStorage = () => {
-			localStorage.setItem('tempScale', JSON.stringify(tempScale))
+			if(isFahrenheit === true) {
+				localStorage.setItem('tempScale', JSON.stringify("imperial"))
+			} else {
+				localStorage.setItem('tempScale', JSON.stringify("metric"))
+			}
 		};
 		saveTempToStorage()
-	},[tempScale])
+	},[isFahrenheit])
 
+	const setTheme = () => {
+
+	}
 
 	return (
 		<main> 
-			<Navbar findCity={findCity} favoriteCities={favoriteCities} favoriteCity={favoriteCity} tempScale={tempScale} changeTemp={changeTemp}/>
-			<CurrentForecast searchedCity={searchedCity} tempScale={tempScale}/>
-			<FutureForecast searchedCity={searchedCity} tempScale={tempScale}/>
+			<Navbar findCity={findCity} tempScale={isFahrenheit} changeTemp={changeTemp}/>
+			<CurrentForecast searchedCity={searchedCity} tempScale={isFahrenheit}/>
+			<FutureForecast searchedCity={searchedCity} tempScale={isFahrenheit}/>
 		</main>
 	);
 }
