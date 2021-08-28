@@ -1,16 +1,42 @@
+@import '../../index.scss';
+
 header {
 	width: 100%;
-}
-
-.app-controls {
 	display: flex;
+	flex-direction: column;
+	justify-content: center;
 	align-items: center;
 }
 
+.app-controls {
+	width: 100%;
+	display: flex;
+	align-items: center;
+
+		h1 {
+			font-size: $baseSize * 6;
+		}
+}
+
 .search-city {
-	margin-left: 40px;
+	margin-left: $baseSize * 5;
+
+	input {
+		width: $baseSize * 43.25;
+		height: $baseSize * 6;
+		font-size: $baseSize * 4;
+		border-radius: $baseSize * 1.5;
+		outline: none;
+	}
 }
 
 .temp-switch {
 	margin-left: auto;
+	margin-right: $baseSize * 5;
+}
+
+.saved-cities {
+	width: 80%;
+	display: flex;
+	align-items: center;
 }
