@@ -1,8 +1,17 @@
-import React, { FormEvent, useRef, ReactElement } from 'react'
+import React, { FormEvent, useRef, ReactElement, useState, useEffect } from 'react'
 import SearchIcon from '@material-ui/icons/Search';
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import Switch from "@material-ui/core/Switch";
 
-export default function Navbar({ findCity, favoriteCities, favoriteCity, tempScale, changeTemp }: { findCity: (city: string) => void, favoriteCities: string[], favoriteCity: (city: string) => void, tempScale: string, changeTemp: ((scale: string) => void) }): ReactElement {
+export default function Navbar({ findCity, tempScale, changeTemp }: { findCity: (city: string) => void, tempScale: boolean, changeTemp: (() => void) }): ReactElement {
 	const cityRef = useRef<HTMLInputElement>(null);
+	const [favoriteCities, setFavoriteCities] = useState<string[]>(() => {
+		const favCities = localStorage.getItem('favoriteCities');
+		return favCities !== null
+			? JSON.parse(favCities)
+			: []
+	});
+
 
 	const cityCards = favoriteCities.map((city, index) => {
 		return (
@@ -13,18 +22,44 @@ export default function Navbar({ findCity, favoriteCities, favoriteCity, tempSca
 		)
 	});
 
+	const favoriteCity = (city: string) => {
+		if (favoriteCities.includes(city)) {
+			setFavoriteCities(prevState => prevState.filter(favCity => city !== favCity))
+		} else {
+			setFavoriteCities(prevState => [...prevState, city])
+		}
+	};
+
+
 	const searchCity = (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault()
 		if(cityRef.current) {
 			findCity(cityRef.current.value);
-			favoriteCity(cityRef.current.value)
+			if (!favoriteCities.includes(cityRef.current.value)) {
+				setFavoriteCities( [...favoriteCities, cityRef.current.value])
+			}
 			cityRef.current.value = '';
 		}
 	}
 	
-	const changeTempScale = (scale: string) => {
-		changeTemp(scale);
+	const changeTempScale = () => {
+		changeTemp();
 	}
+	// useEffect(() => {
+	// 	getSavedTemp()
+	// 	console.log(getSavedTemp())
+	// }, [tempScale])
+
+
+	// const getSavedTemp = (): string => {
+	// 	const savedTempScale = localStorage.getItem('tempScale');
+	// 	return savedTempScale !== null
+	// 		? JSON.parse(savedTempScale)
+	// 		: 'imperial'
+	// }
+
+	// console.log(getSavedTemp())
+
 	return (
 		<header>
 			<div>
@@ -33,11 +68,21 @@ export default function Navbar({ findCity, favoriteCities, favoriteCity, tempSca
 					<input type='text' ref={cityRef} placeholder='Search by City' />
 					<button type='submit'><SearchIcon/></button>
 				</form>
-				<div>
-					{tempScale === 'imperial' ? '°F' : '°C'}
-					<button onClick={() => changeTempScale('imperial')}>°F</button>
-					<button onClick={() => changeTempScale('metric')}>°C</button>
-				</div>
+				<form>
+					<FormControlLabel
+						control={
+							<Switch
+								onChange={changeTempScale}
+								/>
+						}
+						labelPlacement="start"
+						label={tempScale ? "°F" : "°C"}
+						/>
+						{/* change to material UI switch */}
+						{/* {tempScale === 'imperial' ? '°F' : '°C'} */}
+						{/* <button onClick={() => changeTempScale('imperial')}>°F</button>
+						<button onClick={() => changeTempScale('metric')}>°C</button> */}
+				</form>
 			</div>
 			<div>
 				{cityCards}

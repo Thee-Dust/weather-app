@@ -4,7 +4,7 @@ import { getWeather } from '../Api/ApiCall'
 import DailyForecast from '../DailyForecast/DailyForecast';
 import HourlyForecast from '../HourlyForecast/HourlyForecast';
 
-export default function FutureForecast({ searchedCity, tempScale }: { searchedCity: string, tempScale: string }): ReactElement| null {
+export default function FutureForecast({ searchedCity, tempScale }: { searchedCity: string, tempScale: boolean }): ReactElement| null {
 	const [ hourly, setHourly ] = useState<boolean>(true)
 	const [ hourlyForecast, setHourlyForecast ] = useState<Hourly[]>([]);
 	const [ dailyForecast, setDailyForecast ] = useState<Daily[]>([])
@@ -12,18 +12,25 @@ export default function FutureForecast({ searchedCity, tempScale }: { searchedCi
 	
 
 	useEffect(() => {
-		const callForcast = async (searchedCity: string, tempScale: string) => {
+		const callForcast = async (searchedCity: string) => {
 			setError('')
 			try {
-				const forecast = await getWeather(searchedCity, tempScale);
+				const forecast = await getWeather(searchedCity, getTemp());
 				setHourlyForecast(forecast.hourly)
 				setDailyForecast(forecast.daily)
 			} catch (e) {
 				setError(e.message)
 			}
 		}
-		callForcast(searchedCity, tempScale)
+		callForcast(searchedCity)
 		}, [searchedCity, tempScale]);
+
+	const getTemp = () => {
+		const savedTempScale = localStorage.getItem('tempScale');
+		return savedTempScale !== null
+			? JSON.parse(savedTempScale)
+			: "imperial";
+	}
 
 	const switchForecast = (e: MouseEvent) => {
 		e.preventDefault();
