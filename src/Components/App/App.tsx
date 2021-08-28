@@ -17,12 +17,11 @@ export default function App(): ReactElement {
 	
 
 	
-	const [ isFahrenheit, setIsFahrenheit ] = useState<boolean>(() => {
+	const [ tempScale, setTempScale ] = useState<string>(() => {
 		const savedTempScale = localStorage.getItem('tempScale');
-		const parsedTemp = savedTempScale !== null
+		return savedTempScale !== null
 			? JSON.parse(savedTempScale)
-			: "imperial";
-		return parsedTemp ? true : false
+			: 'imperial'
 	})
   
 	const findCity = (city: string) => {
@@ -36,30 +35,41 @@ export default function App(): ReactElement {
 		saveSearchedCity()
 	},[searchedCity])
 
-	const changeTemp = () => {
-		setIsFahrenheit(prevState => !prevState)
+	// const favoriteCity =  (city: string) => {
+	// 	if(favoriteCities.includes(city)){
+	// 		setFavoriteCities(prevState => prevState.filter(favCity => city !== favCity))
+	// 	} else {
+	// 		setFavoriteCities(prevState => [...prevState, city])
+	// 	}
+	// };
+
+  // useEffect(() => {
+	// 	const saveCitiesToStorage = () => {
+	// 		localStorage.setItem('favoriteCities', JSON.stringify(favoriteCities));
+	// 	};
+	// 	saveCitiesToStorage()
+  // },[favoriteCities]);
+
+	const changeTemp = (scale: string) => {
+		setTempScale(scale)
 	}
 	
 	useEffect(() => {
 		const saveTempToStorage = () => {
-			if(isFahrenheit === true) {
-				localStorage.setItem('tempScale', JSON.stringify("imperial"))
-			} else {
-				localStorage.setItem('tempScale', JSON.stringify("metric"))
-			}
+			localStorage.setItem('tempScale', JSON.stringify(tempScale))
 		};
 		saveTempToStorage()
-	},[isFahrenheit])
+	},[tempScale])
 
 	const setTheme = () => {
-
+		
 	}
 
 	return (
 		<main> 
-			<Navbar findCity={findCity} tempScale={isFahrenheit} changeTemp={changeTemp}/>
-			<CurrentForecast searchedCity={searchedCity} tempScale={isFahrenheit}/>
-			<FutureForecast searchedCity={searchedCity} tempScale={isFahrenheit}/>
+			<Navbar findCity={findCity} tempScale={tempScale} changeTemp={changeTemp}/>
+			<CurrentForecast searchedCity={searchedCity} tempScale={tempScale}/>
+			<FutureForecast searchedCity={searchedCity} tempScale={tempScale}/>
 		</main>
 	);
 }
