@@ -2,6 +2,7 @@ import React, { FormEvent, useRef, ReactElement, useState, useEffect } from 'rea
 import SearchIcon from '@material-ui/icons/Search';
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Switch from "@material-ui/core/Switch";
+import './NavBar.scss'
 
 export default function Navbar({ findCity, tempScale, changeTemp }: { findCity: (city: string) => void, tempScale: string, changeTemp: ((scale: string) => void) }): ReactElement {
 	const cityRef = useRef<HTMLInputElement>(null);
@@ -58,6 +59,13 @@ export default function Navbar({ findCity, tempScale, changeTemp }: { findCity: 
 		// setSwitchChecked(prevState => !prevState)
 	}
 
+	useEffect(() => {
+		const saveCitiesToStorage = () => {
+			localStorage.setItem('favoriteCities', JSON.stringify(favoriteCities));
+		};
+		saveCitiesToStorage()
+	}, [favoriteCities]);
+
 	// useEffect(() => {
 	// 	const saveCheckedToStorage = () => {
 	// 		localStorage.setItem('isChecked', JSON.stringify(switchChecked))
@@ -81,13 +89,13 @@ export default function Navbar({ findCity, tempScale, changeTemp }: { findCity: 
 
 	return (
 		<header>
-			<div>
+			<div className="app-controls">
 				<h1>Weather App</h1>
-				<form onSubmit={searchCity}>
+				<form onSubmit={searchCity} className="search-city">
 					<input type='text' ref={cityRef} placeholder='Search by City' />
 					<button type='submit'><SearchIcon/></button>
 				</form>
-				<form>
+				<form className="temp-switch">
 					<FormControlLabel
 						control={
 							<Switch
@@ -98,13 +106,9 @@ export default function Navbar({ findCity, tempScale, changeTemp }: { findCity: 
 						labelPlacement="start"
 						label={tempScale === 'imperial' ? "°F" : "°C"}
 						/>
-						{/* change to material UI switch */}
-						{/* {tempScale === 'imperial' ? '°F' : '°C'} */}
-						{/* <button onClick={() => changeTempScale('imperial')}>°F</button>
-						<button onClick={() => changeTempScale('metric')}>°C</button> */}
 				</form>
 			</div>
-			<div>
+			<div className='saved-cities'>
 				{cityCards}
 			</div>
 		</header>
