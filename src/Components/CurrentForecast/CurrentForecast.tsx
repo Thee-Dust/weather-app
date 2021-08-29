@@ -41,6 +41,7 @@ export default function CurrentForecast({ searchedCity, tempScale }: { searchedC
 					<p>As of {currentDate} in {location}</p>
 					<h3>{currentWeather.main.temp.toFixed(0)}°</h3>
 					<p>{currentWeather.weather[0].main}</p>
+					<p>Feels like {currentWeather.main.feels_like.toFixed(0)}°</p>
 				</div>
 				<div className="current-icon">
 					<img src={`http://openweathermap.org/img/wn/${currentWeather.weather[0].icon}@2x.png`} alt={currentWeather.weather[0].description}/>

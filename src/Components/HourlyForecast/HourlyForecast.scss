@@ -1,13 +1,15 @@
+@import '../../index.scss';
+
 .hourly-forecast-container {
 	display: flex;
-	justify-content: space-around;
-	align-items: center;
 	overflow-x: scroll;
 	overflow-y: none;
 }
 
 .hourly-card {
+	margin-right: $baseSize * 10;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	align-items: center;
 }
