@@ -25,6 +25,13 @@ export default function FutureForecast({ searchedCity, tempScale }: { searchedCi
 		callForcast(searchedCity, tempScale)
 		}, [searchedCity, tempScale]);
 
+	// const getTemp = () => {
+	// 	const savedTempScale = localStorage.getItem('tempScale');
+	// 	return savedTempScale !== null
+	// 		? JSON.parse(savedTempScale)
+	// 		: "imperial";
+	// }
+
 	const switchForecast = (e: MouseEvent) => {
 		e.preventDefault();
 		setHourly(prevState => !prevState);
