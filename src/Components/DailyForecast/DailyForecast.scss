@@ -1,0 +1,13 @@
+.daily-forecast-container {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	overflow-x: scroll;
+	overflow-y: none;
+}
+
+.daily-card {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}

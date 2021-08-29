@@ -1,0 +1,13 @@
+.hourly-forecast-container {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	overflow-x: scroll;
+	overflow-y: none;
+}
+
+.hourly-card {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
