@@ -23,7 +23,7 @@ export default function Navbar({ findCity, tempScale, changeTemp }: { findCity: 
 
 	const cityCards = favoriteCities.map((city, index) => {
 		return (
-			<div key={index}>
+			<div key={index} className="favorite-city">
 				<button onClick={() => findCity(city)}>{city}</button>
 				<button onClick={() => favoriteCity(city)}>Remove</button>
 			</div>
@@ -95,12 +95,15 @@ export default function Navbar({ findCity, tempScale, changeTemp }: { findCity: 
 					<input type='text' ref={cityRef} placeholder='Search by City' />
 					{/* <button type='submit'><SearchIcon/></button> */}
 				</form>
-				<form className="temp-switch">
+				<form className="temp-switch-form">
 					<FormControlLabel
+						className='temp-switch-label'
 						control={
 							<Switch
 								onChange={changeTempScale}
 								checked={tempScale === 'imperial' ? true : false}
+								className='temp-switch'
+								
 								/>
 						}
 						labelPlacement="start"
