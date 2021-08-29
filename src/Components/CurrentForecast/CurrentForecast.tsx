@@ -10,7 +10,7 @@ export default function CurrentForecast({ searchedCity, tempScale }: { searchedC
 	const [error, setError] = useState<string>('');
 
 	useEffect(() => {
-		const callWeather = async (searchedCity: string) => {
+		const callWeather = async (searchedCity: string, tempScale: string) => {
 			setError('')
 			try {
 				const weatherReport = await getCurrentWeather(searchedCity, tempScale);
@@ -19,10 +19,17 @@ export default function CurrentForecast({ searchedCity, tempScale }: { searchedC
 				setError(e.message)
 			}
 		}
-		callWeather(searchedCity)
+		callWeather(searchedCity, tempScale)
 	}, [searchedCity, tempScale])
 
-		if(currentWeather?.id){
+	// const getTemp = () => {
+	// 	const savedTempScale = localStorage.getItem('tempScale');
+	// 	return savedTempScale !== null
+	// 		? JSON.parse(savedTempScale)
+	// 		: "imperial";
+	// }
+
+		if(currentWeather?.id) {
 			const today = new Date(currentWeather.dt * 1000);
 			const currentDate = dayjs(today).format('h:mm A');
 			const location = `${currentWeather.name}, ${currentWeather.sys?.country}`;

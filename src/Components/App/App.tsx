@@ -4,7 +4,7 @@ import Navbar from '../Navbar/Navbar';
 import CurrentForecast from '../CurrentForecast/CurrentForecast'
 import FutureForecast from '../FutureForecast/FutureForecast'
 // import { CurrentWeather } from '../../Utilities/Utilitiles';
-import './App.css';
+import './App.scss';
 
 
 export default function App(): ReactElement {
@@ -15,12 +15,7 @@ export default function App(): ReactElement {
 			: 'Orlando'
 	});
 	
-	const [ favoriteCities, setFavoriteCities ] = useState<string[]>(() => {
-		const favCities = localStorage.getItem('favoriteCities');
-		return favCities !== null 
-		? JSON.parse(favCities)
-		: []
-	});
+
 	
 	const [ tempScale, setTempScale ] = useState<string>(() => {
 		const savedTempScale = localStorage.getItem('tempScale');
@@ -40,20 +35,20 @@ export default function App(): ReactElement {
 		saveSearchedCity()
 	},[searchedCity])
 
-	const favoriteCity =  (city: string) => {
-		if(favoriteCities.includes(city)){
-			setFavoriteCities(prevState => prevState.filter(favCity => city !== favCity))
-		} else {
-			setFavoriteCities(prevState => [...prevState, city])
-		}
-	};
+	// const favoriteCity =  (city: string) => {
+	// 	if(favoriteCities.includes(city)){
+	// 		setFavoriteCities(prevState => prevState.filter(favCity => city !== favCity))
+	// 	} else {
+	// 		setFavoriteCities(prevState => [...prevState, city])
+	// 	}
+	// };
 
-  useEffect(() => {
-		const saveCitiesToStorage = () => {
-			localStorage.setItem('favoriteCities', JSON.stringify(favoriteCities));
-		};
-		saveCitiesToStorage()
-  },[favoriteCities]);
+  // useEffect(() => {
+	// 	const saveCitiesToStorage = () => {
+	// 		localStorage.setItem('favoriteCities', JSON.stringify(favoriteCities));
+	// 	};
+	// 	saveCitiesToStorage()
+  // },[favoriteCities]);
 
 	const changeTemp = (scale: string) => {
 		setTempScale(scale)
@@ -66,10 +61,13 @@ export default function App(): ReactElement {
 		saveTempToStorage()
 	},[tempScale])
 
+	const setTheme = () => {
+		
+	}
 
 	return (
 		<main> 
-			<Navbar findCity={findCity} favoriteCities={favoriteCities} favoriteCity={favoriteCity} tempScale={tempScale} changeTemp={changeTemp}/>
+			<Navbar findCity={findCity} tempScale={tempScale} changeTemp={changeTemp}/>
 			<CurrentForecast searchedCity={searchedCity} tempScale={tempScale}/>
 			<FutureForecast searchedCity={searchedCity} tempScale={tempScale}/>
 		</main>
