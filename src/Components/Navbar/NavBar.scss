@@ -30,13 +30,32 @@ header {
 	}
 }
 
-.temp-switch {
+.temp-switch-form {
 	margin-left: auto;
 	margin-right: $baseSize * 5;
+	font-size: $baseSize * 3;
+}
+
+.temp-switch-label {
+	height: 100%;
+	font-size: $baseSize * 4;
+}
+
+.temp-switch {
+	color: blue;
+	height: $baseSize * 12.5;
 }
 
 .saved-cities {
 	width: 80%;
 	display: flex;
 	align-items: center;
+}
+
+.favorite-city {
+	width: $baseSize * 22.5;
+	display: flex;
+	justify-content: space-between;
+	border-right: $baseSize * .25 solid black;
+	padding: $baseSize * 2;
 }
