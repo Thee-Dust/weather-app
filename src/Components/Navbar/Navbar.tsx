@@ -44,7 +44,7 @@ export default function Navbar({ findCity, tempScale, changeTemp }: { findCity: 
 		if(cityRef.current) {
 			findCity(cityRef.current.value);
 			if (!favoriteCities.includes(cityRef.current.value)) {
-				setFavoriteCities( [...favoriteCities, cityRef.current.value])
+				setFavoriteCities([...favoriteCities, cityRef.current.value])
 			}
 			cityRef.current.value = '';
 		}

@@ -7,12 +7,11 @@
 }
 
 .hourly-card {
-	margin-right: $baseSize * 30;
+	min-width: $baseSize * 40;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	width: $baseSize * 28;
 	font-size: $baseSize * 3;
 	padding-bottom: $baseSize * 2;
 	padding-top: $baseSize * 2;
