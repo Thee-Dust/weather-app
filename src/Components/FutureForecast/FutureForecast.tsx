@@ -3,6 +3,7 @@ import { Daily, Hourly } from '../../Utilities/Utilitiles';
 import { getWeather } from '../Api/ApiCall'
 import DailyForecast from '../DailyForecast/DailyForecast';
 import HourlyForecast from '../HourlyForecast/HourlyForecast';
+import './FutureForecast.scss'
 
 export default function FutureForecast({ searchedCity, tempScale }: { searchedCity: string, tempScale: string }): ReactElement| null {
 	const [ hourly, setHourly ] = useState<boolean>(true)
@@ -39,12 +40,12 @@ export default function FutureForecast({ searchedCity, tempScale }: { searchedCi
 
 	if(!!hourlyForecast.length) {
 		return (
-			<div>
-				<div>
+			<div className='future-forecast-container'>
+				<div className='future-controls'>
 					<button onClick={switchForecast} disabled={hourly}>Hourly</button>
 					<button onClick={switchForecast} disabled={!hourly}>Daily</button>
 				</div>
-				<div>
+				<div className='future-forecast'>
 					{hourly ? 
 					<HourlyForecast hourlyReport={hourlyForecast}/> :
 					<DailyForecast dailyForcast={dailyForecast}/> }
