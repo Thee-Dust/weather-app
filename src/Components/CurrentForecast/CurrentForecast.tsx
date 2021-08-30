@@ -5,8 +5,9 @@ import { CurrentWeather } from '../../Utilities/Utilitiles';
 // import StarIcon from '@material-ui/icons/Star';
 import { getCurrentWeather } from '../Api/ApiCall';
 import './CurrentForecast.scss'
+import { setSyntheticLeadingComments } from 'typescript';
 
-export default function CurrentForecast({ searchedCity, tempScale }: { searchedCity: string, tempScale: string }): ReactElement | null {
+export default function CurrentForecast({ searchedCity, tempScale, setTheme }: { searchedCity: string, tempScale: string, setTheme: (weather: string) => void }): ReactElement | null {
 	const [currentWeather, setCurrentWeather] = useState<CurrentWeather | null>(null);
 	const [error, setError] = useState<string>('');
 
@@ -16,6 +17,7 @@ export default function CurrentForecast({ searchedCity, tempScale }: { searchedC
 			try {
 				const weatherReport = await getCurrentWeather(searchedCity, tempScale);
 				setCurrentWeather(weatherReport)
+				setTheme(weatherReport.weather[0].main)
 			} catch (e) {
 				setError(e.message)
 			}
@@ -23,12 +25,6 @@ export default function CurrentForecast({ searchedCity, tempScale }: { searchedC
 		callWeather(searchedCity, tempScale)
 	}, [searchedCity, tempScale])
 
-	// const getTemp = () => {
-	// 	const savedTempScale = localStorage.getItem('tempScale');
-	// 	return savedTempScale !== null
-	// 		? JSON.parse(savedTempScale)
-	// 		: "imperial";
-	// }
 
 	if(currentWeather?.id) {
 		const today = new Date(currentWeather.dt * 1000);
