@@ -1,6 +1,7 @@
 @import '../../index.scss';
 
 header {
+	margin-top: $baseSize * 2;
 	width: 100%;
 	display: flex;
 	flex-direction: column;
@@ -50,6 +51,7 @@ header {
 	width: 80%;
 	display: flex;
 	align-items: center;
+	margin-top: $baseSize * 4;
 }
 
 .favorite-city {
