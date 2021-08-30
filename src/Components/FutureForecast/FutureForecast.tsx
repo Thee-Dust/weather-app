@@ -41,7 +41,7 @@ export default function FutureForecast({ searchedCity, tempScale }: { searchedCi
 	if(!!hourlyForecast.length) {
 		return (
 			<div className='future-forecast-container'>
-				<div>
+				<div className='future-controls'>
 					<button onClick={switchForecast} disabled={hourly}>Hourly</button>
 					<button onClick={switchForecast} disabled={!hourly}>Daily</button>
 				</div>
