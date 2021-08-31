@@ -1,0 +1,48 @@
+{
+	"daily": [
+		{
+			"dt": "1630339200",
+			"temp": {
+				"min": "73.2",
+				"max": "86.41"
+			},
+			"weather": [
+				{
+					"description": "light rain",
+					"icon": "10d",
+					"main": "Rain"
+				}
+			]
+		},
+		{
+			"dt": "1630425600",
+			"temp": { 
+				"min": "75.74", 
+				"max": "86.32"
+			},
+			"weather": [
+				{
+					"description": "overcast clouds",
+					"icon": "04d",
+					"main": "clouds"
+				}
+			]
+		},
+		{
+			"dt": "1630512000",
+			"temp": {
+				"min": "69.37", 
+				"max": "77.32"
+			},
+			"weather": [
+				{
+					"description": "moderate rain",
+					"icon": "10d",
+					"main": "Rain"
+				}]
+		}
+	],
+	"hourly": {
+
+	}
+}
