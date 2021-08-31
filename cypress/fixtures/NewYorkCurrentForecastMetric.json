@@ -1,5 +1,15 @@
 {
+		"base": "stations",
+	"clouds": {
+		"all": "20"
+	},
+	"cod": "200",
+	"coords": {
+		"lat": "40.7143",
+		"lon": "-74.006"
+	},
 	"dt": "1630356699",
+	"id": "4167147",
 	"main": {
 		"feels_like": "26.24",
 		"humidity": "68",
@@ -10,13 +20,23 @@
 	},
 	"name": "New York",
 	"sys": {
-		"country": "US"
+		"country": "US",
+		"id": "2039034",
+		"sunrise": "1630405348",
+		"sunset": "1630452630",
+		"type": "2"
 	},
+	"timezone": "-14400",
+	"visibility": "10000",
 	"weather": [
 		{
 			"description": "clear sky",
 			"icon": "01d",
 			"main": "Clear"
 		}
-	]
+	],
+	"wind": {
+		"deg": "210",
+		"speed": "10.36"
+	}
 }
