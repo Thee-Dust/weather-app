@@ -3,15 +3,10 @@ import SearchIcon from '@material-ui/icons/Search';
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Switch from "@material-ui/core/Switch";
 import './NavBar.scss'
+import dayjs from 'dayjs';
 
 export default function Navbar({ findCity, tempScale, changeTemp }: { findCity: (city: string) => void, tempScale: string, changeTemp: ((scale: string) => void) }): ReactElement {
 	const cityRef = useRef<HTMLInputElement>(null);
-	// const [ switchChecked, setSwitchChecked ] = useState<boolean>(() => {
-	// 	const isChecked = localStorage.getItem('isChecked');
-	// 	return isChecked !== null
-	// 		? JSON.parse(isChecked)
-	// 		: true
-	// })
 
 	const [favoriteCities, setFavoriteCities] = useState<string[]>(() => {
 		const favCities = localStorage.getItem('favoriteCities');
@@ -19,7 +14,6 @@ export default function Navbar({ findCity, tempScale, changeTemp }: { findCity: 
 			? JSON.parse(favCities)
 			: []
 	});
-
 
 	const cityCards = favoriteCities.map((city, index) => {
 		return (
@@ -38,7 +32,6 @@ export default function Navbar({ findCity, tempScale, changeTemp }: { findCity: 
 		}
 	};
 
-
 	const searchCity = (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault()
 		if(cityRef.current) {
@@ -56,7 +49,6 @@ export default function Navbar({ findCity, tempScale, changeTemp }: { findCity: 
 		} else {
 			changeTemp('metric')
 		}
-		// setSwitchChecked(prevState => !prevState)
 	}
 
 	useEffect(() => {
@@ -65,27 +57,6 @@ export default function Navbar({ findCity, tempScale, changeTemp }: { findCity: 
 		};
 		saveCitiesToStorage()
 	}, [favoriteCities]);
-
-	// useEffect(() => {
-	// 	const saveCheckedToStorage = () => {
-	// 		localStorage.setItem('isChecked', JSON.stringify(switchChecked))
-	// 	}
-	// 	saveCheckedToStorage()
-	// }, [switchChecked])
-	// useEffect(() => {
-	// 	getSavedTemp()
-	// 	console.log(getSavedTemp())
-	// }, [tempScale])
-
-
-	// const getSavedTemp = (): string => {
-	// 	const savedTempScale = localStorage.getItem('tempScale');
-	// 	return savedTempScale !== null
-	// 		? JSON.parse(savedTempScale)
-	// 		: 'imperial'
-	// }
-
-	// console.log(getSavedTemp())
 
 	return (
 		<header>
