@@ -75,7 +75,8 @@
 				{
 					"description": "overcast clouds",
 					"icon": "04d",
-					"main": "Clouds"
+					"main": "Clouds",
+					"id": "801"
 				}
 			],
 			"wind_deg": "273",
@@ -114,6 +115,7 @@
 				{
 					"description": "light ran",
 					"icon": "10d",
+					"id": "801",
 					"main": "Rain"
 				}
 			],
@@ -153,6 +155,7 @@
 				{
 					"description": "light rain",
 					"icon": "10d",
+					"id": "801",
 					"main": "Rain"
 				}
 			],
