@@ -32,6 +32,7 @@
 		{
 			"description": "clear sky",
 			"icon": "01d",
+			"id": "801",
 			"main": "Clear"
 		}
 	],
