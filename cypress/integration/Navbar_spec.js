@@ -2,6 +2,11 @@ import { cyan } from "@material-ui/core/colors"
 
 describe('NavBar', () => {
 	beforeEach(() => {
+		cy.interceptCurrentForecastFahrenheit()
+		cy.interceptLocation()
+		cy.futureForecastFahrenheit()
+		cy.interceptCurrentForecastMetric()
+		cy.futureForecastMetric()
 		cy.visit('http://localhost:3000')
 	})
 
@@ -10,7 +15,9 @@ describe('NavBar', () => {
 	})
 
 	it('Should have a feild to search for a city',() => {
-		cy.get('.search-city > input').type('New York')
+		cy.get('.search-city > input')
+			.type('New York')
+			.type('{enter}')
 			.get('.current-forecast > p').eq(0).contain('New York')
 	})
 
