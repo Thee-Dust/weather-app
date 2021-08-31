@@ -1,0 +1,22 @@
+{
+	"dt": "1630356699",
+	"main": {
+		"feels_like": "26.24",
+		"humidity": "68",
+		"pressure": "1009",
+		"temp": "25.59",
+		"temp_max": "27.41",
+		"temp_min": "22.69"
+	},
+	"name": "New York",
+	"sys": {
+		"country": "US"
+	},
+	"weather": [
+		{
+			"description": "clear sky",
+			"icon": "01d",
+			"main": "Clear"
+		}
+	]
+}
