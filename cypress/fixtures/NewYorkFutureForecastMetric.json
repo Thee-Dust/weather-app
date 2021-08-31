@@ -215,6 +215,7 @@
 			"weather": {
 				"description": "few clouds",
 				"icon": "04n",
+				"id": "801",
 				"main": "clouds"
 			},
 			"wind_deg": "245",
