@@ -1,0 +1,74 @@
+{
+	"daily": [
+		{
+			"dt": "1630371600",
+			"temp": {
+				"min": "76.62",
+				"max": "94.46"
+			},
+			"weather": [
+				{
+					"description": "overcast clouds",
+					"icon": "04d",
+					"main": "Clouds"
+				}
+			]
+		},
+		{
+			"dt": "1630375200",
+			"temp": { 
+				"min": "72.32", 
+				"max": "92.91"
+			},
+			"weather": [
+				{
+					"description": "light ran",
+					"icon": "10d",
+					"main": "Rain"
+				}
+			]
+		},
+		{
+			"dt": "1630378800",
+			"temp": {
+				"min": "74.21", 
+				"max": "82.08"
+			},
+			"weather": [
+				{
+					"description": "light rain",
+					"icon": "10d",
+					"main": "Rain"
+				}]
+		}
+	],
+	"hourly": [
+		{
+			"dt": "1630371600",
+			"temp": "80.37",
+			"weather": {
+				"description": "broken clouds",
+				"icon": "04n",
+				"main": "Clouds"
+			}
+		},
+		{
+			"dt": "1630375200",
+			"temp": "80.35",
+			"weather": {
+				"description": "broken clouds",
+				"icon": "04n",
+				"main": "Clouds"
+			}
+		},
+		{
+			"dt": "1630378800",
+			"temp": "80.19",
+			"weather": {
+				"description": "overcast clouds",
+				"icon": "04n",
+				"main": "Clouds"
+			}
+		}
+	]
+}
