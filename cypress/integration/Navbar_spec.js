@@ -2,11 +2,11 @@ import { cyan } from "@material-ui/core/colors"
 
 describe('NavBar', () => {
 	beforeEach(() => {
-		cy.interceptCurrentForecastFahrenheit()
+		cy.interceptNYCurrentForecastFahrenheit()
 		cy.interceptLocation()
-		cy.futureForecastFahrenheit()
-		cy.interceptCurrentForecastMetric()
-		cy.futureForecastMetric()
+		cy.futureNYForecastFahrenheit()
+		cy.interceptNYCurrentForecastMetric()
+		cy.interceptNYFutureForecastMetric()
 		cy.visit('http://localhost:3000')
 	})
 
@@ -20,7 +20,8 @@ describe('NavBar', () => {
 	})
 
 	it('Should change temp to °C from °F', () => {
-		cy.get('.MuiTypography-root').contains('°F')
+		cy.get('.search-city > input').type('New York').type('{enter}')
+			.get('.MuiTypography-root').contains('°F')
 			.get('.PrivateSwitchBase-input-4').click()
 			.get('.MuiTypography-root').contains('°C')
 	})
