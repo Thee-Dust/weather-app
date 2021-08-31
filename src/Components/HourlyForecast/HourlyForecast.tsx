@@ -4,7 +4,6 @@ import { Hourly } from '../../Utilities/Utilitiles'
 import './HourlyForecast.scss'
 
 export default function HourlyForcast({ hourlyReport }: { hourlyReport: Hourly[] }): ReactElement {
-	console.log(hourlyReport)
 	const hourCards = hourlyReport.map((hour, index) => {
 		const date = new Date(hour.dt * 1000);
 		const futureHour = dayjs(date).format('h A');

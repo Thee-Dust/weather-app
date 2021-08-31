@@ -1,8 +1,6 @@
 import React, { useEffect, useState, ReactElement } from 'react';
 import dayjs from 'dayjs';
 import { CurrentWeather } from '../../Utilities/Utilitiles';
-// import StarBorderIcon from '@material-ui/icons/StarBorder';
-// import StarIcon from '@material-ui/icons/Star';
 import { getCurrentWeather } from '../Api/ApiCall';
 import './CurrentForecast.scss'
 
@@ -15,6 +13,7 @@ export default function CurrentForecast({ searchedCity, tempScale }: { searchedC
 			setError('')
 			try {
 				const weatherReport = await getCurrentWeather(searchedCity, tempScale);
+				console.log('Current', weatherReport)
 				setCurrentWeather(weatherReport)
 			} catch (e) {
 				setError(e.message)
@@ -24,7 +23,6 @@ export default function CurrentForecast({ searchedCity, tempScale }: { searchedC
 	}, [searchedCity, tempScale])
 	
 	if(currentWeather?.id) {
-		console.log('current', currentWeather)
 		const today = new Date(currentWeather.dt * 1000);
 		const currentDate = dayjs(today).format('h:mm A');
 		const location = `${currentWeather.name}, ${currentWeather.sys?.country}`;
