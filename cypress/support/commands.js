@@ -39,7 +39,7 @@ Cypress.Commands.add('interceptLocation', () => {
 })
 
 Cypress.Commands.add('futureForecastFahrenheit', () => {
-	cy.fixture('../fixture/FutureForecastFahrenheit.json')
+	cy.fixture('../fixtures/FutureForecastFahrenheit.json')
 	.then(json => {
 		cy.intercept(`http://api.openweathermap.org/data/2.5/onecall?lat=40.7143&lon=-74.006&appid=${apiKey}&units=imperial`, json)
 	})
@@ -53,8 +53,8 @@ Cypress.Commands.add('interceptCurrentForecastMetric', () => {
 })
 
 Cypress.Commands.add('futureForecastMetric', () => {
-	cy.fixture('../fixture/FutureForecastMetric.json')
+	cy.fixture('../fixtures/FutureForecastMetric.json')
 	.then(json => {
-		cy.intercept(`http://api.openweathermap.org/data/2.5/onecall?lat=40.7143&lon=-74.006&appid=${apiKey}&units=metric`)
+		cy.intercept(`http://api.openweathermap.org/data/2.5/onecall?lat=40.7143&lon=-74.006&appid=${apiKey}&units=metric`, json)
 	})
 })
