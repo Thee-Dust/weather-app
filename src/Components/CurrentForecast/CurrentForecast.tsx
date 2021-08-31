@@ -22,14 +22,7 @@ export default function CurrentForecast({ searchedCity, tempScale }: { searchedC
 		}
 		callWeather(searchedCity, tempScale)
 	}, [searchedCity, tempScale])
-
-	// const getTemp = () => {
-	// 	const savedTempScale = localStorage.getItem('tempScale');
-	// 	return savedTempScale !== null
-	// 		? JSON.parse(savedTempScale)
-	// 		: "imperial";
-	// }
-
+	
 	if(currentWeather?.id) {
 		console.log('current', currentWeather)
 		const today = new Date(currentWeather.dt * 1000);
