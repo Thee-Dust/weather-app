@@ -33,6 +33,7 @@
 			{
 				"description": "clear sky",
 				"icon": "01d",
+				"id": "801",
 				"main": "Clear"
 			}
 		],
@@ -74,6 +75,7 @@
 				{
 					"description": "light rain",
 					"icon": "10d",
+					"id": "801",
 					"main": "Rain"
 				}
 			],
@@ -113,6 +115,7 @@
 				{
 					"description": "overcast clouds",
 					"icon": "04d",
+					"id": "801",
 					"main": "clouds"
 				}
 			],
@@ -152,6 +155,7 @@
 				{
 					"description": "moderate rain",
 					"icon": "10d",
+					"id": "801",
 					"main": "Rain"
 				}
 			],
@@ -216,6 +220,7 @@
 			"weather": {
 				"description": "few clouds",
 				"icon": "02n",
+				"id": "801",
 				"main": "clouds"
 			},
 			"wind_deg": "245",
