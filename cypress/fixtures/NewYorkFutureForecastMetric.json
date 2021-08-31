@@ -3,13 +3,13 @@
 		{
 			"dt": "1630371600",
 			"temp": {
-				"min": "73.2",
-				"max": "86.41"
+				"min": "22.89",
+				"max": "30.03"
 			},
 			"weather": [
 				{
 					"description": "light rain",
-					"icon": "10n",
+					"icon": "10d",
 					"main": "Rain"
 				}
 			]
@@ -17,13 +17,13 @@
 		{
 			"dt": "1630375200",
 			"temp": { 
-				"min": "75.74", 
-				"max": "86.32"
+				"min": "23.51", 
+				"max": "30.12"
 			},
 			"weather": [
 				{
 					"description": "overcast clouds",
-					"icon": "04n",
+					"icon": "04d",
 					"main": "clouds"
 				}
 			]
@@ -31,13 +31,13 @@
 		{
 			"dt": "1630378800",
 			"temp": {
-				"min": "69.37", 
-				"max": "77.32"
+				"min": "19.61", 
+				"max": "25.17"
 			},
 			"weather": [
 				{
 					"description": "moderate rain",
-					"icon": "10n",
+					"icon": "10d",
 					"main": "Rain"
 				}]
 		}
@@ -45,16 +45,16 @@
 	"hourly": [
 		{
 			"dt": "1630371600",
-			"temp": "78.3",
+			"temp": "25.52",
 			"weather": {
 				"description": "few clouds",
-				"icon": "02n",
+				"icon": "04n",
 				"main": "clouds"
 			}
 		},
 		{
 			"dt": "1630375200",
-			"temp": "77.95",
+			"temp": "25.63",
 			"weather": {
 				"description": "clear sky",
 				"icon": "01n",
@@ -63,10 +63,10 @@
 		},
 		{
 			"dt": "1630378800",
-			"temp": "78.03",
+			"temp": "25.6",
 			"weather": {
 				"description": "few clouds",
-				"icon": "02n",
+				"icon": "04n",
 				"main": "clouds"
 			}
 		}
