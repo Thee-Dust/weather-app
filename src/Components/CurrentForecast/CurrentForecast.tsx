@@ -35,7 +35,7 @@ export default function CurrentForecast({ searchedCity, tempScale }: { searchedC
 		return (
 			<div className="current-container">
 				<div className="current-forecast">
-					<p className='current-location'>As of {currentDate} in {location}</p>
+					<p data-cy='current-location'>As of {currentDate} in {location}</p>
 					<h3>{currentWeather.main.temp.toFixed(0)}°</h3>
 					<p>{currentWeather.weather[0].main}</p>
 					<p>Feels like {currentWeather.main.feels_like.toFixed(0)}°</p>
