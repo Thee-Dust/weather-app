@@ -44,9 +44,9 @@ export default function App(): ReactElement {
 		saveTempToStorage()
 	},[tempScale])
 
-	const setTheme = () => {
+	// const setTheme = () => {
 		
-	}
+	// }
 
 	return (
 		<main> 
