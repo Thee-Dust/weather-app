@@ -15,7 +15,7 @@ describe('NavBar', () => {
 		cy.interceptNYCurrentForecastFahrenheit()
 		cy.interceptNYLocation()
 		cy.interceptNYFutureForecastFahrenheit()
-			.get('.current-forecast > :nth-child(1)').contains('New York')
+		cy.get('.current-forecast > :nth-child(1)').contains('New York')
 	})
 
 	it('Should change temp to °C from °F', () => {
