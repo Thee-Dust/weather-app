@@ -10,12 +10,12 @@ describe('NavBar', () => {
 		cy.get('.app-controls > h1').should('contain', 'The DustStorm')
 	})
 
-	it('Should have a feild to search for a city',() => {
+	it('Should have a field to search for a city',() => {
 		cy.get('.search-city > input').type('New York').type('{enter}')
-		// cy.interceptNYCurrentForecastFahrenheit()
-		// cy.interceptNYLocation()
-		// cy.interceptNYFutureForecastFahrenheit()
-		cy.get('.current-forecast > :nth-child(1)').contains('New York')
+		cy.interceptNYCurrentForecastFahrenheit()
+		cy.interceptNYLocation()
+		cy.interceptNYFutureForecastFahrenheit()
+		cy.get('.current-location').contains('New York')
 	})
 
 	it('Should change temp to °C from °F', () => {
