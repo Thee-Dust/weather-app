@@ -5,9 +5,7 @@ export async function getWeather(location: string, tempScale: string) {
   try {
     const response = await fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${location}&limit=1&appid=${apiKey}`);
     const data = await response.json();
-		console.log('location',data)
     const weatherReport = await fetchWeather(data, tempScale);
-		console.log('all in one', weatherReport)
     return weatherReport
   } catch(e) {
     throw Error(e.message);
