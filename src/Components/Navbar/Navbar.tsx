@@ -1,9 +1,7 @@
 import React, { FormEvent, useRef, ReactElement, useState, useEffect } from 'react'
-import SearchIcon from '@material-ui/icons/Search';
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Switch from "@material-ui/core/Switch";
 import './NavBar.scss'
-import dayjs from 'dayjs';
 
 export default function Navbar({ findCity, tempScale, changeTemp }: { findCity: (city: string) => void, tempScale: string, changeTemp: ((scale: string) => void) }): ReactElement {
 	const cityRef = useRef<HTMLInputElement>(null);
