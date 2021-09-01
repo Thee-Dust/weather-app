@@ -13,7 +13,6 @@ export default function CurrentForecast({ searchedCity, tempScale }: { searchedC
 			setError('')
 			try {
 				const weatherReport = await getCurrentWeather(searchedCity, tempScale);
-				console.log('Current', weatherReport)
 				setCurrentWeather(weatherReport)
 			} catch (e) {
 				setError(e.message)
@@ -22,6 +21,12 @@ export default function CurrentForecast({ searchedCity, tempScale }: { searchedC
 		callWeather(searchedCity, tempScale)
 	}, [searchedCity, tempScale])
 	
+	if(error) {
+		return (
+			<h1>{error}</h1>
+		)
+	}
+
 	if(currentWeather?.id) {
 		const today = new Date(currentWeather.dt * 1000);
 		const currentDate = dayjs(today).format('h:mm A');
