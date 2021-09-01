@@ -12,9 +12,9 @@ describe('NavBar', () => {
 
 	it('Should have a feild to search for a city',() => {
 		cy.get('.search-city > input').type('New York').type('{enter}')
-		cy.interceptNYCurrentForecastFahrenheit()
-		cy.interceptNYLocation()
-		cy.interceptNYFutureForecastFahrenheit()
+		// cy.interceptNYCurrentForecastFahrenheit()
+		// cy.interceptNYLocation()
+		// cy.interceptNYFutureForecastFahrenheit()
 		cy.get('.current-forecast > :nth-child(1)').contains('New York')
 	})
 
