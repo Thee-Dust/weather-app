@@ -173,15 +173,16 @@
 			"humidity": "55",
 			"pop": "0.73",
 			"pressure": "1012",
-			"temp": "80.37",
+			"temp": 80.37,
 			"uvi": "9.61",
 			"visibility": "10000",
-			"weather": {
-				"description": "broken clouds",
+			"weather": [
+				{
+				"description": "few clouds",
 				"icon": "04n",
-				"id": "803",
-				"main": "Clouds"
-			},
+				"main": "clouds"
+				}
+			],
 			"wind_deg": "245",
 			"wind_gust": "8.84",
 			"wind_speed": "7.43"
@@ -194,14 +195,16 @@
 			"humidity": "55",
 			"pop": "0.73",
 			"pressure": "1012",
-			"temp": "80.35",
+			"temp": 80.35,
 			"uvi": "9.61",
 			"visibility": "10000",
-			"weather": {
-				"description": "broken clouds",
-				"icon": "04n",
-				"main": "Clouds"
-			},
+			"weather": [
+				{
+					"description": "broken clouds",
+					"icon": "04n",
+					"main": "Clouds"
+				}
+			],
 			"wind_deg": "245",
 			"wind_gust": "8.84",
 			"wind_speed": "7.43"
@@ -214,14 +217,16 @@
 			"humidity": "55",
 			"pop": "0.73",
 			"pressure": "1012",
-			"temp": "80.19",
+			"temp": 80.19,
 			"uvi": "9.61",
 			"visibility": "10000",
-			"weather": {
-				"description": "overcast clouds",
-				"icon": "04n",
-				"main": "Clouds"
-			},
+			"weather": [
+				{
+					"description": "overcast clouds",
+					"icon": "04n",
+					"main": "Clouds"
+				}
+			],
 			"wind_deg": "245",
 			"wind_gust": "8.84",
 			"wind_speed": "7.43"
