@@ -31,24 +31,5 @@ export async function getCurrentWeather(city: string, tempScale: string) {
   }
 } 
 
-// export async function getHourlyForcast(city: string) {
-// 	try {
-// 		const hourResponse = await fetch(`pro.openweathermap.org/data/2.5/forecast/hourly?q=${city}&appid=${apiKey}`);
-// 		const data = await hourResponse.json()
-// 		console.log(dat)
-// 		return data
-// 	} catch(e) {
-// 		throw Error(e.message)
-// 	}
-// }
-
-// current: { dt: 1627865616, sunrise: 1627814834, sunset: 1627863377, temp: 301.22, feels_like: 304.23, … }
-// daily: (8)[{ … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }]
-// hourly: (48)[{ … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }]
-// lat: 28.5383
-// lon: -81.3792
-// minutely: (61)[{ … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }, { … }]
-// timezone: "America/New_York"
-// timezone_offset: -14400
 
 
