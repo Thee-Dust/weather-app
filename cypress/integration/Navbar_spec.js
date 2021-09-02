@@ -13,6 +13,7 @@ describe('NavBar', () => {
 	})
 
 	it('Should have a field to search for a city',() => {
+		Cypress.config('defaultCommandTimeout', 10000);
 		cy.interceptNYCurrentForecastFahrenheit(apiKey)
 		cy.interceptNYLocation(apiKey)
 		cy.interceptNYFutureForecastFahrenheit(apiKey)
