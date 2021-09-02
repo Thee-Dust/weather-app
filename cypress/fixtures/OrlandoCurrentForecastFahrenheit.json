@@ -11,10 +11,10 @@
 	"dt": "1630356699",
 	"id": "4167147",
 	"main": {
-		"feels_like": "84.87",
+		"feels_like": 84.87,
 		"humidity": "78",
 		"pressure": "1015",
-		"temp": "80.44",
+		"temp": 80.44,
 		"temp_max": "82.74",
 		"temp_min": "77.72"
 	},
