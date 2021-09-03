@@ -1,7 +1,6 @@
 [
 	{
-		"country": "US",
-		"lat": "28.5383",
+		"name": "Orlando",
 		"local_names": {
 			"ar": "أورلاندو",
 			"ascii": "Orlando",
@@ -25,9 +24,10 @@
 			"pt": "Orlando",
 			"ru": "Орландо",
 			"sr": "Орландо"
-	},
+		},
+		"lat": "28.5383",
 		"lon": "-81.3792",
-		"name": "Orlando",
+		"country": "US",
 		"state": "FL"
 	}
 ]
