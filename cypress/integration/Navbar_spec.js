@@ -6,6 +6,9 @@ describe('NavBar', () => {
 		cy.interceptOrlandoLocation(apiKey)
 		cy.interceptOrlandoFutureForecastFahrenheit(apiKey)
 		cy.visit('http://localhost:3000')
+		cy.wait('@OCurrent')
+		cy.wait('@OLocation')
+		cy.wait('@OFuture')
 	})
 	
 	it('Should display app name', () => {
@@ -18,7 +21,10 @@ describe('NavBar', () => {
 		cy.interceptNYLocation(apiKey)
 		cy.interceptNYFutureForecastFahrenheit(apiKey)
 		cy.get('.search-city > input').type('New York').type('{enter}')
-			.get('.current-forecast > :nth-child(1)').contains('New York')
+		cy.wait('@NYCurrentF')
+		cy.wait('@NYLocation')
+		cy.wait('@NYFutureF')
+		cy.get('.current-forecast > :nth-child(1)').contains('New York')
 	})
 
 	it('Should change temp to °C from °F', () => {
@@ -26,10 +32,15 @@ describe('NavBar', () => {
 		cy.interceptNYLocation(apiKey)
 		cy.interceptNYFutureForecastFahrenheit(apiKey)
 		cy.get('.search-city > input').type('New York').type('{enter}')
+		cy.wait('@NYCurrentF')
+		cy.wait('@NYLocation')
+		cy.wait('@NYFutureF')
 		.get('.MuiTypography-root').contains('°F')
 		cy.interceptNYCurrentForecastMetric(apiKey)
 		cy.interceptNYFutureForecastMetric(apiKey)
 		.get('.PrivateSwitchBase-input-4').click()
+		cy.wait('@NYCurrentC')
+		cy.wait('@NYFutureC')
 		.get('.MuiTypography-root').contains('°C')
 	})
 
@@ -38,6 +49,9 @@ describe('NavBar', () => {
 		cy.interceptNYLocation(apiKey)
 		cy.interceptNYFutureForecastFahrenheit(apiKey)
 		cy.get('.search-city > input').type('New York').type('{enter}')
-			.get('.saved-cities').eq(0).contains('New York')
+		cy.wait('@NYCurrentF')
+		cy.wait('@NYLocation')
+		cy.wait('@NYFutureF')
+		cy.get('.saved-cities').eq(0).contains('New York')
 	})
 })
