@@ -25,7 +25,7 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 Cypress.Commands.add('interceptNYCurrentForecastFahrenheit', (apiKey) => {
-	cy.fixture('../fixtures/NewYorkCurrentForecastFahrenheit.json').then(json => {
+	cy.fixture('../fixtures/NewYorkCurrentForecastFahrenheit.json').then((json) => {
 		cy.intercept('GET', `https://api.openweathermap.org/data/2.5/weather?q=New%20York&appid=${apiKey}&units=imperial`, json)
 	})
 })
