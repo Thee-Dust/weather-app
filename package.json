@@ -12,7 +12,6 @@
     "@types/node": "^12.20.17",
     "@types/react": "^17.0.15",
     "@types/react-dom": "^17.0.9",
-    "cypress": "^8.3.1",
     "dayjs": "^1.10.6",
     "node-sass": "^6.0.1",
     "react": "^17.0.2",
@@ -24,9 +23,10 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "start-server-and-test start http://localhost:3000 cy:run",
+    "cy:run": "cypress run --record --key 046e5145-7aae-4a30-872a-28aa682d794b",
     "eject": "react-scripts eject",
-    "cypress": "./node_modules/.bin/cypress open"
+    "cypress": "cypress open"
   },
   "eslintConfig": {
     "extends": [
@@ -45,5 +45,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "cypress": "^7.7.0",
+    "start-server-and-test": "^1.12.6"
   }
 }

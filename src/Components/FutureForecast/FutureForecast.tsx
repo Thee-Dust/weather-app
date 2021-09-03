@@ -11,7 +11,6 @@ export default function FutureForecast({ searchedCity, tempScale }: { searchedCi
 	const [ dailyForecast, setDailyForecast ] = useState<Daily[]>([])
 	const [ error, setError ] = useState<string>('');
 	
-
 	useEffect(() => {
 		const callForcast = async (searchedCity: string, tempScale: string) => {
 			setError('')
@@ -26,16 +25,15 @@ export default function FutureForecast({ searchedCity, tempScale }: { searchedCi
 		callForcast(searchedCity, tempScale)
 		}, [searchedCity, tempScale]);
 
-	// const getTemp = () => {
-	// 	const savedTempScale = localStorage.getItem('tempScale');
-	// 	return savedTempScale !== null
-	// 		? JSON.parse(savedTempScale)
-	// 		: "imperial";
-	// }
-
 	const switchForecast = (e: MouseEvent) => {
 		e.preventDefault();
 		setHourly(prevState => !prevState);
+	}
+
+	if(error) {
+		return (
+			<h1>{error}</h1>
+		)
 	}
 
 	if(!!hourlyForecast.length) {

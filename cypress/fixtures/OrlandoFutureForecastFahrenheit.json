@@ -1,0 +1,245 @@
+{
+	"current": {
+		"base": "stations",
+		"clouds": {
+			"all": "20"
+		},
+		"cod": "200",
+		"coord": {
+			"lon": "-81.3792",
+			"lat": "28.5383"
+		},
+		"dt": "1630356699",
+		"id": "4167147",
+		"main": {
+			"feels_like": "84.87",
+			"humidity": "78",
+			"pressure": "1015",
+			"temp": "80.44",
+			"temp_max": "82.74",
+			"temp_min": "77.72"
+		},
+		"name": "Orlando",
+		"sys": {
+			"country": "US",
+			"id": "5234",
+			"sunrise": "1630407811",
+			"sunset": "1630453705",
+			"type": "1"
+		},
+		"timezone": "-14400",
+		"visibility": "10000",
+		"weather": [
+			{
+				"description": "broken clouds",
+				"icon": "04n",
+				"id": "801",
+				"main": "Clouds"
+			}
+		],
+		"wind": {
+			"deg": "210",
+			"speed": "10.36"
+		}
+	},
+	"daily": [
+		{	
+			"clouds": "20",
+			"dew_point": "76.5",
+			"dt": "1630371600",
+			"feels_like": {
+				"day": "103.95",
+				"eve": "87.89",
+				"morn": "78.42",
+				"night": "85.05"
+			},
+			"humidity": "62",
+			"moon_phase": "0.79",
+			"moonrise": "1630385940",
+			"moonset": "1630437660",
+			"pop": "0.34",
+			"pressure": "1013",
+			"rain": "0.63",
+			"sunrise": "1630407811",
+			"sunset": "1630453705",
+			"temp": {
+				"day": "91.35",
+				"eve": "84.38",
+				"min": 76.62,
+				"max": 94.46,
+				"morn": "77.02",
+				"night": "81.14"
+			},
+			"uvi": "10.17",
+			"weather": [
+				{
+					"description": "overcast clouds",
+					"icon": "04d",
+					"main": "Clouds",
+					"id": "801"
+				}
+			],
+			"wind_deg": "273",
+			"wind_gust": "15.21",
+			"wind_speed": "8.37"
+		},
+		{
+			"clouds": "20",
+			"dew_point": "76.5",
+			"dt": "1630375200",
+			"feels_like": {
+				"day": "103.95",
+				"eve": "87.89",
+				"morn": "78.42",
+				"night": "85.05"
+			},
+			"humidity": "62",
+			"moon_phase": "0.79",
+			"moonrise": "1630385940",
+			"moonset": "1630437660",
+			"pop": "0.34",
+			"pressure": "1013",
+			"rain": "0.63",
+			"sunrise": "1630407811",
+			"sunset": "1630453705",
+			"temp": { 
+				"day": "91.35",
+				"eve": "84.38",
+				"min": 72.32, 
+				"max": 92.91,
+				"morn": "77.02",
+				"night": "81.14"
+			},
+			"uvi": "10.17",
+			"weather": [
+				{
+					"description": "light ran",
+					"icon": "10d",
+					"id": "801",
+					"main": "Rain"
+				}
+			],
+			"wind_deg": "273",
+			"wind_gust": "15.21",
+			"wind_speed": "8.37"
+		},
+		{
+			"clouds": "20",
+			"dew_point": "76.5",
+			"dt": "1630378800",
+			"feels_like": {
+				"day": "103.95",
+				"eve": "87.89",
+				"morn": "78.42",
+				"night": "85.05"
+			},
+			"humidity": "62",
+			"moon_phase": "0.79",
+			"moonrise": "1630385940",
+			"moonset": "1630437660",
+			"pop": "0.34",
+			"pressure": "1013",
+			"rain": "0.63",
+			"sunrise": "1630407811",
+			"sunset": "1630453705",
+			"temp": {
+				"day": "91.35",
+				"eve": "84.38",
+				"min": 74.21, 
+				"max": 82.08,
+				"morn": "77.02",
+				"night": "81.14"
+			},
+			"uvi": "10.17",
+			"weather": [
+				{
+					"description": "light rain",
+					"icon": "10d",
+					"id": "801",
+					"main": "Rain"
+				}
+			],
+			"wind_deg": "273",
+			"wind_gust": "15.21",
+			"wind_speed": "8.37"
+		}
+	],
+	"hourly": [
+		{
+			"clouds": "80",
+			"dew_point": "74.39",
+			"dt": "1630371600",
+			"feels_like": "103.71",
+			"humidity": "55",
+			"pop": "0.73",
+			"pressure": "1012",
+			"temp": 80.37,
+			"uvi": "9.61",
+			"visibility": "10000",
+			"weather": [
+				{
+				"description": "few clouds",
+				"icon": "04n",
+				"main": "clouds"
+				}
+			],
+			"wind_deg": "245",
+			"wind_gust": "8.84",
+			"wind_speed": "7.43"
+		},
+		{
+			"clouds": "80",
+			"dew_point": "74.39",
+			"dt": "1630375200",
+			"feels_like": "103.71",
+			"humidity": "55",
+			"pop": "0.73",
+			"pressure": "1012",
+			"temp": 80.35,
+			"uvi": "9.61",
+			"visibility": "10000",
+			"weather": [
+				{
+					"description": "broken clouds",
+					"icon": "04n",
+					"main": "Clouds"
+				}
+			],
+			"wind_deg": "245",
+			"wind_gust": "8.84",
+			"wind_speed": "7.43"
+		},
+		{
+			"clouds": "80",
+			"dew_point": "74.39",
+			"dt": "1630378800",
+			"feels_like": "103.71",
+			"humidity": "55",
+			"pop": "0.73",
+			"pressure": "1012",
+			"temp": 80.19,
+			"uvi": "9.61",
+			"visibility": "10000",
+			"weather": [
+				{
+					"description": "overcast clouds",
+					"icon": "04n",
+					"main": "Clouds"
+				}
+			],
+			"wind_deg": "245",
+			"wind_gust": "8.84",
+			"wind_speed": "7.43"
+		}
+	],
+	"lat": "28.5383",
+	"lon": "-81.3792",
+	"minutely": [
+		{
+			"dt": "1630434840",
+			"precipitation": "0"
+		}
+	],
+	"timezone": "America/New_York",
+	"timezone_offset": "-14400"
+}
