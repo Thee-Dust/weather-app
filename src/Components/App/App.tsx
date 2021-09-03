@@ -15,8 +15,6 @@ export default function App(): ReactElement {
 			: 'Orlando'
 	});
 	
-
-	
 	const [ tempScale, setTempScale ] = useState<string>(() => {
 		const savedTempScale = localStorage.getItem('tempScale');
 		return savedTempScale !== null
@@ -35,21 +33,6 @@ export default function App(): ReactElement {
 		saveSearchedCity()
 	},[searchedCity])
 
-	// const favoriteCity =  (city: string) => {
-	// 	if(favoriteCities.includes(city)){
-	// 		setFavoriteCities(prevState => prevState.filter(favCity => city !== favCity))
-	// 	} else {
-	// 		setFavoriteCities(prevState => [...prevState, city])
-	// 	}
-	// };
-
-  // useEffect(() => {
-	// 	const saveCitiesToStorage = () => {
-	// 		localStorage.setItem('favoriteCities', JSON.stringify(favoriteCities));
-	// 	};
-	// 	saveCitiesToStorage()
-  // },[favoriteCities]);
-
 	const changeTemp = (scale: string) => {
 		setTempScale(scale)
 	}
@@ -61,9 +44,9 @@ export default function App(): ReactElement {
 		saveTempToStorage()
 	},[tempScale])
 
-	const setTheme = () => {
+	// const setTheme = () => {
 		
-	}
+	// }
 
 	return (
 		<main> 
