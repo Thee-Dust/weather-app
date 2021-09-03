@@ -3,16 +3,6 @@ node_js:
   - "node"
 notifications:
   email: false
-
-cache:
-  # cache both npm modules and Cypress binary
-  directories:
-    - ~/.npm
-    - ~/.cache
-  override:
-    - npm ci
-    - npm run cy:verify
 script:
 - npm test
-- npm run start:ci & 
 - CI='' npm run build
