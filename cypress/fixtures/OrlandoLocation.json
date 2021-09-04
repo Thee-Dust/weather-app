@@ -1,0 +1,33 @@
+[
+	{
+		"name": "Orlando",
+		"local_names": {
+			"ar": "أورلاندو",
+			"ascii": "Orlando",
+			"bg": "Орландо",
+			"da": "Orlando",
+			"de": "Orlando",
+			"el": "Ορλάντο",
+			"en": "Orlando",
+			"fa": "اورلندو، فلوریدا",
+			"feature_name": "Orlando",
+			"fi": "Orlando",
+			"fr": "Orlando",
+			"he": "אורלנדו",
+			"id": "Orlando",
+			"ja": "オーランド",
+			"lt": "Orlandas",
+			"mk": "Орландо",
+			"nl": "Orlando",
+			"no": "Orlando",
+			"pl": "Orlando",
+			"pt": "Orlando",
+			"ru": "Орландо",
+			"sr": "Орландо"
+		},
+		"lat": "28.5383",
+		"lon": "-81.3792",
+		"country": "US",
+		"state": "FL"
+	}
+]
