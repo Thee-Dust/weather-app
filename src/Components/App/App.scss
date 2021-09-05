@@ -17,6 +17,7 @@ main {
 $themes: (
 	Sunny: #FFF,
 	Clouds: #000,
+	Rain: #FFF,
 );
 
 @each $key, $value in $themes {
