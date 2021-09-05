@@ -12,9 +12,13 @@ main {
 	flex-direction: column;
 	justify-content: space-between;
 	align-items: center;
-	background: url('../../Assets/Sunny.jpeg') no-repeat center center;
+	// background: url('../../Assets/Sunny.jpeg') no-repeat center center;
 }
+$themes: (
+	Sunny: #FFF,
+	Clouds: #000,
+);
 
-.Sunny {
-	@include sunny()
+@each $key, $value in $themes {
+	@include weatherTheme($key, $value)
 }
