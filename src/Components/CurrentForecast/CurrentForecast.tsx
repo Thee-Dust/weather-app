@@ -3,7 +3,6 @@ import dayjs from 'dayjs';
 import { CurrentWeather } from '../../Utilities/Utilitiles';
 import { getCurrentWeather } from '../Api/ApiCall';
 import './CurrentForecast.scss'
-import { setSyntheticLeadingComments } from 'typescript';
 
 export default function CurrentForecast({ searchedCity, tempScale, setTheme }: { searchedCity: string, tempScale: string, setTheme: (weather: string) => void }): ReactElement | null {
 	const [currentWeather, setCurrentWeather] = useState<CurrentWeather | null>(null);

@@ -1,0 +1,10 @@
+@mixin weatherTheme($name, $color) {
+	.#{$name} {
+		background: url('../Assets/Sunny.jpeg') no-repeat center center fixed;
+
+		.app-controls > h1,
+		.current-container {
+			color: $color;
+		}
+	}
+}
