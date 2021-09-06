@@ -24,14 +24,12 @@
 		font-size: $baseSize * 4;
 
 		&:disabled {
-			color: black;
 			cursor: default;
 
 			&::after {
 				content: '';
 				display: block;
-				height: $baseSize;
-				background: #FFF;
+				height: $baseSize * .5;
 				border-radius: 16px;
 			}
 		}

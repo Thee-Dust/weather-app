@@ -1,10 +1,20 @@
 @mixin weatherTheme($name, $color) {
 	.#{$name} {
 		background: center / cover no-repeat  url('../Assets/#{$name}.jpeg') fixed;
+		color: $color;
 
 		.app-controls > h1,
-		.current-container {
+		.current-container,
+		.future-controls > button {
 			color: $color;
+		}
+
+		.future-controls>button {
+			color: $color; 
+
+			&::after {
+				background-color: darken($color, 15%);
+			}
 		}
 	}
 }
