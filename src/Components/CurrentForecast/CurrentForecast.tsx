@@ -4,7 +4,7 @@ import { CurrentWeather } from '../../Utilities/Utilitiles';
 import { getCurrentWeather } from '../Api/ApiCall';
 import './CurrentForecast.scss'
 
-export default function CurrentForecast({ searchedCity, tempScale, setTheme }: { searchedCity: string, tempScale: string, setTheme: (weather: string) => void }): ReactElement | null {
+export default function CurrentForecast({ searchedCity, tempScale, setTheme }: { searchedCity: string, tempScale: string, setTheme: (weather: string, time: string) => void }): ReactElement | null {
 	const [currentWeather, setCurrentWeather] = useState<CurrentWeather | null>(null);
 	const [error, setError] = useState<string>('');
 
@@ -14,13 +14,13 @@ export default function CurrentForecast({ searchedCity, tempScale, setTheme }: {
 			try {
 				const weatherReport = await getCurrentWeather(searchedCity, tempScale);
 				setCurrentWeather(weatherReport)
-				setTheme(weatherReport.weather[0].main)
+				setTheme(weatherReport.weather[0].main, weatherReport.weather[0].icon)
 			} catch (e) {
 				setError(e.message)
 			}
 		}
 		callWeather(searchedCity, tempScale)
-	}, [searchedCity, tempScale])
+	}, [searchedCity, tempScale, setTheme])
 	
 	if(error) {
 		return (
@@ -38,7 +38,7 @@ export default function CurrentForecast({ searchedCity, tempScale, setTheme }: {
 				<div className="current-forecast">
 					<p>As of {currentDate} in {location}</p>
 					<h3>{currentWeather.main.temp.toFixed()}°</h3>
-					<p>{currentWeather.weather[0].main}</p>
+					<p>{currentWeather.weather[0].description}</p>
 					<p>Feels like {currentWeather.main.feels_like.toFixed()}°</p>
 				</div>
 				<div className="current-icon">
