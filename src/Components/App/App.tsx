@@ -43,8 +43,11 @@ export default function App(): ReactElement {
 		saveTempToStorage()
 	},[tempScale])
 
-	const setTheme = (weather: string) => {
-		setAppTheme(weather)
+	const setTheme = (weather: string, time: string) => {
+		const timeOfDay = time.slice(-1)
+		const theme = `${weather}-${timeOfDay}`
+		console.log(theme)
+		setAppTheme(theme)
 	}
 
 	return (
