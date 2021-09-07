@@ -62,12 +62,20 @@ header {
 	border-right: $baseSize * .25 solid black;
 	padding: $baseSize * 2;
 
+	button {
+		font-size: $baseSize * 2;
+	}
+	
 	button:nth-child(1) {
 		width: inherit;
 		text-align: start;
 	}
-}
 
-.remove-section {
-	display: flex;
+	button:nth-child(1):hover {
+		color: #aeadad;
+	}
+
+	button:nth-child(2):hover {
+		color: #ff3d3d;
+	}
 }
