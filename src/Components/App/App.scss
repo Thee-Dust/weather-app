@@ -12,11 +12,11 @@ main {
 	flex-direction: column;
 	justify-content: space-between;
 	align-items: center;
-	// background: url('../../Assets/Sunny.jpeg') no-repeat center center;
 }
+
 $themes: (
 	Clear-d: #FFF,
-	Clouds-d: #000,
+	Clouds-d: #FFF,
 	Rain-d: #FFF,
 	Thunderstorm-d: #FFF,
 	Snow-d: #000,
