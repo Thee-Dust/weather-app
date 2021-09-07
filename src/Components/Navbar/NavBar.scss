@@ -61,4 +61,13 @@ header {
 	justify-content: space-between;
 	border-right: $baseSize * .25 solid black;
 	padding: $baseSize * 2;
+
+	button:nth-child(1) {
+		width: inherit;
+		text-align: start;
+	}
+}
+
+.remove-section {
+	display: flex;
 }

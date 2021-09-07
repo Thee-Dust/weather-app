@@ -1,6 +1,7 @@
 import React, { FormEvent, useRef, ReactElement, useState, useEffect } from 'react'
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Switch from "@material-ui/core/Switch";
+import CloseIcon from '@material-ui/icons/Close';
 import './NavBar.scss'
 
 export default function Navbar({ findCity, tempScale, changeTemp }: { findCity: (city: string) => void, tempScale: string, changeTemp: ((scale: string) => void) }): ReactElement {
@@ -17,7 +18,7 @@ export default function Navbar({ findCity, tempScale, changeTemp }: { findCity: 
 		return (
 			<div key={index} className="favorite-city">
 				<button onClick={() => findCity(city)}>{city}</button>
-				<button onClick={() => favoriteCity(city)}>Remove</button>
+				<button onClick={() => favoriteCity(city)}><CloseIcon/></button>
 			</div>
 		)
 	});
