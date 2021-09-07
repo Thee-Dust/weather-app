@@ -29,6 +29,7 @@ export default function CurrentForecast({ searchedCity, tempScale, setTheme }: {
 	}
 
 	if(currentWeather?.id) {
+		console.log(currentWeather)
 		const today = new Date(currentWeather.dt * 1000);
 		const currentDate = dayjs(today).format('h:mm A');
 		const location = `${currentWeather.name}, ${currentWeather.sys?.country}`;

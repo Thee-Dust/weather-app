@@ -20,11 +20,10 @@
 	&::-webkit-scrollbar-thumb {
 		border-radius: $baseSize;
 		background-color: #bbbbbb;
-		outline: 2px solid slategrey;
 	}
 
 	&::-webkit-scrollbar-thumb:hover {
-		background-color: black;
+		background-color: darken(#bbbbbb, 15%)
 	}
 }
 
