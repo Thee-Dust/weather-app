@@ -1,5 +1,4 @@
 import React, { useEffect, useState, ReactElement } from 'react';
-import dayjs from 'dayjs';
 import { CurrentWeather } from '../../Utilities/Utilitiles';
 import { getCurrentWeather } from '../Api/ApiCall';
 import './CurrentForecast.scss'
@@ -32,8 +31,9 @@ export default function CurrentForecast({ searchedCity, tempScale, setTheme }: {
 	}
 
 	if(currentWeather?.id) {
-		const timeOfDataCalc = new Date((currentWeather.dt + currentWeather.timezone)* 1000);
-		const today = moment.parseZone(timeOfDataCalc).utc().format('h:mm A')
+		const secondsToMilliseconds = 1000;
+		const timeOfDataCalc = new Date((currentWeather.dt + currentWeather.timezone) * secondsToMilliseconds);
+		const today = moment.parseZone(timeOfDataCalc).utc().format('h:mm A');
 		const location = `${currentWeather.name}, ${currentWeather.sys?.country}`;
 
 		return (
