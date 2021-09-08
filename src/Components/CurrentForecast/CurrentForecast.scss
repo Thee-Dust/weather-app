@@ -1,6 +1,7 @@
 @import '../../index.scss';
 
 .current-container {
+	position: relative;
 	display: flex;
 	width: 80%;
 	height: $baseSize * 29.5;
@@ -21,6 +22,11 @@
 		}
 }
 
-.current-icon > img {
-	width: $baseSize * 24;
+.current-icon {
+	margin-left: $baseSize * 13;
+
+	img{
+		width: $baseSize * 24;
+	}
 }
+
