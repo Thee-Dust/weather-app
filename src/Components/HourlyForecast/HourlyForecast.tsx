@@ -7,7 +7,7 @@ export default function HourlyForcast({ hourlyReport, timezoneOffset }: { hourly
 	const hourCards = hourlyReport.map((hour, index) => {
 		const secondsToMilliseconds = 1000;
 		const date = new Date((hour.dt + timezoneOffset) * secondsToMilliseconds);
-		const futureHour = moment.parseZone(date).utc().format('h:mm A');;
+		const futureHour = moment.parseZone(date).utc().format('h A');;
 		return (
 			<div key={index} className='hourly-card'>
 				<span>{ index === 0 ? 'Now' : futureHour}</span>
