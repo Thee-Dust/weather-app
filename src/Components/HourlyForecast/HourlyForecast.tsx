@@ -2,11 +2,13 @@ import React, { ReactElement } from 'react'
 import dayjs from 'dayjs'
 import { Hourly } from '../../Utilities/Utilitiles'
 import './HourlyForecast.scss'
+import moment from 'moment'
 
-export default function HourlyForcast({ hourlyReport }: { hourlyReport: Hourly[] }): ReactElement {
+export default function HourlyForcast({ hourlyReport, timezoneOffset }: { hourlyReport: Hourly[], timezoneOffset: number }): ReactElement {
 	const hourCards = hourlyReport.map((hour, index) => {
-		const date = new Date(hour.dt * 1000);
-		const futureHour = dayjs(date).format('h A');
+		const secondsToMilliseconds = 1000;
+		const date = new Date((hour.dt + timezoneOffset) * secondsToMilliseconds);
+		const futureHour = moment.parseZone(date).utc().format('h:mm A');;
 		return (
 			<div key={index} className='hourly-card'>
 				<span>{ index === 0 ? 'Now' : futureHour}</span>
