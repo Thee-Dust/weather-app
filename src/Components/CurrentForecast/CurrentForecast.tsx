@@ -1,10 +1,9 @@
 import React, { useEffect, useState, ReactElement } from 'react';
 import { CurrentWeather } from '../../Utilities/Utilitiles';
 import { getCurrentWeather } from '../Api/ApiCall';
+import moment from 'moment';
 import './CurrentForecast.scss'
 
-import moment from 'moment';
-import { Today } from '@material-ui/icons';
 
 export default function CurrentForecast({ searchedCity, tempScale, setTheme }: { searchedCity: string, tempScale: string, setTheme: (weather: string, time: string) => void }): ReactElement | null {
 	const [currentWeather, setCurrentWeather] = useState<CurrentWeather | null>(null);
@@ -40,7 +39,7 @@ export default function CurrentForecast({ searchedCity, tempScale, setTheme }: {
 			<div className="current-container">
 				<div className="current-forecast">
 					<p>As of {today} in {location}</p>
-					<h3>{currentWeather.main.temp.toFixed()}°</h3>
+					<h1>{currentWeather.main.temp.toFixed()}°</h1>
 					<p>{currentWeather.weather[0].description}</p>
 					<p>Feels like {currentWeather.main.feels_like.toFixed()}°</p>
 				</div>

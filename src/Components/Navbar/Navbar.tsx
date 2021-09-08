@@ -2,6 +2,7 @@ import React, { FormEvent, useRef, ReactElement, useState, useEffect } from 'rea
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Switch from "@material-ui/core/Switch";
 import CloseIcon from '@material-ui/icons/Close';
+import TextField from '@material-ui/core/TextField';
 import './NavBar.scss'
 
 export default function Navbar({ findCity, tempScale, changeTemp }: { findCity: (city: string) => void, tempScale: string, changeTemp: ((scale: string) => void) }): ReactElement {
@@ -32,6 +33,7 @@ export default function Navbar({ findCity, tempScale, changeTemp }: { findCity: 
 	};
 
 	const searchCity = (e: FormEvent<HTMLFormElement>) => {
+		console.log(cityRef.current?.value)
 		e.preventDefault()
 		if(cityRef.current) {
 			findCity(cityRef.current.value);
@@ -62,7 +64,7 @@ export default function Navbar({ findCity, tempScale, changeTemp }: { findCity: 
 			<div className="app-controls">
 				<h1>The DustStorm</h1>
 				<form onSubmit={searchCity} className="search-city">
-					<input type='text' ref={cityRef} placeholder='Search by City' />
+					<TextField id='standard-secondary' inputRef={cityRef} label='Search by City' color='primary' />
 				</form>
 				<form className="temp-switch-form">
 					<FormControlLabel
