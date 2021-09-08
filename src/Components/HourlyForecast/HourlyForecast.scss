@@ -33,11 +33,15 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	font-size: $baseSize * 3;
+	font-size: $baseSize * 3.5;
 	padding-bottom: $baseSize * 2;
 	padding-top: $baseSize * 2;
+	position: relative;
 
 		img {
-			margin-top: $baseSize * 3;
+			width: $baseSize * 15;
+			position: relative;
+			top: $baseSize * 2.5;
+			left: 0;
 		}
 }
