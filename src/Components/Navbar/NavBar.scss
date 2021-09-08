@@ -22,11 +22,15 @@ header {
 
 .search-city {
 	margin-left: $baseSize * 5;
+	text-align: center;
+
+	label + .MuiInput-formControl {
+		margin-top: $baseSize * 1.25;
+	}
 
 	input {
 		color: white;
-		width: $baseSize * 43.25;
-		height: $baseSize * 6;
+		width: $baseSize * 43;
 		font-size: $baseSize * 4;
 		border-radius: $baseSize * 1.5;
 		outline: none;
