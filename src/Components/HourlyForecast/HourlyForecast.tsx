@@ -1,5 +1,4 @@
 import React, { ReactElement } from 'react'
-import dayjs from 'dayjs'
 import { Hourly } from '../../Utilities/Utilitiles'
 import './HourlyForecast.scss'
 import moment from 'moment'
