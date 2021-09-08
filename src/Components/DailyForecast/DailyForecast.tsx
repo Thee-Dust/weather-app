@@ -1,15 +1,14 @@
 import React, { ReactElement } from 'react'
-import dayjs from 'dayjs';
 import { Daily } from '../../Utilities/Utilitiles'
-import advanceFormat from 'dayjs/plugin/advancedFormat'
 import './DailyForecast.scss'
+import moment from 'moment';
 
 
-export default function DailyForecast({ dailyForcast }: { dailyForcast: Daily[] }): ReactElement {
-	dayjs.extend(advanceFormat);
+export default function DailyForecast({ dailyForcast, timezoneOffset }: { dailyForcast: Daily[], timezoneOffset: number }): ReactElement {
 	const dailyCards = dailyForcast.map((day, index) => {
-		const date = new Date(day.dt * 1000);
-		const futureDate = dayjs(date).format('ddd Do');
+		const secondsToMilliseconds = 1000;
+		const date = new Date((day.dt + timezoneOffset) * secondsToMilliseconds);
+		const futureDate = moment.parseZone(date).utc().format('ddd Do');
 		return (
 			<div key={index} className='daily-card'>
 				<span>{index === 0 ? 'Today' : futureDate}</span>
