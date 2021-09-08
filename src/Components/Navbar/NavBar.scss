@@ -16,6 +16,7 @@ header {
 
 		h1 {
 			font-size: $baseSize * 6;
+			padding-left: $baseSize * 5;
 		}
 }
 
@@ -23,11 +24,13 @@ header {
 	margin-left: $baseSize * 5;
 
 	input {
+		color: white;
 		width: $baseSize * 43.25;
 		height: $baseSize * 6;
 		font-size: $baseSize * 4;
 		border-radius: $baseSize * 1.5;
 		outline: none;
+		border-color: white;
 	}
 }
 
