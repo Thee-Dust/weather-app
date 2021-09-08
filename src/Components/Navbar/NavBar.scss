@@ -39,7 +39,6 @@ header {
 }
 
 .temp-switch-form {
-	color: black;
 	margin-left: auto;
 	margin-right: $baseSize * 5;
 	font-size: $baseSize * 3;
@@ -51,7 +50,6 @@ header {
 }
 
 .temp-switch {
-	color: blue;
 	height: $baseSize * 12.5;
 }
 
@@ -84,11 +82,11 @@ header {
 }
 
 .favorite-city {
-	width: $baseSize * 22.5;
+	width: $baseSize * 12.5;
 	display: flex;
 	justify-content: space-between;
-	border-right: $baseSize * .25 solid black;
 	padding: $baseSize * 2;
+	margin-right: $baseSize * 2;
 
 	button {
 		font-size: $baseSize * 2;
