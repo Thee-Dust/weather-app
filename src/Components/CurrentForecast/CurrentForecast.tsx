@@ -4,6 +4,9 @@ import { CurrentWeather } from '../../Utilities/Utilitiles';
 import { getCurrentWeather } from '../Api/ApiCall';
 import './CurrentForecast.scss'
 
+import moment from 'moment';
+import { Today } from '@material-ui/icons';
+
 export default function CurrentForecast({ searchedCity, tempScale, setTheme }: { searchedCity: string, tempScale: string, setTheme: (weather: string, time: string) => void }): ReactElement | null {
 	const [currentWeather, setCurrentWeather] = useState<CurrentWeather | null>(null);
 	const [error, setError] = useState<string>('');
@@ -29,15 +32,14 @@ export default function CurrentForecast({ searchedCity, tempScale, setTheme }: {
 	}
 
 	if(currentWeather?.id) {
-		console.log(currentWeather)
-		const today = new Date(currentWeather.dt * 1000);
-		const currentDate = dayjs(today).format('h:mm A');
+		const timeOfDataCalc = new Date((currentWeather.dt + currentWeather.timezone)* 1000);
+		const today = moment.parseZone(timeOfDataCalc).utc().format('h:mm A')
 		const location = `${currentWeather.name}, ${currentWeather.sys?.country}`;
-		console.log(currentWeather)
+
 		return (
 			<div className="current-container">
 				<div className="current-forecast">
-					<p>As of {currentDate} in {location}</p>
+					<p>As of {today} in {location}</p>
 					<h3>{currentWeather.main.temp.toFixed()}°</h3>
 					<p>{currentWeather.weather[0].description}</p>
 					<p>Feels like {currentWeather.main.feels_like.toFixed()}°</p>
