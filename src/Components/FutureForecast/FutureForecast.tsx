@@ -7,6 +7,7 @@ import './FutureForecast.scss'
 
 export default function FutureForecast({ searchedCity, tempScale }: { searchedCity: string, tempScale: string }): ReactElement| null {
 	const [ hourly, setHourly ] = useState<boolean>(true)
+	const [ timezoneOffset, setTimezoneOffset ] = useState<number>(0)
 	const [ hourlyForecast, setHourlyForecast ] = useState<Hourly[]>([]);
 	const [ dailyForecast, setDailyForecast ] = useState<Daily[]>([])
 	const [ error, setError ] = useState<string>('');
@@ -18,6 +19,7 @@ export default function FutureForecast({ searchedCity, tempScale }: { searchedCi
 				const forecast = await getWeather(searchedCity, tempScale);
 				setHourlyForecast(forecast.hourly)
 				setDailyForecast(forecast.daily)
+				setTimezoneOffset(forecast.timezone_offset)
 			} catch (e) {
 				setError(e.message)
 			}
@@ -45,8 +47,8 @@ export default function FutureForecast({ searchedCity, tempScale }: { searchedCi
 				</div>
 				<div className='future-forecast'>
 					{hourly ? 
-					<HourlyForecast hourlyReport={hourlyForecast}/> :
-					<DailyForecast dailyForcast={dailyForecast}/> }
+					<HourlyForecast hourlyReport={hourlyForecast} timezoneOffset={timezoneOffset}/> :
+						<DailyForecast dailyForcast={dailyForecast} timezoneOffset={timezoneOffset}/> }
 				</div>
 			</div>
 		);

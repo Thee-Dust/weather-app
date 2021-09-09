@@ -12,7 +12,7 @@ describe('NavBar', () => {
 	})
 	
 	it('Should display app name', () => {
-		cy.get('.app-controls > h1').should('contain', 'The DustStorm')
+		cy.get('.app-controls > h1').should('contain', 'The Duststorm')
 	})
 
 	it('Should have a field to search for a city',() => {
@@ -20,7 +20,7 @@ describe('NavBar', () => {
 		cy.interceptNYCurrentForecastFahrenheit(apiKey)
 		cy.interceptNYLocation(apiKey)
 		cy.interceptNYFutureForecastFahrenheit(apiKey)
-		cy.get('.search-city > input').type('New York').type('{enter}')
+		cy.get('#custom-css-standard-input').type('New York').type('{enter}')
 	})
 		// cy.wait('@NYCurrentF')
 		// cy.wait('@NYLocation')
@@ -31,14 +31,14 @@ describe('NavBar', () => {
 		cy.interceptNYCurrentForecastFahrenheit(apiKey)
 		cy.interceptNYLocation(apiKey)
 		cy.interceptNYFutureForecastFahrenheit(apiKey)
-		cy.get('.search-city > input').type('New York').type('{enter}')
+		cy.get('#custom-css-standard-input').type('New York').type('{enter}')
 		// cy.wait('@NYCurrentF')
 		// cy.wait('@NYLocation')
 		// cy.wait('@NYFutureF')
 		.get('.MuiTypography-root').contains('°F')
 		cy.interceptNYCurrentForecastMetric(apiKey)
 		cy.interceptNYFutureForecastMetric(apiKey)
-		.get('.PrivateSwitchBase-input-4').click()
+		.get('.PrivateSwitchBase-input-6').click()
 		// cy.wait('@NYCurrentC')
 		// cy.wait('@NYFutureC')
 		.get('.MuiTypography-root').contains('°C')
@@ -48,7 +48,7 @@ describe('NavBar', () => {
 		cy.interceptNYCurrentForecastFahrenheit(apiKey)
 		cy.interceptNYLocation(apiKey)
 		cy.interceptNYFutureForecastFahrenheit(apiKey)
-		cy.get('.search-city > input').type('New York').type('{enter}')
+		cy.get('#custom-css-standard-input').type('New York').type('{enter}')
 		// cy.wait('@NYCurrentF')
 		// cy.wait('@NYLocation')
 		// cy.wait('@NYFutureF')
