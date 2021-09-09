@@ -1,6 +1,9 @@
 import React, { FormEvent, useRef, ReactElement, useState, useEffect } from 'react'
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Switch from "@material-ui/core/Switch";
+import CloseIcon from '@material-ui/icons/Close';
+import TextField from '@material-ui/core/TextField';
+import { makeStyles } from '@material-ui/core/styles';
 import './NavBar.scss'
 
 export default function Navbar({ findCity, tempScale, changeTemp }: { findCity: (city: string) => void, tempScale: string, changeTemp: ((scale: string) => void) }): ReactElement {
@@ -17,7 +20,7 @@ export default function Navbar({ findCity, tempScale, changeTemp }: { findCity: 
 		return (
 			<div key={index} className="favorite-city">
 				<button onClick={() => findCity(city)}>{city}</button>
-				<button onClick={() => favoriteCity(city)}>Remove</button>
+				<button onClick={() => favoriteCity(city)}><CloseIcon/></button>
 			</div>
 		)
 	});
@@ -31,6 +34,7 @@ export default function Navbar({ findCity, tempScale, changeTemp }: { findCity: 
 	};
 
 	const searchCity = (e: FormEvent<HTMLFormElement>) => {
+		console.log(cityRef.current?.value)
 		e.preventDefault()
 		if(cityRef.current) {
 			findCity(cityRef.current.value);
@@ -56,12 +60,33 @@ export default function Navbar({ findCity, tempScale, changeTemp }: { findCity: 
 		saveCitiesToStorage()
 	}, [favoriteCities]);
 
+
+	const searchCityStyle = makeStyles({
+		root: {
+			'& label': {
+				color: 'white',
+			},
+			'& .MuiInput-underline:before': {
+				borderBottomColor: 'white',
+			},
+			'& label.Mui-focused': {
+				color: 'white',
+			},
+			'& .MuiInput-underline:after': {
+				borderBottomColor: 'white',
+			},
+			'& .MuiOutlinedInput-root': {
+				borderColor: 'white'
+			},
+		},
+	})(TextField);
+
 	return (
 		<header>
 			<div className="app-controls">
-				<h1>The DustStorm</h1>
+				<h1>The Duststorm</h1>
 				<form onSubmit={searchCity} className="search-city">
-					<input type='text' ref={cityRef} placeholder='Search by City' />
+					<TextField id='custom-css-standard-input' inputRef={cityRef} label='Search by City' className={searchCityStyle.root} />
 				</form>
 				<form className="temp-switch-form">
 					<FormControlLabel
