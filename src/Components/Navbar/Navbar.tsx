@@ -85,7 +85,7 @@ export default function Navbar({ findCity, tempScale, changeTemp }: { findCity: 
 	return (
 		<header>
 			<div className="app-controls">
-				<h1>The DustStorm</h1>
+				<h1>The Duststorm</h1>
 				<form onSubmit={searchCity} className="search-city">
 					<TextField id='custom-css-standard-input' inputRef={cityRef} label='Search by City' className={searchCityStyle.root} />
 				</form>
