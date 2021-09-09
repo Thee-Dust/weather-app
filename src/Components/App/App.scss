@@ -1,8 +1,17 @@
+@import '../../index.scss';
+
 * {
 	margin: 0;
 }
 
+button {
+	border: none;
+	background: none;
+	cursor: pointer;
+}
+
 main {
+	font-family: $primaryFont;
 	margin: 0;
 	height: 100vh;
 	width: 100%;
@@ -10,4 +19,36 @@ main {
 	flex-direction: column;
 	justify-content: space-between;
 	align-items: center;
+	position: relative;
+
+		&::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 100%;
+			width: 100%;
+			filter: brightness(75%);
+		}
+}
+
+$themes: (
+	Clear-d: #FFF,
+	Clouds-d: #FFF,
+	Rain-d: #FFF,
+	Thunderstorm-d: #FFF,
+	Snow-d: #000,
+	Haze-d: #000,
+	Fog-d: #FFF,
+	Clear-n: #FFF,
+	Clouds-n: #FFF,
+	Rain-n: #FFF,
+	Thunderstorm-n: #FFF,
+	Snow-n: #000,
+	Haze-n: #FFF,
+	Fog-n: #FFF
+);
+
+@each $key, $value in $themes {
+	@include weatherTheme($key, $value)
 }

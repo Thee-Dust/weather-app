@@ -1,10 +1,10 @@
 @import '../../index.scss';
 
 .current-container {
+	position: relative;
 	display: flex;
 	width: 80%;
 	height: $baseSize * 29.5;
-	justify-content: space-between;
 	margin-bottom: $baseSize * 10;
 }
 
@@ -14,14 +14,20 @@
 	justify-content: space-around;
 
 		p {
-			font-size: $baseSize * 4.5
+			font-size: $baseSize * 3.5;
 		}
 
-		h3 {
-			font-size: $baseSize * 9.5;
+		h1 {
+			font-size: $baseSize * 12;
+			font-family: $numberFont;
 		}
 }
 
-.current-icon > img {
-	width: $baseSize * 24;
+.current-icon {
+	margin-left: $baseSize * 13;
+
+	img{
+		width: $baseSize * 28;
+	}
 }
+
