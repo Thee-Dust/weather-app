@@ -12,7 +12,7 @@ describe('NavBar', () => {
 	})
 	
 	it('Should display app name', () => {
-		cy.get('.app-controls > h1').should('contain', 'The DustStorm')
+		cy.get('.app-controls > h1').should('contain', 'The Duststorm')
 	})
 
 	it('Should have a field to search for a city',() => {
