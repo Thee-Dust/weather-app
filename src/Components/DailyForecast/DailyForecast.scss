@@ -4,6 +4,26 @@
 	display: flex;
 	align-items: center;
 	overflow-x: scroll;
+
+	&::-webkit-scrollbar {
+		width: auto;
+		height: $baseSize * 1.5;
+	}
+
+	&::-webkit-scrollbar-track {
+		border-radius: $baseSize;
+		box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+		-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+	}
+
+	&::-webkit-scrollbar-thumb {
+		border-radius: $baseSize;
+		background-color: #bbbbbb;
+	}
+
+	&::-webkit-scrollbar-thumb:hover {
+		background-color: darken(#bbbbbb, 15%)
+	}
 }
 
 .daily-card {
@@ -12,11 +32,19 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	font-size: $baseSize * 3;
+	font-size: $baseSize * 3.5;
 	padding-bottom: $baseSize * 2;
 	padding-top: $baseSize * 2;
 
-		span:nth-child(4) {
-			margin-top: $baseSize * 1;
+		img {
+			width: $baseSize * 15;
+			margin-top: $baseSize * 3;
+			position: relative;
+			top: $baseSize * 2.5;
+			left: 0;
+		}
+
+		.day-temp {
+			font-family: $numberFont;
 		}
 }
