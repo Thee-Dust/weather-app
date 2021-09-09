@@ -44,4 +44,8 @@
 			top: $baseSize * 2.5;
 			left: 0;
 		}
+
+		p:nth-child(3) {
+			font-family: $numberFont;
+		}
 }
