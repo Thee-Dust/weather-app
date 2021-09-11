@@ -6,13 +6,14 @@ describe('NavBar', () => {
 		cy.interceptOrlandoLocation(apiKey)
 		cy.interceptOrlandoFutureForecastFahrenheit(apiKey)
 		cy.visit('http://localhost:3000')
+		cy.searchOrlando()
 		// cy.wait('@OCurrent')
 		// cy.wait('@OLocation')
 		// cy.wait('@OFuture')
 	})
 	
 	it('Should display app name', () => {
-		cy.get('.app-controls > h1').should('contain', 'The Duststorm')
+		cy.get('.app-controls > a > h1').should('contain', 'The Duststorm')
 	})
 
 	it('Should have a field to search for a city',() => {
