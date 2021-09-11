@@ -71,3 +71,7 @@ Cypress.Commands.add('interceptOrlandoFutureForecastFahrenheit', (apiKey) => {
 		cy.intercept('GET', `https://api.openweathermap.org/data/2.5/onecall?lat=28.5383&lon=-81.3792&appid=${apiKey}&units=imperial`, json).as('OFuture')
 	})
 })
+
+Cypress.Commands.add('searchOrlando', () => {
+	cy.get('#custom-css-standard-input').type('New York').type('{enter}')
+})

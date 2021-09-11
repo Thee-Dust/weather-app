@@ -32,9 +32,7 @@ export default function CurrentForecast({ searchedCity, tempScale, setTheme }: {
 	if(currentWeather?.id) {
 		const secondsToMilliseconds = 1000;
 		const timeOfDataCalc = new Date((currentWeather.dt + currentWeather.timezone) * secondsToMilliseconds);
-		console.log(currentWeather)
 		const today = moment.parseZone(timeOfDataCalc).utc().format('h:mm A');
-		console.log(today)
 		const location = `${currentWeather.name}, ${currentWeather.sys?.country}`;
 
 		return (
