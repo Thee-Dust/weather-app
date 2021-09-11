@@ -1,11 +1,12 @@
 import React, { useEffect, useState, ReactElement } from 'react';
 import Home from '../Home/Home';
 import Weather from '../Weather/Weather';
-import { Redirect, Route, Switch } from 'react-router-dom';
+import { Redirect, Route, Switch, useHistory } from 'react-router-dom';
 import './App.scss';
 
 
 export default function App(): ReactElement {
+	const history = useHistory()
 	const [ appTheme, setAppTheme ] = useState<string>()
 	const [ searchedCity, setSearchedCity ] = useState<string>(() => {
 		const searchCity = localStorage.getItem('searchedCity');
@@ -49,11 +50,16 @@ export default function App(): ReactElement {
 		setAppTheme(theme)
 	}
 
+	useEffect(() => {
+		searchedCity && history.push(`/${searchedCity}`) 
+	},[])
+	
+
 	return (
 		<main className={appTheme}> 
 			<Switch>
 				<Route exact path='/'>
-					{!searchedCity ? <Home findCity={findCity}/> : <Redirect to={searchedCity}/>}
+					<Home findCity={findCity}/>
 				</Route>
 				<Route path='/:city'
 				render={({ match }) => {
