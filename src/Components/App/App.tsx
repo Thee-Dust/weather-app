@@ -1,7 +1,7 @@
 import React, { useEffect, useState, ReactElement } from 'react';
-import Navbar from '../Navbar/Navbar';
-import CurrentForecast from '../CurrentForecast/CurrentForecast'
-import FutureForecast from '../FutureForecast/FutureForecast'
+import Home from '../Home/Home';
+import Weather from '../Weather/Weather';
+import { Route, Switch } from 'react-router-dom';
 import './App.scss';
 
 
@@ -51,9 +51,19 @@ export default function App(): ReactElement {
 
 	return (
 		<main className={appTheme}> 
-			<Navbar findCity={findCity} tempScale={tempScale} changeTemp={changeTemp}/>
-			<CurrentForecast searchedCity={searchedCity} tempScale={tempScale} setTheme={setTheme}/>
-			<FutureForecast searchedCity={searchedCity} tempScale={tempScale}/>
+			<Switch>
+				<Route exact path='/'>
+					<Home findCity={findCity} />
+				</Route>
+				<Route path='/:city'>
+					<Weather
+						findCity={findCity}
+						tempScale={tempScale}
+						changeTemp={changeTemp}
+						searchedCity={searchedCity}
+						setTheme={setTheme} />
+				</Route>
+			</Switch>
 		</main>
 	);
 }
