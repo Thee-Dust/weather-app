@@ -2,6 +2,7 @@ import React, { FormEvent, useRef } from 'react'
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 import { useHistory } from 'react-router-dom';
+import './Home.scss'
 
 export default function Home({ findCity }: { findCity: (city: string) => void }) {
 	const homeCityRef = useRef<HTMLInputElement>(null);
@@ -37,7 +38,7 @@ export default function Home({ findCity }: { findCity: (city: string) => void })
 	})(TextField);
 	
 	return (
-		<div>
+		<div className='home'>
 			<form onSubmit={searchCity} className="search-city">
 				<TextField id='custom-css-standard-input' inputRef={homeCityRef} label='Search by City' className={searchCityStyle.root} />
 			</form>
