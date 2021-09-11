@@ -39,7 +39,9 @@ export default function Home({ findCity }: { findCity: (city: string) => void })
 	
 	return (
 		<div className='home'>
+			<h1>The Duststorm</h1>
 			<form onSubmit={searchCity} className="search-city">
+				<h2>Search for a city to get the weather</h2>
 				<TextField id='custom-css-standard-input' inputRef={homeCityRef} label='Search by City' className={searchCityStyle.root} />
 			</form>
 		</div>
