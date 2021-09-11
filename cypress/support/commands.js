@@ -73,5 +73,5 @@ Cypress.Commands.add('interceptOrlandoFutureForecastFahrenheit', (apiKey) => {
 })
 
 Cypress.Commands.add('searchOrlando', () => {
-	cy.get('#custom-css-standard-input').type('New York').type('{enter}')
+	cy.get('#custom-css-standard-input').type('Orlando').type('{enter}')
 })
