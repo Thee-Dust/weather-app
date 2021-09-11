@@ -55,14 +55,16 @@ export default function App(): ReactElement {
 				<Route exact path='/'>
 					<Home findCity={findCity} />
 				</Route>
-				<Route path='/:city'>
-					<Weather
-						findCity={findCity}
-						tempScale={tempScale}
-						changeTemp={changeTemp}
-						searchedCity={searchedCity}
-						setTheme={setTheme} />
-				</Route>
+				<Route path='/:city'
+				render={({ match }) => {
+					setSearchedCity(match.params.city)
+					return <Weather
+					findCity={findCity}
+					tempScale={tempScale}
+					changeTemp={changeTemp}
+					searchedCity={searchedCity}
+					setTheme={setTheme} />
+				}}/>
 			</Switch>
 		</main>
 	);
