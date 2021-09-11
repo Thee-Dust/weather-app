@@ -1,3 +1,34 @@
+@import '../../index.scss';
+
 .home {
-	background-color: black;
+	background-color: #067CFD;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	h1 {
+		margin-top: $baseSize * 10;
+		font-size: $baseSize * 10;
+		color: white;
+	}
+
+	form {
+		margin-top: $baseSize * 20;
+		
+		h2 {
+			font-size: $baseSize * 3.5;
+			color: darken(#fff, 10%);
+		}
+
+		div {
+			margin-top: $baseSize * 5;
+			height: $baseSize * 10;
+
+			label {
+				font-size: $baseSize * 3.5;
+			}
+		}
+	}
 }
