@@ -34,7 +34,6 @@ export default function Navbar({ findCity, tempScale, changeTemp }: { findCity: 
 	};
 
 	const searchCity = (e: FormEvent<HTMLFormElement>) => {
-		console.log(cityRef.current?.value)
 		e.preventDefault()
 		if(cityRef.current) {
 			findCity(cityRef.current.value);
