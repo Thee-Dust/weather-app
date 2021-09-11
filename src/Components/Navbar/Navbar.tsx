@@ -4,10 +4,12 @@ import Switch from "@material-ui/core/Switch";
 import CloseIcon from '@material-ui/icons/Close';
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
+import { Link, useHistory } from 'react-router-dom';
 import './NavBar.scss'
 
 export default function Navbar({ findCity, tempScale, changeTemp }: { findCity: (city: string) => void, tempScale: string, changeTemp: ((scale: string) => void) }): ReactElement {
 	const cityRef = useRef<HTMLInputElement>(null);
+	const history = useHistory();
 
 	const [favoriteCities, setFavoriteCities] = useState<string[]>(() => {
 		const favCities = localStorage.getItem('favoriteCities');
@@ -19,7 +21,7 @@ export default function Navbar({ findCity, tempScale, changeTemp }: { findCity: 
 	const cityCards = favoriteCities.map((city, index) => {
 		return (
 			<div key={index} className="favorite-city">
-				<button onClick={() => findCity(city)}>{city}</button>
+				<Link to={`/${city}`} onClick={() => findCity(city)}>{city}</Link>
 				<button onClick={() => favoriteCity(city)}><CloseIcon/></button>
 			</div>
 		)
@@ -40,6 +42,7 @@ export default function Navbar({ findCity, tempScale, changeTemp }: { findCity: 
 			if (!favoriteCities.includes(cityRef.current.value)) {
 				setFavoriteCities([...favoriteCities, cityRef.current.value])
 			}
+			history.push(`${cityRef.current.value}`)
 			cityRef.current.value = '';
 		}
 	}
@@ -83,7 +86,7 @@ export default function Navbar({ findCity, tempScale, changeTemp }: { findCity: 
 	return (
 		<header>
 			<div className="app-controls">
-				<h1>The Duststorm</h1>
+				<Link to='/'><h1>The Duststorm</h1></Link>
 				<form onSubmit={searchCity} className="search-city">
 					<TextField id='custom-css-standard-input' inputRef={cityRef} label='Search by City' className={searchCityStyle.root} />
 				</form>
