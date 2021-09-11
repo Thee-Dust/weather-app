@@ -1,17 +1,18 @@
 import React, { useEffect, useState, ReactElement } from 'react';
 import Home from '../Home/Home';
 import Weather from '../Weather/Weather';
-import { Route, Switch } from 'react-router-dom';
+import { Redirect, Route, Switch, useHistory } from 'react-router-dom';
 import './App.scss';
 
 
 export default function App(): ReactElement {
+	const history = useHistory()
 	const [ appTheme, setAppTheme ] = useState<string>()
 	const [ searchedCity, setSearchedCity ] = useState<string>(() => {
 		const searchCity = localStorage.getItem('searchedCity');
 		return searchCity !== null
 			? JSON.parse(searchCity)
-			: 'Orlando'
+			: ''
 	});
 	
 	const [ tempScale, setTempScale ] = useState<string>(() => {
@@ -49,20 +50,27 @@ export default function App(): ReactElement {
 		setAppTheme(theme)
 	}
 
+	useEffect(() => {
+		searchedCity && history.push(`/${searchedCity}`) 
+	},[])
+	
+
 	return (
 		<main className={appTheme}> 
 			<Switch>
 				<Route exact path='/'>
-					<Home findCity={findCity} />
+					<Home findCity={findCity}/>
 				</Route>
-				<Route path='/:city'>
-					<Weather
-						findCity={findCity}
-						tempScale={tempScale}
-						changeTemp={changeTemp}
-						searchedCity={searchedCity}
-						setTheme={setTheme} />
-				</Route>
+				<Route path='/:city'
+				render={({ match }) => {
+					const city = match.params.city;
+					return <Weather
+					findCity={findCity}
+					tempScale={tempScale}
+					changeTemp={changeTemp}
+					searchedCity={city}
+					setTheme={setTheme} />
+				}}/>
 			</Switch>
 		</main>
 	);

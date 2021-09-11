@@ -10,7 +10,6 @@
     "@testing-library/user-event": "^12.8.3",
     "@types/jest": "^26.0.24",
     "@types/node": "^12.20.17",
-    "@types/react": "^17.0.15",
     "@types/react-dom": "^17.0.9",
     "dayjs": "^1.10.6",
     "moment": "^2.29.1",
@@ -50,6 +49,7 @@
     ]
   },
   "devDependencies": {
+    "@types/react": "^17.0.20",
     "@types/react-router-dom": "^5.1.8",
     "cypress": "^7.7.0",
     "start-server-and-test": "^1.12.6"
