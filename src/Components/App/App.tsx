@@ -1,7 +1,7 @@
 import React, { useEffect, useState, ReactElement } from 'react';
 import Home from '../Home/Home';
 import Weather from '../Weather/Weather';
-import { Route, Switch } from 'react-router-dom';
+import { Redirect, Route, Switch } from 'react-router-dom';
 import './App.scss';
 
 
@@ -11,7 +11,7 @@ export default function App(): ReactElement {
 		const searchCity = localStorage.getItem('searchedCity');
 		return searchCity !== null
 			? JSON.parse(searchCity)
-			: 'Orlando'
+			: ''
 	});
 	
 	const [ tempScale, setTempScale ] = useState<string>(() => {
@@ -53,16 +53,16 @@ export default function App(): ReactElement {
 		<main className={appTheme}> 
 			<Switch>
 				<Route exact path='/'>
-					<Home findCity={findCity} />
+					{!searchedCity ? <Home findCity={findCity}/> : <Redirect to={searchedCity}/>}
 				</Route>
 				<Route path='/:city'
 				render={({ match }) => {
-					setSearchedCity(match.params.city)
+					const city = match.params.city;
 					return <Weather
 					findCity={findCity}
 					tempScale={tempScale}
 					changeTemp={changeTemp}
-					searchedCity={searchedCity}
+					searchedCity={city}
 					setTheme={setTheme} />
 				}}/>
 			</Switch>
