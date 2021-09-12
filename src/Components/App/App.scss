@@ -32,25 +32,4 @@ main {
 		}
 }
 
-$themes: (
-	Clear-d: #FFF,
-	Clouds-d: #FFF,
-	Rain-d: #FFF,
-	Thunderstorm-d: #FFF,
-	Snow-d: #000,
-	Haze-d: #000,
-	Fog-d: #FFF,
-	Mist-d: #FFF,
-	Clear-n: #FFF,
-	Clouds-n: #FFF,
-	Rain-n: #FFF,
-	Thunderstorm-n: #FFF,
-	Snow-n: #000,
-	Haze-n: #FFF,
-	Fog-n: #FFF,
-	Mist-n: #FFF
-);
 
-@each $key, $value in $themes {
-	@include weatherTheme($key, $value)
-}

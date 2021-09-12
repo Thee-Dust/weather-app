@@ -68,8 +68,7 @@ export default function App(): ReactElement {
 					findCity={findCity}
 					tempScale={tempScale}
 					changeTemp={changeTemp}
-					searchedCity={city}
-					setTheme={setTheme} />
+					searchedCity={city} />
 				}}/>
 			</Switch>
 		</main>
