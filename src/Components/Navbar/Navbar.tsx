@@ -21,7 +21,7 @@ export default function Navbar({ findCity, tempScale, changeTemp }: { findCity: 
 	const cityCards = favoriteCities.map((city, index) => {
 		return (
 			<div key={index} className="favorite-city">
-				<Link to={`/${city}`} onClick={() => findCity(city)}>{city}</Link>
+				<Link to={`/${city}`} title={`To ${city}'s weather`} onClick={() => findCity(city)}>{city}</Link>
 				<button onClick={() => favoriteCity(city)}><CloseIcon/></button>
 			</div>
 		)
@@ -86,7 +86,7 @@ export default function Navbar({ findCity, tempScale, changeTemp }: { findCity: 
 	return (
 		<header>
 			<div className="app-controls">
-				<Link to='/'><h1>The Duststorm</h1></Link>
+				<Link to='/' title='To home'><h1>The Duststorm</h1></Link>
 				<form onSubmit={searchCity} className="search-city">
 					<TextField id='custom-css-standard-input' inputRef={cityRef} label='Search by City' className={searchCityStyle.root} />
 				</form>
