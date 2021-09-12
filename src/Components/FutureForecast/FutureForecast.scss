@@ -1,4 +1,45 @@
 @import '../../index.scss';
+@import '../HourlyForecast/HourlyForecast.scss';
+
+.skeleton {
+	opacity: .7;
+	animation: skeleton-loading 1s linear infinite alternate;
+	z-index: 10;
+}
+
+.skeleton-text {
+	width: 100%;
+	height: $baseSize;
+	margin-bottom: $baseSize * .5;
+	border-radius: $baseSize * .25;
+
+	&:last-child {
+		width: 80%;
+	}
+}
+
+.skeleton-time {
+	width: 25%;
+	height: $baseSize * 3;
+}
+
+.skeleton-temp {
+	width: 25%;
+	height: $baseSize * 3;
+	margin-top: $baseSize * 3;
+}
+
+
+
+@keyframes skeleton-loading {
+	0% {
+		background-color: #a3b8c2;
+	}
+
+	100% {
+		background-color: #f0f3f5;
+	}
+}
 
 .future-forecast-container {
 	width: 80%;
