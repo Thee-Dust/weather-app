@@ -1,7 +1,7 @@
 import React, { useEffect, useState, ReactElement } from 'react';
 import Home from '../Home/Home';
 import Weather from '../Weather/Weather';
-import { Redirect, Route, Switch, useHistory } from 'react-router-dom';
+import { Route, Switch, useHistory } from 'react-router-dom';
 import './App.scss';
 
 
