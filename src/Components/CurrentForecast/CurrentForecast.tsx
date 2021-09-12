@@ -23,6 +23,22 @@ export default function CurrentForecast({ searchedCity, tempScale, setTheme }: {
 		callWeather(searchedCity, tempScale)
 	}, [searchedCity, tempScale, setTheme])
 	
+	if(!error && !currentWeather) {
+		return (
+			<div className="current-skeleton-container">
+				<div className="current-skeleton-forecast">
+					<div className='skeleton skeleton-text'></div>
+					<div className='skeleton skeleton-text'></div>
+					<div className='skeleton skeleton-text'></div>
+					<div className='skeleton skeleton-text'></div>
+				</div>
+				<div className="current-skeleton-icon">
+					<div></div> 
+				</div>
+			</div>
+		)
+	}
+
 	if(error) {
 		return (
 			<h1>{error}</h1>
