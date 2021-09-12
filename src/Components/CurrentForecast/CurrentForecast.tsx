@@ -23,7 +23,7 @@ export default function CurrentForecast({ searchedCity, tempScale, setTheme }: {
 		callWeather(searchedCity, tempScale)
 	}, [searchedCity, tempScale, setTheme])
 	
-	if(!error && currentWeather) {
+	if(!error && !currentWeather) {
 		return (
 			<div className="current-container">
 				<div className="current-forecast">
@@ -45,25 +45,25 @@ export default function CurrentForecast({ searchedCity, tempScale, setTheme }: {
 		)
 	}
 
-	// if(currentWeather?.id) {
-	// 	const secondsToMilliseconds = 1000;
-	// 	const timeOfDataCalc = new Date((currentWeather.dt + currentWeather.timezone) * secondsToMilliseconds);
-	// 	const today = moment.parseZone(timeOfDataCalc).utc().format('h:mm A');
-	// 	const location = `${currentWeather.name}, ${currentWeather.sys?.country}`;
+	if(currentWeather?.id) {
+		const secondsToMilliseconds = 1000;
+		const timeOfDataCalc = new Date((currentWeather.dt + currentWeather.timezone) * secondsToMilliseconds);
+		const today = moment.parseZone(timeOfDataCalc).utc().format('h:mm A');
+		const location = `${currentWeather.name}, ${currentWeather.sys?.country}`;
 
-	// 	return (
-	// 		<div className="current-container">
-	// 			<div className="current-forecast">
-	// 				<p>As of {today} in {location}</p>
-	// 				<h1>{currentWeather.main.temp.toFixed()}°</h1>
-	// 				<p>{currentWeather.weather[0].description}</p>
-	// 				<p>Feels like {currentWeather.main.feels_like.toFixed()}°</p>
-	// 			</div>
-	// 			<div className="current-icon-container">
-	// 				<img className='current-icon' src={`http://openweathermap.org/img/wn/${currentWeather.weather[0].icon}@2x.png`} alt={currentWeather.weather[0].description}/>
-	// 			</div>
-	// 		</div>
-	// 	)
-	// }
+		return (
+			<div className="current-container">
+				<div className="current-forecast">
+					<p>As of {today} in {location}</p>
+					<h1>{currentWeather.main.temp.toFixed()}°</h1>
+					<p>{currentWeather.weather[0].description}</p>
+					<p>Feels like {currentWeather.main.feels_like.toFixed()}°</p>
+				</div>
+				<div className="current-icon-container">
+					<img className='current-icon' src={`http://openweathermap.org/img/wn/${currentWeather.weather[0].icon}@2x.png`} alt={currentWeather.weather[0].description}/>
+				</div>
+			</div>
+		)
+	}
 	return null
 }

@@ -36,13 +36,37 @@ export default function FutureForecast({ searchedCity, tempScale }: { searchedCi
 		return (
 			<div className='future-forecast-container'>
 				<div className='future-controls'>
-					<button onClick={switchForecast} disabled={hourly}>Hourly</button>
-					<button onClick={switchForecast} disabled={!hourly}>Daily</button>
+					<div className='skeleton skeleton-time'></div>
+					<div className='skeleton skeleton-time'></div>
 				</div>
 				<div className='future-forecast'>
-					{hourly ?
-						<HourlyForecast hourlyReport={hourlyForecast} timezoneOffset={timezoneOffset} /> :
-						<DailyForecast dailyForcast={dailyForecast} timezoneOffset={timezoneOffset} />}
+					<div className='hourly-forecast-container'>
+						<div className='hourly-card'>
+							<div className='skeleton skeleton-time'></div>
+							<div className='hour-img skeleton'></div>
+							<div className='skeleton skeleton-temp'></div>
+						</div>
+						<div className='hourly-card'>
+							<div className='skeleton skeleton-time'></div>
+							<div className='hour-img skeleton'></div>
+							<div className='skeleton skeleton-temp'></div>
+						</div>
+						<div className='hourly-card'>
+							<div className='skeleton skeleton-time'></div>
+							<div className='hour-img skeleton'></div>
+							<div className='skeleton skeleton-temp'></div>
+						</div>
+						<div className='hourly-card'>
+							<div className='skeleton skeleton-time'></div>
+							<div className='hour-img skeleton'></div>
+							<div className='skeleton skeleton-temp'></div>
+						</div>
+						<div className='hourly-card'>
+							<div className='skeleton skeleton-time'></div>
+							<div className='hour-img skeleton'></div>
+							<div className='skeleton skeleton-temp'></div>
+						</div>
+					</div>
 				</div>
 			</div>	
 		)
