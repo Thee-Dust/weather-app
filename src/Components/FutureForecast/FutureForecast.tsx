@@ -32,6 +32,22 @@ export default function FutureForecast({ searchedCity, tempScale }: { searchedCi
 		setHourly(prevState => !prevState);
 	}
 
+	if(!error && !hourlyForecast.length) {
+		return (
+			<div className='future-forecast-container'>
+				<div className='future-controls'>
+					<button onClick={switchForecast} disabled={hourly}>Hourly</button>
+					<button onClick={switchForecast} disabled={!hourly}>Daily</button>
+				</div>
+				<div className='future-forecast'>
+					{hourly ?
+						<HourlyForecast hourlyReport={hourlyForecast} timezoneOffset={timezoneOffset} /> :
+						<DailyForecast dailyForcast={dailyForecast} timezoneOffset={timezoneOffset} />}
+				</div>
+			</div>	
+		)
+	}
+
 	if(error) {
 		return (
 			<h1>{error}</h1>
@@ -48,7 +64,7 @@ export default function FutureForecast({ searchedCity, tempScale }: { searchedCi
 				<div className='future-forecast'>
 					{hourly ? 
 					<HourlyForecast hourlyReport={hourlyForecast} timezoneOffset={timezoneOffset}/> :
-						<DailyForecast dailyForcast={dailyForecast} timezoneOffset={timezoneOffset}/> }
+					<DailyForecast dailyForcast={dailyForecast} timezoneOffset={timezoneOffset}/> }
 				</div>
 			</div>
 		);

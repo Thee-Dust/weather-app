@@ -1,3 +1,5 @@
+@import '../../index.scss';
+
 .weather {
 	width: 100%;
 	height: 100%;
@@ -5,4 +7,27 @@
 	flex-direction: column;
 	justify-content: space-between;
 	align-items: center;
+}
+
+$themes: (
+	Clear-d: #FFF,
+	Clouds-d: #FFF,
+	Rain-d: #FFF,
+	Thunderstorm-d: #FFF,
+	Snow-d: #FFF,
+	Haze-d: #FFF,
+	Fog-d: #FFF,
+	Mist-d: #FFF,
+	Clear-n: #FFF,
+	Clouds-n: #FFF,
+	Rain-n: #FFF,
+	Thunderstorm-n: #FFF,
+	Snow-n: #FFF,
+	Haze-n: #FFF,
+	Fog-n: #FFF,
+	Mist-n: #FFF);
+
+@each $key,
+$value in $themes {
+	@include weatherTheme($key, $value)
 }
