@@ -45,7 +45,7 @@ export default function App(): ReactElement {
 
 	useEffect(() => {
 		searchedCity && history.push(`/${searchedCity}`) 
-	},[])
+	},[searchedCity, history])
 	
 	return (
 		<main> 

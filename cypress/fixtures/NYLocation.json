@@ -1,7 +1,7 @@
 [
 	{
 		"country": "US",
-		"lat": "40.7143",
+		"lat": 40.7143,
 		"local_names": {
 			"af": "New York Stad",
 			"ar": "نيويورك",
@@ -41,7 +41,7 @@
 			"tr": "New York kenti",
 			"vi": "Thành phố New York"
 		},
-		"lon": "-74.006",
+		"lon": -74.006,
 		"name": "New York City",
 		"state": "NY"
 	}
