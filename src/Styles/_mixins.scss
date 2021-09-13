@@ -1,12 +1,8 @@
 @mixin weatherTheme($name, $color) {
 	.#{$name} {
 		color: $color;
-
-		&::before {
-			background: center / cover no-repeat  url('../Assets/#{$name}.jpeg') fixed;
-		}
-
-
+		background: center / cover no-repeat  url('../Assets/#{$name}.jpeg') fixed;
+		
 		.app-controls > h1,
 		.temp-switch-label,
 		.favorite-city > button,

@@ -32,6 +32,46 @@ export default function FutureForecast({ searchedCity, tempScale }: { searchedCi
 		setHourly(prevState => !prevState);
 	}
 
+	if(!error && !hourlyForecast.length) {
+		return (
+			<div className='future-forecast-container'>
+				<div className='future-controls'>
+					<div className='skeleton skeleton-time'></div>
+					<div className='skeleton skeleton-time'></div>
+				</div>
+				<div className='future-forecast'>
+					<div className='hourly-forecast-container'>
+						<div className='hourly-card'>
+							<div className='skeleton skeleton-time'></div>
+							<div className='hour-img skeleton'></div>
+							<div className='skeleton skeleton-temp'></div>
+						</div>
+						<div className='hourly-card'>
+							<div className='skeleton skeleton-time'></div>
+							<div className='hour-img skeleton'></div>
+							<div className='skeleton skeleton-temp'></div>
+						</div>
+						<div className='hourly-card'>
+							<div className='skeleton skeleton-time'></div>
+							<div className='hour-img skeleton'></div>
+							<div className='skeleton skeleton-temp'></div>
+						</div>
+						<div className='hourly-card'>
+							<div className='skeleton skeleton-time'></div>
+							<div className='hour-img skeleton'></div>
+							<div className='skeleton skeleton-temp'></div>
+						</div>
+						<div className='hourly-card'>
+							<div className='skeleton skeleton-time'></div>
+							<div className='hour-img skeleton'></div>
+							<div className='skeleton skeleton-temp'></div>
+						</div>
+					</div>
+				</div>
+			</div>	
+		)
+	}
+
 	if(error) {
 		return (
 			<h1>{error}</h1>
@@ -48,7 +88,7 @@ export default function FutureForecast({ searchedCity, tempScale }: { searchedCi
 				<div className='future-forecast'>
 					{hourly ? 
 					<HourlyForecast hourlyReport={hourlyForecast} timezoneOffset={timezoneOffset}/> :
-						<DailyForecast dailyForcast={dailyForecast} timezoneOffset={timezoneOffset}/> }
+					<DailyForecast dailyForcast={dailyForecast} timezoneOffset={timezoneOffset}/> }
 				</div>
 			</div>
 		);

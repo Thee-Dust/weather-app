@@ -23,6 +23,22 @@ export default function CurrentForecast({ searchedCity, tempScale, setTheme }: {
 		callWeather(searchedCity, tempScale)
 	}, [searchedCity, tempScale, setTheme])
 	
+	if(!error && !currentWeather) {
+		return (
+			<div className="current-container">
+				<div className="current-forecast">
+					<div className='skeleton skeleton-text'></div>
+					<div className='skeleton skeleton-text'></div>
+					<div className='skeleton skeleton-text'></div>
+					<div className='skeleton skeleton-text'></div>
+				</div>
+				<div className="current-icon-container">
+					<div className='skeleton current-icon' />
+				</div>
+			</div>
+		)
+	}
+
 	if(error) {
 		return (
 			<h1>{error}</h1>
@@ -43,8 +59,8 @@ export default function CurrentForecast({ searchedCity, tempScale, setTheme }: {
 					<p>{currentWeather.weather[0].description}</p>
 					<p>Feels like {currentWeather.main.feels_like.toFixed()}°</p>
 				</div>
-				<div className="current-icon">
-					<img src={`http://openweathermap.org/img/wn/${currentWeather.weather[0].icon}@2x.png`} alt={currentWeather.weather[0].description}/>
+				<div className="current-icon-container">
+					<img className='current-icon' src={`http://openweathermap.org/img/wn/${currentWeather.weather[0].icon}@2x.png`} alt={currentWeather.weather[0].description}/>
 				</div>
 			</div>
 		)

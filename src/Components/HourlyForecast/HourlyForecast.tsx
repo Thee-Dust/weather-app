@@ -11,7 +11,7 @@ export default function HourlyForcast({ hourlyReport, timezoneOffset }: { hourly
 		return (
 			<div key={index} className='hourly-card'>
 				<p>{ index === 0 ? 'Now' : futureHour}</p>
-				<img src={`http://openweathermap.org/img/wn/${hour.weather[0].icon}@2x.png`} alt={hour.weather[0].description}/>
+				<img className='hour-img' src={`http://openweathermap.org/img/wn/${hour.weather[0].icon}@2x.png`} alt={hour.weather[0].description}/>
 				<p>{hour.temp.toFixed()}°</p>
 			</div>
 			)
