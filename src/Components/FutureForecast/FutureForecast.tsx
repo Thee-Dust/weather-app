@@ -32,7 +32,7 @@ export default function FutureForecast({ searchedCity, tempScale }: { searchedCi
 		setHourly(prevState => !prevState);
 	}
 
-	if(!error && !hourlyForecast.length) {
+	if(!error && !dailyForecast.length) {
 		return (
 			<div className='future-forecast-container'>
 				<div className='future-controls'>

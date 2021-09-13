@@ -20,16 +20,4 @@ main {
 	justify-content: space-between;
 	align-items: center;
 	position: relative;
-
-		&::before {
-			content: '';
-			position: absolute;
-			top: 0;
-			left: 0;
-			height: 100%;
-			width: 100%;
-			filter: brightness(75%);
-		}
 }
-
-

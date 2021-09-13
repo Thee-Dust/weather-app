@@ -7,7 +7,6 @@ import './App.scss';
 
 export default function App(): ReactElement {
 	const history = useHistory()
-	const [ appTheme, setAppTheme ] = useState<string>()
 	const [ searchedCity, setSearchedCity ] = useState<string>(() => {
 		const searchCity = localStorage.getItem('searchedCity');
 		return searchCity !== null
@@ -44,19 +43,12 @@ export default function App(): ReactElement {
 		saveTempToStorage()
 	},[tempScale])
 
-	const setTheme = (weather: string, time: string) => {
-		const timeOfDay = time.slice(-1);
-		const theme = `${weather}-${timeOfDay}`;
-		setAppTheme(theme)
-	}
-
 	useEffect(() => {
 		searchedCity && history.push(`/${searchedCity}`) 
-	},[])
+	},[searchedCity, history])
 	
-
 	return (
-		<main className={appTheme}> 
+		<main> 
 			<Switch>
 				<Route exact path='/'>
 					<Home findCity={findCity}/>
