@@ -2,8 +2,8 @@ describe('Current Forecast', () => {
 	let apiKey;
 	beforeEach(() => {
 		apiKey = Cypress.env('CYPRESS_APIKEY')
-		cy.interceptOrlandoCurrentForecastFahrenheit(apiKey)
 		cy.interceptOrlandoLocation(apiKey)
+		cy.interceptOrlandoCurrentForecastFahrenheit(apiKey)
 		cy.interceptOrlandoFutureForecastFahrenheit(apiKey)
 		cy.visit('http://localhost:3000')
 		cy.searchOrlando()

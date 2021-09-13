@@ -2,8 +2,8 @@ describe('Future Forecast', () => {
 	let apiKey;
 	beforeEach(() => {
 		apiKey = Cypress.env('CYPRESS_APIKEY')
-		cy.interceptOrlandoCurrentForecastFahrenheit(apiKey)
 		cy.interceptOrlandoLocation(apiKey)
+		cy.interceptOrlandoCurrentForecastFahrenheit(apiKey)
 		cy.interceptOrlandoFutureForecastFahrenheit(apiKey)
 		cy.visit('http://localhost:3000')
 		cy.searchOrlando()
@@ -18,6 +18,7 @@ describe('Future Forecast', () => {
 	})
 	
 	it('Should be able to see daily weather', () => {
+		cy.wait(100)
 		cy.get('.future-controls > :nth-child(2)').click()
 			.get('.daily-forecast-container > :nth-child(1)')
 			.should('contain', 'Today')
