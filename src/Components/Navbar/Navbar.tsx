@@ -98,7 +98,7 @@ export default function Navbar({ findCity, tempScale, changeTemp }: { findCity: 
 								onChange={changeTempScale}
 								checked={tempScale === 'imperial' ? true : false}
 								className='temp-switch'
-								
+								color='primary'
 								/>
 						}
 						labelPlacement="start"
