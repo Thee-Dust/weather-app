@@ -23,6 +23,11 @@ export default function CurrentForecast({ searchedCity, tempScale, setTheme }: {
 		callWeather(searchedCity, tempScale)
 	}, [searchedCity, tempScale, setTheme])
 	
+
+	const capitalizeFirstLetter = (sentence : string) => {
+		return sentence.charAt(0).toUpperCase() + sentence.slice(1);
+	}
+
 	if(!error && !currentWeather) {
 		return (
 			<div className="current-container">
@@ -50,13 +55,12 @@ export default function CurrentForecast({ searchedCity, tempScale, setTheme }: {
 		const timeOfDataCalc = new Date((currentWeather.dt + currentWeather.timezone) * secondsToMilliseconds);
 		const today = moment.parseZone(timeOfDataCalc).utc().format('h:mm A');
 		const location = `${currentWeather.name}, ${currentWeather.sys?.country}`;
-
 		return (
 			<div className="current-container">
 				<div className="current-forecast">
 					<p>As of {today} in {location}</p>
 					<h1>{currentWeather.main.temp.toFixed()}°</h1>
-					<p>{currentWeather.weather[0].description}</p>
+					<p>{capitalizeFirstLetter(currentWeather.weather[0].description)}</p>
 					<p>Feels like {currentWeather.main.feels_like.toFixed()}°</p>
 				</div>
 				<div className="current-icon-container">

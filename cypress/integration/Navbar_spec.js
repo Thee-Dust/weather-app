@@ -26,7 +26,7 @@ describe('NavBar', () => {
 		// cy.wait('@NYCurrentF')
 		// cy.wait('@NYLocation')
 		// cy.wait('@NYFutureF')
-		// cy.get('.current-forecast > :nth-child(1)').contains('New York')
+		// cy.get('.current-forecast > :nth-child(1)').should('contain', 'New York')
 
 	it('Should change temp to °C from °F', () => {
 		cy.interceptNYCurrentForecastFahrenheit(apiKey)
@@ -36,13 +36,13 @@ describe('NavBar', () => {
 		// cy.wait('@NYCurrentF')
 		// cy.wait('@NYLocation')
 		// cy.wait('@NYFutureF')
-		.get('.MuiTypography-root').contains('°F')
+		.get('.MuiTypography-root').should('contain', '°F')
 		cy.interceptNYCurrentForecastMetric(apiKey)
 		cy.interceptNYFutureForecastMetric(apiKey)
 		.get('.PrivateSwitchBase-input-6').click()
 		// cy.wait('@NYCurrentC')
 		// cy.wait('@NYFutureC')
-		.get('.MuiTypography-root').contains('°C')
+		.get('.MuiTypography-root').should('contain','°C')
 	})
 
 	it('Should save searched cities', () => {
@@ -53,6 +53,6 @@ describe('NavBar', () => {
 		// cy.wait('@NYCurrentF')
 		// cy.wait('@NYLocation')
 		// cy.wait('@NYFutureF')
-		cy.get('.saved-cities').eq(0).contains('New York')
+		cy.get('.saved-cities').eq(0).should('contain', 'New York')
 	})
 })
