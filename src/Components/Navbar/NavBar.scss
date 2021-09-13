@@ -87,7 +87,7 @@ header {
 }
 
 .favorite-city {
-	width: $baseSize * 12.5;
+	min-width: $baseSize * 12;
 	display: flex;
 	justify-content: space-between;
 	padding: $baseSize * 2;
