@@ -53,3 +53,29 @@
 			font-family: $numberFont;
 		}
 }
+
+/*~~~~~~Media Queries~~~~~~*/
+@media screen and (min-width: 650px) and (max-width: 900px) {
+	.hourly-card {
+		min-width: $baseSize * 20;
+		font-size: $baseSize * 3;
+
+		.hour-img {
+			width: $baseSize * 10;
+			height: $baseSize * 10;
+			top: $baseSize * 2.25;
+		}
+	}
+}
+@media screen and (max-width: 650px) {
+	.hourly-card {
+		min-width: $baseSize * 12;
+		font-size: $baseSize * 2.5;
+		
+		.hour-img {
+			width: $baseSize * 10;
+			height: $baseSize * 10;
+			top: $baseSize * 1.5;
+		}
+	}
+}

@@ -100,7 +100,8 @@
 	}
 
 	.current-icon-container {
-		width: $baseSize * 12;
+		width: $baseSize * 10;
+		margin-left: $baseSize * 6;
 
 		.current-icon {
 			width: $baseSize * 12;
