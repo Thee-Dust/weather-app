@@ -17,7 +17,7 @@ export default function CurrentForecast({ searchedCity, tempScale, setTheme }: {
 				setCurrentWeather(weatherReport)
 				setTheme(weatherReport.weather[0].main, weatherReport.weather[0].icon)
 			} catch (e) {
-				setError(e.message)
+				setError('Could not find city you were looking for please try again')
 			}
 		}
 		callWeather(searchedCity, tempScale)

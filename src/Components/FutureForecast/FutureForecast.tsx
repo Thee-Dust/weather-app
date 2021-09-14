@@ -21,7 +21,7 @@ export default function FutureForecast({ searchedCity, tempScale }: { searchedCi
 				setDailyForecast(forecast.daily)
 				setTimezoneOffset(forecast.timezone_offset)
 			} catch (e) {
-				setError(e.message)
+				setError('Could not find city you were looking for please try again')
 			}
 		}
 		callForcast(searchedCity, tempScale)
