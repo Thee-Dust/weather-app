@@ -23,6 +23,7 @@
 	justify-content: center;
 	align-items: center;
 	
+
 	h2 {
 		font-size: $baseSize * 3.5;
 		color: darken(#fff, 10%);
@@ -31,6 +32,15 @@
 	div {
 		margin-top: $baseSize * 5;
 		height: $baseSize * 10;
+		width: $baseSize * 55;
+
+		input {
+			color: white;
+			width: $baseSize * 43;
+			font-size: $baseSize * 4;
+			border-radius: $baseSize * 1.5;
+			outline: none;
+		}
 
 		label {
 			font-size: $baseSize * 3.5;
@@ -49,7 +59,12 @@
 	}
 
 	.search-city-home > div {
+		margin-top: $baseSize * 2;
 		width: $baseSize * 40;
+
+		div {
+			width: $baseSize * 40;
+		}
 
 		label {
 			font-size: $baseSize * 2;
