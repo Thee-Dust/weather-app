@@ -14,22 +14,45 @@
 		font-size: $baseSize * 10;
 		color: white;
 	}
+}
 
-	form {
-		margin-top: $baseSize * 20;
-		
-		h2 {
+.search-city-home {
+	margin-top: $baseSize * 20;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	
+	h2 {
+		font-size: $baseSize * 3.5;
+		color: darken(#fff, 10%);
+	}
+
+	div {
+		margin-top: $baseSize * 5;
+		height: $baseSize * 10;
+
+		label {
 			font-size: $baseSize * 3.5;
-			color: darken(#fff, 10%);
 		}
+	}
+}
 
-		div {
-			margin-top: $baseSize * 5;
-			height: $baseSize * 10;
+/*~~~~~~Media Queries~~~~~~*/
+@media screen and (max-width: 540px) {
+	.home > h1 {
+		font-size: $baseSize * 5;
+	}
 
-			label {
-				font-size: $baseSize * 3.5;
-			}
+	.search-city-home > h2 {
+		font-size: $baseSize * 2.5;
+	}
+
+	.search-city-home > div {
+		width: $baseSize * 40;
+
+		label {
+			font-size: $baseSize * 2;
 		}
 	}
 }
