@@ -39,6 +39,7 @@ header {
 
 	label + .MuiInput-formControl {
 		margin-top: $baseSize * 1.25;
+		width: auto;
 	}
 
 	input {
@@ -160,6 +161,7 @@ header {
 		
 		label {
 			font-size: $baseSize * 1.5;
+			width: $baseSize * 15;
 		}
 
 		div {
