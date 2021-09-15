@@ -25,35 +25,35 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 Cypress.Commands.add('interceptNYCurrentForecastFahrenheit', (apiKey) => {
-	cy.intercept('GET', `https://api.openweathermap.org/data/2.5/weather?q=New%20York&appid=${apiKey}&units=imperial`, { fixture: 'NewYorkCurrentFahrenheit' }).as('NYCurrentF')
+	cy.intercept('GET', `https://api.openweathermap.org/data/2.5/weather?q=New%20York&appid=${apiKey}&units=imperial`, { fixture: 'NewYorkCurrentFahrenheit.json' }).as('NYCurrentF')
 })
 
 Cypress.Commands.add('interceptNYLocation', (apiKey) => {
-	cy.intercept('GET', `https://api.openweathermap.org/geo/1.0/direct?q=New%20York&limit=1&appid=${apiKey}`, { fixture: 'NYLocation' }).as('NYLocation')
+	cy.intercept('GET', `https://api.openweathermap.org/geo/1.0/direct?q=New%20York&limit=1&appid=${apiKey}`, { fixture: 'NYLocation.json' }).as('NYLocation')
 })
 
 Cypress.Commands.add('interceptNYFutureForecastFahrenheit', (apiKey) => {
-	cy.intercept('GET', `https://api.openweathermap.org/data/2.5/onecall?lat=40.7143&lon=-74.006&appid=${apiKey}&units=imperial`, { fixture: 'NewYorkFutureForecastFahrenheit' }).as('NYFutureF')
+	cy.intercept('GET', `https://api.openweathermap.org/data/2.5/onecall?lat=40.7143&lon=-74.006&appid=${apiKey}&units=imperial`, { fixture: 'NewYorkFutureForecastFahrenheit.json' }).as('NYFutureF')
 })
 
 Cypress.Commands.add('interceptNYCurrentForecastMetric', (apiKey) => {
-	cy.intercept('GET', `https://api.openweathermap.org/data/2.5/weather?q=New%20York&appid=${apiKey}&units=metric`, { fixture: 'NewYorkCurrentForecastMetric' }).as('NYCurrentC')
+	cy.intercept('GET', `https://api.openweathermap.org/data/2.5/weather?q=New%20York&appid=${apiKey}&units=metric`, { fixture: 'NewYorkCurrentForecastMetric.json' }).as('NYCurrentC')
 })
 
 Cypress.Commands.add('interceptNYFutureForecastMetric', (apiKey) => {
-	cy.intercept('GET', `https://api.openweathermap.org/data/2.5/onecall?lat=40.7143&lon=-74.006&appid=${apiKey}&units=metric`, { fixture: 'NewYorkCurrentForecastMetric' }).as('NYFutureC')
+	cy.intercept('GET', `https://api.openweathermap.org/data/2.5/onecall?lat=40.7143&lon=-74.006&appid=${apiKey}&units=metric`, { fixture: 'NewYorkCurrentForecastMetric.json' }).as('NYFutureC')
 })
 
 Cypress.Commands.add('interceptOrlandoCurrentForecastFahrenheit', (apiKey) => {
-	cy.intercept('GET', `https://api.openweathermap.org/data/2.5/weather?q=Orlando&appid=${apiKey}&units=imperial`, { fixture: 'OrlandoCurrentForecastFahrenheit' }).as('OCurrent')
+	cy.intercept('GET', `https://api.openweathermap.org/data/2.5/weather?q=Orlando&appid=${apiKey}&units=imperial`, { fixture: 'OrlandoCurrentForecastFahrenheit.json' }).as('OCurrent')
 })
 
 Cypress.Commands.add('interceptOrlandoLocation', (apiKey) => {
-	cy.intercept('GET', `https://api.openweathermap.org/geo/1.0/direct?q=Orlando&limit=1&appid=${apiKey}`, { fixture: 'OrlandoLocation' }).as('OLocation')
+	cy.intercept('GET', `https://api.openweathermap.org/geo/1.0/direct?q=Orlando&limit=1&appid=${apiKey}`, { fixture: 'OrlandoLocation.json' }).as('OLocation')
 })
 
 Cypress.Commands.add('interceptOrlandoFutureForecastFahrenheit', (apiKey) => {
-	cy.intercept('GET', `https://api.openweathermap.org/data/2.5/onecall?lat=28.5383&lon=-81.3792&appid=${apiKey}&units=imperial`, { fixture: 'OrlandoFutureForecastFahrenheit' }).as('OFuture')
+	cy.intercept('GET', `https://api.openweathermap.org/data/2.5/onecall?lat=28.5383&lon=-81.3792&appid=${apiKey}&units=imperial`, { fixture: 'OrlandoFutureForecastFahrenheit.json' }).as('OFuture')
 })
 
 Cypress.Commands.add('searchOrlando', () => {
