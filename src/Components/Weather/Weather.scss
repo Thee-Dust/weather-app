@@ -36,9 +36,9 @@ $themes: (
 	Snow-n: #FFF,
 	Haze-n: #FFF,
 	Fog-n: #FFF,
-	Mist-n: #FFF);
+	Mist-n: #FFF
+);
 
-@each $key,
-$value in $themes {
+@each $key, $value in $themes {
 	@include weatherTheme($key, $value)
 }
