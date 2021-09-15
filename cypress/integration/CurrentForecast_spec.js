@@ -2,11 +2,12 @@ describe('Current Forecast', () => {
 	let apiKey;
 	beforeEach(() => {
 		apiKey = Cypress.env('CYPRESS_APIKEY')
+		cy.visit('http://localhost:3000')
 		cy.interceptOrlandoLocation(apiKey)
 		cy.interceptOrlandoCurrentForecastFahrenheit(apiKey)
 		cy.interceptOrlandoFutureForecastFahrenheit(apiKey)
-		cy.visit('http://localhost:3000')
 		cy.searchOrlando()
+		cy.wait('@OCurrent')
 	})
 
 	it('Should display current time and place', () => {

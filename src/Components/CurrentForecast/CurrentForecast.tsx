@@ -11,6 +11,7 @@ export default function CurrentForecast({ searchedCity, tempScale, setTheme }: {
 
 	useEffect(() => {
 		const callWeather = async (searchedCity: string, tempScale: string) => {
+			setCurrentWeather(null)
 			setError('')
 			try {
 				const weatherReport = await getCurrentWeather(searchedCity, tempScale);

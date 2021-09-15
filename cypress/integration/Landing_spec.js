@@ -6,6 +6,7 @@ describe('Landing Page', () => {
 		cy.interceptOrlandoCurrentForecastFahrenheit(apiKey)
 		cy.interceptOrlandoFutureForecastFahrenheit(apiKey)
 		cy.visit('http://localhost:3000')
+		cy.wait('@OCurrent')
 	})
 
 	it('Should have app name', () => {

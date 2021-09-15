@@ -7,6 +7,7 @@ describe('Future Forecast', () => {
 		cy.interceptOrlandoFutureForecastFahrenheit(apiKey)
 		cy.visit('http://localhost:3000')
 		cy.searchOrlando()
+		cy.wait('@OCurrent')
 	})
 
 	it('Should be able to see hourly weather', () => {
