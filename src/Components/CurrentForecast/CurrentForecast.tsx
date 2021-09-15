@@ -46,7 +46,7 @@ export default function CurrentForecast({ searchedCity, tempScale, setTheme }: {
 
 	if(error) {
 		return (
-			<h1>{error}</h1>
+			<h1 className='error'>{error}</h1>
 		)
 	}
 
