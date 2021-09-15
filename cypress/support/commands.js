@@ -41,7 +41,7 @@ Cypress.Commands.add('interceptNYCurrentForecastMetric', (apiKey) => {
 })
 
 Cypress.Commands.add('interceptNYFutureForecastMetric', (apiKey) => {
-	cy.intercept('GET', `https://api.openweathermap.org/data/2.5/onecall?lat=40.7143&lon=-74.006&appid=${apiKey}&units=metric`, { fixture: 'NewYorkCurrentForecastMetric.json' }).as('NYFutureC')
+	cy.intercept('GET', `https://api.openweathermap.org/data/2.5/onecall?lat=40.7143&lon=-74.006&appid=${apiKey}&units=metric`, { fixture: 'NewYorkFutureForecastMetric.json' }).as('NYFutureC')
 })
 
 Cypress.Commands.add('interceptOrlandoCurrentForecastFahrenheit', (apiKey) => {

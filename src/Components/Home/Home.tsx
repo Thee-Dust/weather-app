@@ -36,7 +36,7 @@ export default function Home({ findCity }: { findCity: (city: string) => void })
 			},
 		},
 	})(TextField);
-	
+
 	return (
 		<div className='home'>
 			<h1>The Duststorm</h1>

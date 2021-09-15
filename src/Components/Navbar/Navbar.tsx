@@ -46,7 +46,7 @@ export default function Navbar({ findCity, tempScale, changeTemp }: { findCity: 
 			cityRef.current.value = '';
 		}
 	}
-	
+
 	const changeTempScale = () => {
 		if(tempScale === 'metric') {
 			changeTemp('imperial')
@@ -61,7 +61,6 @@ export default function Navbar({ findCity, tempScale, changeTemp }: { findCity: 
 		};
 		saveCitiesToStorage()
 	}, [favoriteCities]);
-
 
 	const searchCityStyle = makeStyles({
 		root: {

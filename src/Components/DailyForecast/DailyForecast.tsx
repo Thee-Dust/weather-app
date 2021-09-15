@@ -3,7 +3,6 @@ import { Daily } from '../../Utilities/Utilitiles'
 import './DailyForecast.scss'
 import moment from 'moment';
 
-
 export default function DailyForecast({ dailyForcast, timezoneOffset }: { dailyForcast: Daily[], timezoneOffset: number }): ReactElement {
 	const dailyCards = dailyForcast.map((day, index) => {
 		const secondsToMilliseconds = 1000;

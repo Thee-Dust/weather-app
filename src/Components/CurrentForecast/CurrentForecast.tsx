@@ -4,7 +4,6 @@ import { getCurrentWeather } from '../Api/ApiCall';
 import moment from 'moment';
 import './CurrentForecast.scss'
 
-
 export default function CurrentForecast({ searchedCity, tempScale, setTheme }: { searchedCity: string, tempScale: string, setTheme: (weather: string, time: string) => void }): ReactElement | null {
 	const [currentWeather, setCurrentWeather] = useState<CurrentWeather | null>(null);
 	const [error, setError] = useState<string>('');
@@ -24,7 +23,6 @@ export default function CurrentForecast({ searchedCity, tempScale, setTheme }: {
 		callWeather(searchedCity, tempScale)
 	}, [searchedCity, tempScale, setTheme])
 	
-
 	const capitalizeFirstLetter = (sentence : string) => {
 		return sentence.charAt(0).toUpperCase() + sentence.slice(1);
 	}
