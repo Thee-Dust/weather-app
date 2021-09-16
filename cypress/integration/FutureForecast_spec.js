@@ -1,7 +1,7 @@
 describe('Future Forecast', () => {
 	let apiKey;
 	beforeEach(() => {
-		apiKey = Cypress.env('CYPRESS_APIKEY')
+		apiKey = Cypress.env('CYPRESS_apikey')
 		cy.interceptOrlandoLocation(apiKey)
 		cy.interceptOrlandoCurrentForecastFahrenheit(apiKey)
 		cy.interceptOrlandoFutureForecastFahrenheit(apiKey)

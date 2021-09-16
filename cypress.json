@@ -1,6 +1,6 @@
 {
 	"projectId": "fjwjx5",
 	"env": {
-		"apikey": ""
+		"CYPRESS_apikey": ""
 	}
 }
