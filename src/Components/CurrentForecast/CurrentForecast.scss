@@ -4,13 +4,13 @@
 	opacity: .7;
 	animation: skeleton-loading 1s linear infinite alternate;
 	z-index: 10;
+	border-radius: $baseSize * .5;
 }
 
 .skeleton-text {
 	width: 100%;
 	height: $baseSize;
 	margin-bottom: $baseSize * .5;
-	border-radius: $baseSize * .25;
 	
 	&:last-child {
 		width: 80%;
