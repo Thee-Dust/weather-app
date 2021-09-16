@@ -7,8 +7,8 @@ export async function getWeather(location: string, tempScale: string) {
     const cords = await response.json();
     const weatherReport = await fetchWeather(cords, tempScale);
     return weatherReport
-  } catch(e) {
-    throw Error(e.message);
+  } catch(err) {
+    throw Error('City not found');
   }
 };
 
@@ -17,8 +17,8 @@ const fetchWeather = async(cords: Cords[], tempScale: string) => {
 		const response = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${cords[0].lat}&lon=${cords[0].lon}&appid=${apiKey}&units=${tempScale}`);
     const weather = await response.json();
     return weather
-  } catch(e) {
-    throw Error(e.message);
+  } catch(err) {
+    throw Error('City not found');
   }
 };
 
@@ -27,8 +27,8 @@ export async function getCurrentWeather(city: string, tempScale: string) {
     const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${tempScale}`);
     const currentWeather = await response.json()
 		return currentWeather
-  } catch(e) {
-    throw Error(e.message);
+  } catch(err) {
+    throw Error('City not found');
   }
 } 
 
