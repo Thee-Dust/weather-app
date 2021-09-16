@@ -26,7 +26,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "start-server-and-test start http://localhost:3000 cy:run -- -s CYPRESS_apikey=$REACT_APP_WEATHER_API_KEY",
+    "test": "start-server-and-test start http://localhost:3000 cy:run -- -e CYPRESS_apikey=$REACT_APP_WEATHER_API_KEY",
     "cy:run": "cypress run --record --key 046e5145-7aae-4a30-872a-28aa682d794b",
     "eject": "react-scripts eject",
     "cypress": "cypress open "
