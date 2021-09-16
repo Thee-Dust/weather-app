@@ -6,7 +6,7 @@ describe('Future Forecast', () => {
 		cy.interceptOrlandoCurrentForecastFahrenheit(apiKey)
 		cy.interceptOrlandoFutureForecastFahrenheit(apiKey)
 		cy.visit('http://localhost:3000')
-		cy.log(apikey)
+		cy.log(apiKey)
 		cy.searchOrlando()
 		cy.wait('@OCurrent')
 	})
