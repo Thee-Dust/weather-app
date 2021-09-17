@@ -7,7 +7,7 @@ describe('NavBar', () => {
 		cy.interceptOrlandoFutureForecastFahrenheit(apiKey)
 		cy.visit('http://localhost:3000')
 		cy.searchOrlando()
-		// cy.wait('@OCurrent')
+		cy.wait('@OCurrent')
 	})
 	
 	it('Should display app name', () => {
