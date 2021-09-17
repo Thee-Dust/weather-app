@@ -16,7 +16,7 @@
         - [2021/09/17](#20210917)
 
 ### Overview
-<!-- A React application featuring 320 games from Free-to-Games API. Users can go and click on a game card that takes them to a detail page where a user can add to their wishlist and or go to the desired games website to download the game.  -->
+A Typescript react application that will take in a City name and retun the current weather, hourly and daily weather of location. Users have the option have their data be presented in °F or °C. when a user searches for a city that city would be saved at the top of their screen. If the user would like to go to a saved city they can click on the city name and be taken to the page for that location. If they would like to delete a saved city, they can click on the X to the right of the city name. The app will remember the last city the User searched for, if the prefer °F or °C, and the saved cities they have.
 
 
  - GitHub Repo [Link](https://github.com/Thee-Dust/weather-app)
