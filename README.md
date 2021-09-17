@@ -14,7 +14,7 @@
         - [2021/09/17](#20210917)
 
 ### Overview
-A React application featuring 320 games from Free-to-Games API. Users can go and click on a game card that takes them to a detail page where a user can add to their wishlist and or go to the desired games website to download the game. 
+<!-- A React application featuring 320 games from Free-to-Games API. Users can go and click on a game card that takes them to a detail page where a user can add to their wishlist and or go to the desired games website to download the game.  -->
 
 
  - GitHub Repo [Link](https://github.com/Thee-Dust/weather-app)
@@ -40,12 +40,12 @@ A React application featuring 320 games from Free-to-Games API. Users can go and
 
 
 ## Functionality
-### View Game Details 
+<!-- ### View Game Details 
 ![View Game Details](https://media.giphy.com/media/9h0rzXNsZyKqve0XF6/giphy-downsized.gif)
 ### Wishlist
 ![Wishlist](https://media.giphy.com/media/OBLGcOp8IGu1Isk3CJ/giphy.gif)
 ### Download Game
-![Download Game](https://media.giphy.com/media/KJGi5MY8KJandLNfX8/giphy.gif)
+![Download Game](https://media.giphy.com/media/KJGi5MY8KJandLNfX8/giphy.gif) -->
 
 
 ## Credits
