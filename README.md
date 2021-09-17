@@ -20,7 +20,7 @@ A Typescript react application that will take in a City name and retun the curre
 
 
  - GitHub Repo [Link](https://github.com/Thee-Dust/weather-app)
- - Deploy [Link](https://the-dust-storm.herokuapp.com/)
+ - Deploy [Link](https://the-duststorm.herokuapp.com/)
 
 
 
