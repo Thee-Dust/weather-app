@@ -13,7 +13,6 @@
     "@types/react": "^17.0.20",
     "@types/react-dom": "^17.0.9",
     "@types/react-router-dom": "^5.1.8",
-    "dotenv": "^8.2.0",
     "moment": "^2.29.1",
     "node-sass": "^6.0.1",
     "react": "^17.0.2",
@@ -28,9 +27,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "start-server-and-test start http://localhost:3000 cy:run",
-    "cy:run": "cypress run",
+    "cy:run": "cypress run --record --key 046e5145-7aae-4a30-872a-28aa682d794b",
     "eject": "react-scripts eject",
-    "cypress": "cypress open --env $CYPRESS_apikey=$REACT_APP_WEATHER_API_KEY"
+    "cypress": "cypress open --env CYPRESS_apikey=REACT_APP_WEATHER_API_KEY"
   },
   "eslintConfig": {
     "extends": [

@@ -17,6 +17,8 @@
  */
 // eslint-disable-next-line no-unused-vars
 module.exports = (on, config) => {
+	config.env.CYPRESS_apikey = process.env.REACT_APP_WEATHER_API_KEY
+	return config
   // `on` is used to hook into various events Cypress emits
   // `config` is the resolved Cypress config
 }
