@@ -15,13 +15,15 @@ export default function FutureForecast({ searchedCity, tempScale }: { searchedCi
 	useEffect(() => {
 		const callForcast = async (searchedCity: string, tempScale: string) => {
 			setError('')
+			setHourlyForecast([])
+			setDailyForecast([])
 			try {
 				const forecast = await getWeather(searchedCity, tempScale);
 				setHourlyForecast(forecast.hourly)
 				setDailyForecast(forecast.daily)
 				setTimezoneOffset(forecast.timezone_offset)
 			} catch (e) {
-				setError(e.message)
+				setError('Could not find city you were looking for please try again')
 			}
 		}
 		callForcast(searchedCity, tempScale)
@@ -32,7 +34,7 @@ export default function FutureForecast({ searchedCity, tempScale }: { searchedCi
 		setHourly(prevState => !prevState);
 	}
 
-	if(!error && !dailyForecast.length) {
+	if(!error && !hourlyForecast.length) {
 		return (
 			<div className='future-forecast-container'>
 				<div className='future-controls'>
@@ -74,7 +76,7 @@ export default function FutureForecast({ searchedCity, tempScale }: { searchedCi
 
 	if(error) {
 		return (
-			<h1>{error}</h1>
+			<h1 className='error'>{error}</h1>
 		)
 	}
 

@@ -29,8 +29,17 @@ header {
 	margin-left: $baseSize * 5;
 	text-align: center;
 
+	div {
+		width: $baseSize * 40;
+
+		div {
+			width: $baseSize * 40;
+		}
+	}
+
 	label + .MuiInput-formControl {
 		margin-top: $baseSize * 1.25;
+		width: auto;
 	}
 
 	input {
@@ -99,10 +108,11 @@ header {
 
 	button,
 	a {
+		text-align: center;
 		font-size: $baseSize * 2.25;
 	}
 	
-	button:nth-child(1) {
+	a:nth-child(1) {
 		width: inherit;
 		text-align: start;
 	}
@@ -113,5 +123,57 @@ header {
 
 	button:nth-child(2):hover {
 		color: #ff3d3d;
+	}
+}
+
+/*~~~~~~Media Queries~~~~~~*/
+@media screen and (min-width: 530px) and (max-width: 875px) {
+	.app-controls > a > h1 {
+		font-size: $baseSize * 3;
+		padding-left: $baseSize * 3;
+	}
+
+	.search-city > div {
+		width: $baseSize * 30;
+
+		div {
+			width: $baseSize * 30;
+		}
+	}
+
+	.favorite-city > a {
+		font-size: $baseSize * 2;
+	}
+}
+
+@media screen and (max-width: 530px) {
+	.app-controls > a > h1 {
+		font-size: $baseSize * 2.5;
+		padding-left: $baseSize * 1;
+	}
+
+	.search-city {
+		margin-left: $baseSize * 3;
+	}
+
+	.search-city > div {
+		width: $baseSize * 10;
+		
+		label {
+			font-size: $baseSize * 1.5;
+			width: $baseSize * 15;
+		}
+
+		div {
+			width: $baseSize * 10;
+		}
+
+		input {
+			font-size: $baseSize * 2;
+		}
+	}
+
+	.favorite-city>a {
+		font-size: $baseSize * 1.5;
 	}
 }

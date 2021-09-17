@@ -18,7 +18,6 @@
 	}
 }
 
-
 .skeleton-time {
 	width: 25%;
 	height: $baseSize * 3;
@@ -71,5 +70,21 @@
 				border-radius: 16px;
 			}
 		}
+	}
+}
+
+.error {
+	color: #FFF;
+}
+
+/*~~~~~~Media Queries~~~~~~*/
+@media screen and (min-width: 650px) and (max-width: 900px) {
+	.future-controls > button {
+		font-size: $baseSize * 3.5;
+	}
+}
+@media screen and (max-width: 650px) {
+	.future-controls > button {
+		font-size: $baseSize * 2.5;
 	}
 }

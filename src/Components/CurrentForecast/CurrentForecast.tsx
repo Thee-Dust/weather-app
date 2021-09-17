@@ -4,26 +4,25 @@ import { getCurrentWeather } from '../Api/ApiCall';
 import moment from 'moment';
 import './CurrentForecast.scss'
 
-
 export default function CurrentForecast({ searchedCity, tempScale, setTheme }: { searchedCity: string, tempScale: string, setTheme: (weather: string, time: string) => void }): ReactElement | null {
 	const [currentWeather, setCurrentWeather] = useState<CurrentWeather | null>(null);
 	const [error, setError] = useState<string>('');
 
 	useEffect(() => {
 		const callWeather = async (searchedCity: string, tempScale: string) => {
+			setCurrentWeather(null)
 			setError('')
 			try {
 				const weatherReport = await getCurrentWeather(searchedCity, tempScale);
 				setCurrentWeather(weatherReport)
 				setTheme(weatherReport.weather[0].main, weatherReport.weather[0].icon)
 			} catch (e) {
-				setError(e.message)
+				setError('Could not find city you were looking for please try again')
 			}
 		}
 		callWeather(searchedCity, tempScale)
 	}, [searchedCity, tempScale, setTheme])
 	
-
 	const capitalizeFirstLetter = (sentence : string) => {
 		return sentence.charAt(0).toUpperCase() + sentence.slice(1);
 	}
@@ -46,7 +45,7 @@ export default function CurrentForecast({ searchedCity, tempScale, setTheme }: {
 
 	if(error) {
 		return (
-			<h1>{error}</h1>
+			<h1 className='error'>{error}</h1>
 		)
 	}
 

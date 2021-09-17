@@ -12,16 +12,13 @@
 		.favorite-city > button,
 		a,
 		.current-container,
-		.future-controls > button {
+		.future-controls > button,
+		.future-controls>button {
 			color: $color;
 		}
-
-		.future-controls>button {
-			color: $color; 
 
 			&::after {
 				background-color: darken($color, 15%);
 			}
-		}
 	}
 }

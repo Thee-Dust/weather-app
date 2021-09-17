@@ -4,7 +4,6 @@ import Weather from '../Weather/Weather';
 import { Route, Switch, useHistory } from 'react-router-dom';
 import './App.scss';
 
-
 export default function App(): ReactElement {
 	const history = useHistory()
 	const [ searchedCity, setSearchedCity ] = useState<string>(() => {

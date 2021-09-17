@@ -10,9 +10,9 @@
     "@testing-library/user-event": "^12.8.3",
     "@types/jest": "^26.0.24",
     "@types/node": "^12.20.17",
-		"@types/react": "^17.0.20",
+    "@types/react": "^17.0.20",
     "@types/react-dom": "^17.0.9",
-		"@types/react-router-dom": "^5.1.8",
+    "@types/react-router-dom": "^5.1.8",
     "moment": "^2.29.1",
     "node-sass": "^6.0.1",
     "react": "^17.0.2",
@@ -29,7 +29,7 @@
     "test": "start-server-and-test start http://localhost:3000 cy:run",
     "cy:run": "cypress run --record --key 046e5145-7aae-4a30-872a-28aa682d794b",
     "eject": "react-scripts eject",
-    "cypress": "cypress open"
+    "cypress": "cypress open --env CYPRESS_apikey=REACT_APP_WEATHER_API_KEY"
   },
   "eslintConfig": {
     "extends": [
@@ -52,7 +52,7 @@
   "devDependencies": {
     "@types/react": "^17.0.20",
     "@types/react-router-dom": "^5.1.8",
-    "cypress": "^7.7.0",
+    "cypress": "^8.4.0",
     "start-server-and-test": "^1.12.6"
   }
 }
