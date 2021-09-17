@@ -6,9 +6,11 @@
     - [Overview](#overview)
   - [Technologies Used](#technologies-used)
   - [Functionality](#functionality)
-    - [Game Detail](#View-Game-Details)
-    - [Wishlist](#Wishlist)
-    - [Downlaod Game](#Download-Game)
+    - [Search by City Name](#Search-by-City-Name)
+    - [Save Searched Cities](#Save-Searched-Cities)
+    - [Check Hourly and Daily](#Check-Hourly-and-Daily)
+    - [Change to °F or °C](#Change-to-°F-or-°C)
+    - [Remove Saved Cities](#Remove-Saved-Cities)
   - [Credits](#credits)
       - [Creator](#creator)
         - [2021/09/17](#20210917)
@@ -40,13 +42,16 @@
 
 
 ## Functionality
-<!-- ### View Game Details 
-![View Game Details](https://media.giphy.com/media/9h0rzXNsZyKqve0XF6/giphy-downsized.gif)
-### Wishlist
-![Wishlist](https://media.giphy.com/media/OBLGcOp8IGu1Isk3CJ/giphy.gif)
-### Download Game
-![Download Game](https://media.giphy.com/media/KJGi5MY8KJandLNfX8/giphy.gif) -->
-
+### Search by City Name
+![Search by City Name](https://media.giphy.com/media/c9X8z5oD7W6TIHgl1n/giphy.gif)
+### Save Searched Cities
+![Save Searched Cities](https://media.giphy.com/media/elwLbUop1xODNC2gAT/giphy.gif)
+### Check Hourly and Daily
+![Check Hourly and Daily](https://media.giphy.com/media/pTei7tFFvzv5Wotcyv/giphy.gif)
+### Change to °F or °C
+![Change to °F or °C](https://media.giphy.com/media/CKrvxze6yptWR7l6GC/giphy.gif)
+### Remove Saved Cities
+![Remove Saved Cities](https://media.giphy.com/media/RhKX8b9b2pzgAroa9Q/giphy.gif)
 
 ## Credits
 #### Creator
