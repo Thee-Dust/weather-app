@@ -1,5 +1,5 @@
 # The Duststorm
-
+![](https://media.giphy.com/media/hNWrYN0XxNFuV4CTMg/giphy.gif?cid=790b761166833bfe43d4af292b15b5d29234dd4f30698b2d&rid=giphy.gif&ct=g)
 ### Table of Contents
   - [The Duststorm](#The-Duststorm)
     - [Table of Contents](#table-of-contents)
