@@ -16,7 +16,7 @@
         - [2021/09/17](#20210917)
 
 ### Overview
-A Typescript react application that will take in a City name and retun the current weather, hourly and daily weather of location. Users have the option have their data be presented in °F or °C. when a user searches for a city that city would be saved at the top of their screen. If the user would like to go to a saved city they can click on the city name and be taken to the page for that location. If they would like to delete a saved city, they can click on the X to the right of the city name. The app will remember the last city the User searched for, if the prefer °F or °C, and the saved cities they have.
+A Typescript react application that will take in a city name and retun the current weather, hourly and daily weather of location. Users have the option have their data be presented in °F or °C. when a user searches for a city that city would be saved at the top of their screen. If the user would like to go to a saved city they can click on the city name and be taken to the page for that location. If they would like to delete a saved city, they can click on the X to the right of the city name. The app will remember the last city the User searched for, if the prefer °F or °C, and the saved cities they have.
 
 
  - GitHub Repo [Link](https://github.com/Thee-Dust/weather-app)
