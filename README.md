@@ -4,7 +4,10 @@
   - [The Duststorm](#The-Duststorm)
     - [Table of Contents](#table-of-contents)
     - [Overview](#overview)
+  - [Design Process](#design-process)
   - [Technologies Used](#technologies-used)
+    - [WireFrame](#wireframe)
+    - [Mockup](#Mockup)
   - [Functionality](#functionality)
     - [Search by City Name](#Search-by-City-Name)
     - [Save Searched Cities](#Save-Searched-Cities)
@@ -23,6 +26,13 @@ A Typescript react application that will take in a city name and retun the curre
  - Deploy [Link](https://the-duststorm.herokuapp.com/)
 
 
+## Design Process
+
+## Wireframe
+  <img src='./Sketch/Wireframe.png' />
+  
+## Mockup
+  <img src='./Sketch/Mockup.png' />
 
 ## Technologies Used
 - Typescript
