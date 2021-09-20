@@ -4,6 +4,7 @@
   - [The Duststorm](#The-Duststorm)
     - [Table of Contents](#table-of-contents)
     - [Overview](#overview)
+    - [Retrospective](#Retrospective)
   - [Design Process](#design-process)
   - [Technologies Used](#technologies-used)
     - [WireFrame](#wireframe)
@@ -25,6 +26,8 @@ A Typescript react application that will take in a city name and retun the curre
  - GitHub Repo [Link](https://github.com/Thee-Dust/weather-app)
  - Deploy [Link](https://the-duststorm.herokuapp.com/)
 
+### Retrospective
+Some of the challenges I faced were to properly display the correct current time for every location, and to get my travis builds to pass, along with understanding typescript. Learning a new language has it's own challenges with it. I ran into trouble finding the right type for objects and dom elements. If I could go back I would make sure I read through the Typescript docs more to get a better understanding of how to properly type check everything. when my travis builds were not passing I was confused because it would pass localy. I ran into so many deadends. Turns out Travis didn't have access to enviroment files. I realized when I ran a test the endpoints were not being stubbed. If I took the time to throughly look at the test I would notice it sooner instead of going down rabbit holes looking for answers for problems I didn't have. I realized that I need to learn to take things a little slower and throughly read up on docs of the techs im using to feel confident, and when I encounter a problem to pin point it to find the proper solution in a timly maner,
 
 ## Design Process
 
