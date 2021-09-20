@@ -28,10 +28,12 @@ A Typescript react application that will take in a city name and retun the curre
 
 ## Design Process
 
-## Wireframe
+### Wireframe
+when thinking of the layout of that app, I wanted to have a single page flat design. so users do not have to scroll down to get more information. All the information they need will be displayed as soon as the page loads. I took some information from the weather channel app and the apple weather app. I chose to add a switch to change between °F and °C so users can chose their preference and if they want to change it all they have to do is click one button.
   <img src='./Sketch/Wireframe.png' />
   
-## Mockup
+### Mockup
+  When thinking of the look of the app. I wanted users to know what the weather contion was just by a quick glance of the app. I decided to have a dynamic background, whatever is the current weather condition is of a location the background would represent the weather status. 
   <img src='./Sketch/Mockup.png' />
 
 ## Technologies Used
