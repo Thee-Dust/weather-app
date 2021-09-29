@@ -29,7 +29,7 @@
     "test": "start-server-and-test start http://localhost:3000 cy:run",
     "cy:run": "cypress run --record --key 046e5145-7aae-4a30-872a-28aa682d794b",
     "eject": "react-scripts eject",
-    "cypress": "cypress open --env CYPRESS_apikey=REACT_APP_WEATHER_API_KEY"
+    "cypress": "cypress open --env CYPRESS_apikey=5a318285186df2573bd4c8795a4dfc9f"
   },
   "eslintConfig": {
     "extends": [
